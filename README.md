@@ -26,3 +26,9 @@
 - e-mail
 - Generación de PDF para facturas y recivos
 - Log In vía Facebook y/o Google+
+
+### Imagenes de la web
+
+Home page
+
+![Image of Home](https://github.com/mamonreal/DAW-G10-2018/blob/master/imagenesReadme/Captura%20de%20pantalla%202018-02-05%2012.27.59.png)
