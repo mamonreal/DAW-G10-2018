@@ -27,6 +27,9 @@
 - Generación de PDF para facturas y recivos
 - Log In vía Facebook y/o Google+
 
+### Trello
+- tablero: https://trello.com/b/Rt3RQPnJ/appi-meals
+
 ### Imagenes de la web
 
 Home page
