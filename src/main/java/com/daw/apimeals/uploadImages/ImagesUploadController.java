@@ -32,17 +32,17 @@ public class ImagesUploadController {
     @GetMapping("/")
     public String listUploadedFiles(Model model) throws IOException {
 
-        model.addAttribute("files", storageService.loadAll().map(
+        model.addAttribute("images", storageService.loadAll().map(
                 path -> MvcUriComponentsBuilder.fromMethodName(ImagesUploadController.class,
-                        "serveFile", path.getFileName().toString()).build().toString())
+                        "serveImage", path.getFileName().toString()).build().toString())
                 .collect(Collectors.toList()));
 
         return "uploadForm";
     }
 
-    @GetMapping("/files/{filename:.+}")
+    @GetMapping("/images/{filename:.+}")
     @ResponseBody
-    public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
+    public ResponseEntity<Resource> serveImage(@PathVariable String filename) {
 
         Resource file = storageService.loadAsResource(filename);
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
