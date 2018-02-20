@@ -1,4 +1,4 @@
-package uploadImages;
+package com.daw.apimeals.uploadImages;
 
 import java.io.IOException;
 import java.util.stream.Collectors;
@@ -60,9 +60,9 @@ public class ImagesUploadController {
         return "redirect:/";
     }
 
-    @ExceptionHandler(StorageFileNotFoundException.class)
-    public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
-        return ResponseEntity.notFound().build();
-    }
+//    @ExceptionHandler(StorageFileNotFoundException.class)
+//    public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
+//        return ResponseEntity.notFound().build();
+//    }
 
 }

@@ -1,4 +1,4 @@
-package uploadImages;
+package com.daw.apimeals.uploadImages;
 
 import java.nio.file.Path;
 import java.util.stream.Stream;
