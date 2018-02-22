@@ -5,11 +5,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.daw.apimeals.menu.Menu;
 
 @Entity
-public class Product {
+public class Product{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,7 +19,7 @@ public class Product {
 	private String name;
 	private String type;
 	private String category;
-	private String kc;
+	private Integer kc;
 	private long price;
 	
 	@ManyToOne
@@ -26,15 +27,13 @@ public class Product {
 
 protected Product() {}
 	
-	public Product (long id, String name, String type, String category, String kc, long price){
-		this.id=id;
+	public Product (String name, String type, String category, Integer kc, long price){
 		this.name=name;
 		this.type=type;
 		this.category=category;
 		this.kc=kc;
 		this.price=price;
 	}
-	
 	
 
 	public long getId() {
@@ -69,11 +68,11 @@ protected Product() {}
 		this.category = category;
 	}
 
-	public String getKc() {
+	public Integer getKc() {
 		return kc;
 	}
 
-	public void setKc(String kc) {
+	public void setKc(Integer kc) {
 		this.kc = kc;
 	}
 

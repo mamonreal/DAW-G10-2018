@@ -1,5 +1,28 @@
 package com.daw.apimeals.product;
 
-public class ProductController {
+import javax.annotation.PostConstruct;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class ProductController {
+	
+	@Autowired 
+	private ProductRepository repository;
+	
+	@PostConstruct
+	public void init() {
+	Product s1,s2,s3,s4,f5,f6,se7,se8,dr9,dr10;
+	s1=new Product("Nachos","starter","foreign",306,12);
+	s2=new Product("Ensalada Cesar","starter","mediterranean",44,10);
+	s3=new Product("Combo de entrantes","starter","foreign",370,14);
+	s4=new Product("Croquetas", "starter","mediterranean",280,9);
+	f5=new Product("Ensaladilla Rusa","first","vegetarian",170,11);
+	repository.save(s1);
+	repository.save(s2);
+	repository.save(s3);
+	repository.save(s4);
+	repository.save(f5);
+	}
 }

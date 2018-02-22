@@ -1,9 +1,14 @@
 package com.daw.apimeals.order;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.daw.apimeals.menu.Menu;
 
 @Entity
 public class Order {
@@ -16,17 +21,15 @@ public class Order {
 	private String addres;
 	private long phoneNumber;
 	
-	/*Falta meter la relacion entre pedidos <->menus/productos
-	 * Un pedido puede tener 0 o mas productos(individuales).
-	 * Un pedido puede tener 0 o mas menús-> El usuario puede optar por coger 
-	 * productos individuales*/
-	protected Order() {}
+	@OneToMany
+	private List<Menu> menus;
 	
-	public Order(long id,long price,String addres,long phoneNumber) {
-		this.id=id;
-		this.price=price;
-		this.addres=addres;
-		this.phoneNumber=phoneNumber;
+	protected Order() {}
+
+	public Order(long price, String addres, long phoneNumber) {
+		this.price = price;
+		this.addres = addres;
+		this.phoneNumber = phoneNumber;
 	}
 
 	public long getId() {
@@ -60,6 +63,16 @@ public class Order {
 	public void setPhoneNumber(long phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
+	public List<Menu> getMenus() {
+		return menus;
+	}
+
+	public void setMenus(List<Menu> menus) {
+		this.menus = menus;
+	}
+	
+	
 	
 
 }

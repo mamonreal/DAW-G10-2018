@@ -1,3 +1,4 @@
+
 package com.daw.apimeals.menu;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class Menu {
 	private long id;
 	
 	private String name;
+	
 	private String type;
 	private String category;
 	private String kc;
@@ -88,3 +90,4 @@ public class Menu {
 	
 	
 }
+
