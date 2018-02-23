@@ -14,10 +14,10 @@ public class ProductController {
 	@PostConstruct
 	public void init() {
 	Product s1,s2,s3,s4,f5,f6,se7,se8,dr9,dr10;
-	s1=new Product("Nachos","starter","foreign",306,12);
+	s1=new Product("Nachos","entrees","foreign",306,12);
 	s2=new Product("Ensalada Cesar","starter","mediterranean",44,10);
-	s3=new Product("Combo de entrantes","starter","foreign",370,14);
-	s4=new Product("Croquetas", "starter","mediterranean",280,9);
+	s3=new Product("Combo de entrantess","starter","foreign",370,14);
+	s4=new Product("Croquetas", "entrees","mediterranean",280,9);
 	f5=new Product("Ensaladilla Rusa","first","vegetarian",170,11);
 	pRepository.save(s1);
 	pRepository.save(s2);
