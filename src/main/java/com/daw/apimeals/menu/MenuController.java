@@ -9,8 +9,5 @@ public class MenuController {
 	
 	@Autowired 
 	private MenuRepository repository;
-	
-	
-	
 
 }
