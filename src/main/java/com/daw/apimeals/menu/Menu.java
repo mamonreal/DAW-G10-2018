@@ -22,8 +22,10 @@ public class Menu {
 	private String name;
 	
 	private String type;
+	private String description;
 	private String category;
 	private String kc;
+	private String path;
 	private long price;
 	
 	@OneToMany(mappedBy="menu")
@@ -31,12 +33,14 @@ public class Menu {
 	
 	protected Menu() {}
 	
-	public Menu (long id, String name, String type, String category, String kc, long price){
+	public Menu (long id, String name, String type, String description, String category, String kc, String path, long price){
 		this.id=id;
 		this.name=name;
 		this.type=type;
+		this.description=description;
 		this.category=category;
 		this.kc=kc;
+		this.path=path;
 		this.price=price;
 	}
 

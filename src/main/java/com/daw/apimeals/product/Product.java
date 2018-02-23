@@ -17,9 +17,11 @@ public class Product{
 	private long id;
 	
 	private String name;
+	private String description;
 	private String type;
 	private String category;
 	private Integer kc;
+	private String path;
 	private long price;
 	
 	@ManyToOne
@@ -27,11 +29,13 @@ public class Product{
 
 protected Product() {}
 	
-	public Product (String name, String type, String category, Integer kc, long price){
+	public Product (String name, String description, String type, String category, Integer kc, String path, long price){
 		this.name=name;
+		this.description=description;
 		this.type=type;
 		this.category=category;
 		this.kc=kc;
+		this.path=path;
 		this.price=price;
 	}
 	
