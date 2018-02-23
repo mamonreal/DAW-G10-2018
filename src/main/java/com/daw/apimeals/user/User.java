@@ -8,6 +8,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.daw.apimeals.order.Order;
 
 @Entity
 public class User {
@@ -17,14 +20,16 @@ public class User {
 	private long id;
 	
 	private String name;
-	private String userName;
 	private String email;
 	private String passwordHash;
 	private String addres;
 	private long telephone;
 	
+	@OneToMany
+	private List<Order> orders;
 	
 	@ElementCollection(fetch = FetchType.EAGER)
 	 private List<String> roles;
-
+	
+	
 }
