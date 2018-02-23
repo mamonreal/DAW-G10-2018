@@ -9,6 +9,6 @@ import com.daw.apimeals.menu.MenuRepository;
 public class OrderController {
 
 	@Autowired 
-	private OrderRepository repository;
+	private OrderRepository oRepository;
 }
 
