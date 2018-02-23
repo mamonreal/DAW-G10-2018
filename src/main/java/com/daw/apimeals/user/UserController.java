@@ -9,6 +9,6 @@ import com.daw.apimeals.menu.MenuRepository;
 public class UserController {
 	
 	@Autowired 
-	private UserRepository repository;
+	private UserRepository uRepository;
 
 }

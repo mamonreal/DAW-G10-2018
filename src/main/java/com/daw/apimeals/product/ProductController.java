@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 public class ProductController {
 	
 	@Autowired 
-	private ProductRepository repository;
+	private ProductRepository pRepository;
 	
 	@PostConstruct
 	public void init() {
@@ -19,10 +19,10 @@ public class ProductController {
 	s3=new Product("Combo de entrantes","starter","foreign",370,14);
 	s4=new Product("Croquetas", "starter","mediterranean",280,9);
 	f5=new Product("Ensaladilla Rusa","first","vegetarian",170,11);
-	repository.save(s1);
-	repository.save(s2);
-	repository.save(s3);
-	repository.save(s4);
-	repository.save(f5);
+	pRepository.save(s1);
+	pRepository.save(s2);
+	pRepository.save(s3);
+	pRepository.save(s4);
+	pRepository.save(f5);
 	}
 }

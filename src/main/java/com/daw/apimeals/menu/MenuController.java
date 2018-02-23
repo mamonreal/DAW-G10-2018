@@ -7,5 +7,5 @@ import org.springframework.stereotype.Controller;
 public class MenuController {
 	
 	@Autowired 
-	private MenuRepository repository;
+	private MenuRepository mRepository;
 }
