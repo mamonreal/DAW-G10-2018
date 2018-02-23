@@ -141,515 +141,105 @@
 				<div class="col-md-10 col-lg-6 p-r-35 p-r-15-lg m-l-r-auto">
 					
 					<!-- entrees -->
-					<div class="wrap-item-mainmenu p-b-22">
+					<div id="entrees" class="wrap-item-mainmenu p-b-22">
 						<a name="Entrantes"></a>
 						<h3 class="tit-mainmenu tit10 p-b-25">ENTRANTES</h3>
-
-						{{#entrees}}
-						<!-- Item mainmenu -->
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<a href="images/custom/NachosTex-mex.jpg"
-									class="name-item-mainmenu txt21"> {{plate-name}} </a>
-
-								<div class="line-item-mainmenu bg3-pattern"></div>
-
-<<<<<<< HEAD
-								<div class="price-item-mainmenu txt22">{{plate-price}}</div>
-							</div>
-							<div class="modal">
-								<span class="close"></span> <img src="{{img-path}}" />
-=======
-								<div class="price-item-mainmenu txt22">
-									15.99€
-								</div>
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
-							</div>
-
-							<span class="info-item-mainmenu txt23"> {{description}} </span>
-
-<<<<<<< HEAD
-							<!-- image popup -->
-							<div class="modal">
-								<spam class="close">&times;</spam>
-								<img src="{{plate-img}}" class="modal-content">
-								<div>{{plate-name}}</div>
-							</div>
-=======
-								<div class="price-item-mainmenu txt22">
-									12.99€
-								</div>
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
-							</div>
-                                
-							<span class="info-item-mainmenu txt23">
-								Ensalada con tiras de pollo y deliciosa salsa César.
-							</span>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
-						</div>
-						{{/entrees}}
-					</div>
-
-					<!-- first -->
-					<div class="wrap-item-mainmenu p-b-22">
-						<a name="Principales"></a>
-						<h3 class="tit-mainmenu tit10 p-b-25">PLATOS PRINCIPALES</h3>
 						
-						{{#first}}
-						<!-- Item mainmenu -->
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<div onclick="" class="name-item-mainmenu txt21">
-								{{product-name}}
-								</div>
-
-								<div class="line-item-mainmenu bg3-pattern"></div>
-
-<<<<<<< HEAD
-								<div class="price-item-mainmenu txt22">{{product-price}}</div>
-=======
-								<div class="price-item-mainmenu txt22">
-									14.99€
-								</div>
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
+						{{#entrees}}
+						<div id="{{product-id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
+							{{product-name}}
+						
+							<div class="line-item-mainmenu bg3-pattern"></div>
+						
+							<div class="price-item-mainmenu txt22">
+								{{product-price}}
 							</div>
-
-							<span class="info-item-mainmenu txt23">
-							{{product-description}}
-							</span>
-							
-							<div id="{{product-name}}" class="modal">
-								<spam class="close">&times;</spam>
+						
+							<!-- popup -->			
+							<div class="modal">
+								<spam class="{{product-id}}.close">&times;</spam>
 								<img src="{{product-img}}" class="modal-content">
 								<div>{{product-name}}</div>
 							</div>
 						</div>
-						{{/first}}
-
-						<!-- Item mainmenu -->
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<a href="#" class="name-item-mainmenu txt21"> Costillas BBQ
-								</a>
-
-								<div class="line-item-mainmenu bg3-pattern"></div>
-
-<<<<<<< HEAD
-								<div class="price-item-mainmenu txt22">15.99€</div>
-=======
-								<div class="price-item-mainmenu txt22">
-									9.99€
-								</div>
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
-							</div>
-
-							<span class="info-item-mainmenu txt23"> Costillas asadas
-								al horno con deliciosa salsa barbacoa o salsa honey, tu eliges.
-								Medio costillar 9.99€. </span>
-						</div>
-
-						<!-- Item mainmenu -->
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<a href="#" class="name-item-mainmenu txt21"> Ensaladilla
-									Rusa </a>
-
-								<div class="line-item-mainmenu bg3-pattern"></div>
-
-								<div class="price-item-mainmenu txt22">11.99€</div>
-							</div>
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
-
-							<span class="info-item-mainmenu txt23"> Deliciosa
-								ensaladilla rusa con aceitunas, atún, zanahoria, patata,
-								guisantes y huevo. </span>
-						</div>
-
-						<!-- Item mainmenu -->
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<a href="#" class="name-item-mainmenu txt21"> Tortilla de
-									patatas </a>
-
-								<div class="line-item-mainmenu bg3-pattern"></div>
-
-								<div class="price-item-mainmenu txt22">19.99€</div>
-							</div>
-<<<<<<< HEAD
-
-							<span class="info-item-mainmenu txt23"> Deliciosa tortilla
-								de patata al estilo abuela. Pincho de tortilla por 7.99€. </span>
-=======
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
-							<span class="info-item-mainmenu txt23">
-								    Hamburguesa de buey con deliciosa salsa barbacoa, queso parmesano, cebolla caramelizada, bacon y lechuga.
-							</span>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
-						</div>
-
-						<!-- Item mainmenu -->
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<a href="#" class="name-item-mainmenu txt21"> Empanada de
-									atún </a>
-
-								<div class="line-item-mainmenu bg3-pattern"></div>
-
-<<<<<<< HEAD
-								<div class="price-item-mainmenu txt22">11.99€</div>
-=======
-								<div class="price-item-mainmenu txt22">
-									2.00€
-								</div>
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
-							</div>
-
-							<span class="info-item-mainmenu txt23"> Empanada casera de
-								atún. Mitad 5.99€ </span>
-						</div>
-
-						<!-- Item mainmenu -->
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<a href="#" class="name-item-mainmenu txt21"> Migas
-									Manchegas </a>
-
-								<div class="line-item-mainmenu bg3-pattern"></div>
-
-<<<<<<< HEAD
-								<div class="price-item-mainmenu txt22">6.99€</div>
-=======
-								<div class="price-item-mainmenu txt22">
-									1.80€
-								</div>
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
-							</div>
-
-							<span class="info-item-mainmenu txt23"> Migas manchegas
-								con panceta y huevo frito. </span>
-						</div>
-
-						<!-- Item mainmenu -->
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<a href="#" class="name-item-mainmenu txt21"> Spaguetti
-									Carbonara </a>
-
-								<div class="line-item-mainmenu bg3-pattern"></div>
-
-<<<<<<< HEAD
-								<div class="price-item-mainmenu txt22">4.99€</div>
-=======
-								<div class="price-item-mainmenu txt22">
-									2.00€
-								</div>
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
-							</div>
-
-							<span class="info-item-mainmenu txt23"> Spaguetti con
-								salsa de nata, queso parmesano, champiñones y bacon. </span>
-						</div>
-
-						<!-- Item mainmenu -->
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<a href="#" class="name-item-mainmenu txt21"> Pizza 4 quesos
-								</a>
-
-								<div class="line-item-mainmenu bg3-pattern"></div>
-
-<<<<<<< HEAD
-								<div class="price-item-mainmenu txt22">13.99€</div>
-=======
-								<div class="price-item-mainmenu txt22">
-									1.50€
-								</div>
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
-							</div>
-
-							<span class="info-item-mainmenu txt23"> Elige tu tamaño
-								pequeña 7.99€, mediana 13.99€ o familiar 17.99€. </span>
-						</div>
+						{{/entrees}}
 					</div>
-
+					
+					<!-- first -->
+					<div id="first" class="wrap-item-mainmenu p-b-22">
+						<a name="Principales"></a>
+						<h3 class="tit-mainmenu tit10 p-b-25">PLATOS PRINCIPALES</h3>
+						
+						{{#first}}
+						<div id="{{product-id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
+							{{product-name}}
+						
+							<div class="line-item-mainmenu bg3-pattern"></div>
+						
+							<div class="price-item-mainmenu txt22">
+								{{product-price}}
+							</div>
+						
+							<!-- popup -->			
+							<div class="modal">
+								<spam class="{{product-id}}.close">&times;</spam>
+								<img src="{{product-img}}" class="modal-content">
+								<div>{{product-name}}</div>
+							</div>
+						</div>
+						{{/fitst}}
+					</div>
+						
 					<!-- second -->
-					<div class="wrap-item-mainmenu p-b-22">
+					<div id="second" class="wrap-item-mainmenu p-b-22">
 						<a name="Segundos"></a>
-						<h3 class="tit-mainmenu tit10 p-b-25">SEGUNDOS</h3>
-
-						{{#second}} {{/second}}
-
-						<!-- Item mainmenu -->
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<a href="images/custom/entrecott.jpg"
-									class="name-item-mainmenu txt21"> Entrecotte de buey </a>
-
-								<div class="line-item-mainmenu bg3-pattern"></div>
-
-<<<<<<< HEAD
-								<div class="price-item-mainmenu txt22">18.99€</div>
-=======
-								<div class="price-item-mainmenu txt22">
-									15.99€
-								</div>
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
+						<h3 class="tit-mainmenu tit10 p-b-25">SEGUNDOS PLATOS</h3>
+						
+						{{#second}}
+						<div id="{{product-id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
+							{{product-name}}
+						
+							<div class="line-item-mainmenu bg3-pattern"></div>
+						
+							<div class="price-item-mainmenu txt22">
+								{{product-price}}
 							</div>
-
-							<span class="info-item-mainmenu txt23"> Deliciosa carne de
-								buey asada a la piedra. Elige como quieres tu carne poco hecha,
-								al punto o pasada. </span>
-						</div>
-
-						<!-- Item mainmenu -->
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<a href="images/custom/Hamburguesa.jpeg"
-									class="name-item-mainmenu txt21"> Hamburguesa Big Ben </a>
-
-								<div class="line-item-mainmenu bg3-pattern"></div>
-
-<<<<<<< HEAD
-								<div class="price-item-mainmenu txt22">14.99€</div>
-=======
-								<div class="price-item-mainmenu txt22">
-									11.99€
-								</div>
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
-							</div>
-
-							<span class="info-item-mainmenu txt23"> Hamburguesa de
-								buey con deliciosa salsa barbacoa, queso parmesano, cebolla
-								caramelizada, bacon y lechuga. </span>
-						</div>
-
-						<div class="wrap-item-mainmenu p-b-22">
-							<a name="Bebidas"></a>
-							<h3 class="tit-mainmenu tit10 p-b-25">BEBIDAS</h3>
-
-							{{#drinks}}
-							<!-- Item mainmenu -->
-							<div class="item-mainmenu m-b-36">
-								<div class="flex-w flex-b m-b-3">
-									<div class="name-item-mainmenu txt21">{{product-name}}</div>
-
-									<div class="line-item-mainmenu bg3-pattern"></div>
-
-									<div class="price-item-mainmenu txt22">{{product-price}}
-									</div>
-								</div>
-<<<<<<< HEAD
-=======
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
-							</div>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
-
-								<span class="info-item-mainmenu txt23">
-									{{product-description}} </span>
-							</div>
-							{{/drinks}}
-
-							<!-- Item mainmenu -->
-							<div class="item-mainmenu m-b-36">
-								<div class="flex-w flex-b m-b-3">
-									<a href="#" class="name-item-mainmenu txt21"> Coca Cola </a>
-
-									<div class="line-item-mainmenu bg3-pattern"></div>
-
-									<div class="price-item-mainmenu txt22">2.00€</div>
-								</div>
-<<<<<<< HEAD
-
-								<span class="info-item-mainmenu txt23"> Lata de 33cl con
-									o sin cafeina. Por 50 centimos mas botella de medio litro. </span>
-=======
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
-							</div>
-
-							<!-- Item mainmenu -->
-							<div class="item-mainmenu m-b-36">
-								<div class="flex-w flex-b m-b-3">
-									<a href="#" class="name-item-mainmenu txt21"> Nestea </a>
-
-									<div class="line-item-mainmenu bg3-pattern"></div>
-
-									<div class="price-item-mainmenu txt22">1.80€</div>
-								</div>
-<<<<<<< HEAD
-=======
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
-							</div>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
-
-								<span class="info-item-mainmenu txt23"> Lata de 33cl. Por
-									50 centimos mas botella de medio litro. </span>
-							</div>
-
-							<!-- Item mainmenu -->
-							<div class="item-mainmenu m-b-36">
-								<div class="flex-w flex-b m-b-3">
-									<a href="#" class="name-item-mainmenu txt21"> Fanta </a>
-
-									<div class="line-item-mainmenu bg3-pattern"></div>
-
-									<div class="price-item-mainmenu txt22">2.00€</div>
-								</div>
-<<<<<<< HEAD
-=======
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
-							</div>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
-
-								<span class="info-item-mainmenu txt23"> Lata de 33cl. Por
-									50 centimos mas botella de medio litro. </span>
-							</div>
-
-							<!-- Item mainmenu -->
-							<div class="item-mainmenu m-b-36">
-								<div class="flex-w flex-b m-b-3">
-									<a href="#" class="name-item-mainmenu txt21"> Agua Mineral
-									</a>
-
-									<div class="line-item-mainmenu bg3-pattern"></div>
-
-									<div class="price-item-mainmenu txt22">1.50€</div>
-								</div>
-<<<<<<< HEAD
-=======
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
-							</div>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
-
-								<span class="info-item-mainmenu txt23"> Botella de agua
-									mineral de 50 cl. </span>
+						
+							<!-- popup -->			
+							<div class="modal">
+								<spam class="{{product-id}}.close">&times;</spam>
+								<img src="{{product-img}}" class="modal-content">
+								<div>{{product-name}}</div>
 							</div>
 						</div>
+						{{/second}}
 					</div>
-
+					
 					<!-- desserts -->
-					<div class="wrap-item-mainmenu p-b-22">
+					<div id="desserts" class="wrap-item-mainmenu p-b-22">
+						<a name="Postres"></a>
 						<h3 class="tit-mainmenu tit10 p-b-25">POSTRES</h3>
-
-						<!-- Item mainmenu -->
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<a href="#" class="name-item-mainmenu txt21"> Banana Split </a>
-
-								<div class="line-item-mainmenu bg3-pattern"></div>
-
-<<<<<<< HEAD
-								<div class="price-item-mainmenu txt22">4.99€</div>
-=======
-								<div class="price-item-mainmenu txt22">
-									4.99€
-								</div>
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
+						
+						{{#desserts}}
+						<div id="{{product-id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
+							{{product-name}}
+						
+							<div class="line-item-mainmenu bg3-pattern"></div>
+						
+							<div class="price-item-mainmenu txt22">
+								{{product-price}}
 							</div>
-
-							<span class="info-item-mainmenu txt23"> Delicioso plátano
-								originario de Canarias, acompañado de una cobertura de chocolate
-								con 3 variedades de helado (a elegir). </span>
-						</div>
-
-						<!-- Item mainmenu -->
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<a href="#" class="name-item-mainmenu txt21"> Crema catalana
-								</a>
-
-								<div class="line-item-mainmenu bg3-pattern"></div>
-
-<<<<<<< HEAD
-								<div class="price-item-mainmenu txt22">2.99€</div>
-=======
-								<div class="price-item-mainmenu txt22">
-									2.99€
-								</div>
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
+						
+							<!-- popup -->			
+							<div class="modal">
+								<spam class="{{product-id}}.close">&times;</spam>
+								<img src="{{product-img}}" class="modal-content">
+								<div>{{product-name}}</div>
 							</div>
-
-							<span class="info-item-mainmenu txt23"> Crema catalana
-								helada. </span>
 						</div>
-
-						<!-- Item mainmenu -->
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<a href="#" class="name-item-mainmenu txt21"> Flan de huevo
-								</a>
-
-								<div class="line-item-mainmenu bg3-pattern"></div>
-
-<<<<<<< HEAD
-								<div class="price-item-mainmenu txt22">2.99€</div>
-=======
-								<div class="price-item-mainmenu txt22">
-									2.99€
-								</div>
-                                <button class="boton-anadir-cesta">
-                                    <span >+</span>
-                                </button>
->>>>>>> 90b3cd7e6825f7ab66f0e6c1e081bebb800ea31a
-							</div>
-
-							<span class="info-item-mainmenu txt23"> Flan de huevo. </span>
-						</div>
+						{{/desserts}}
 					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
+					
 	<!-- Sign up -->
 	<div class="section-signup bg1-pattern p-t-85 p-b-85">
 		<form class="flex-c-m flex-w flex-col-c-m-lg p-l-5 p-r-5">
