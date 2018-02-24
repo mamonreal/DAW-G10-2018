@@ -1,4 +1,4 @@
-package com.daw.apimeals.uploadImages;
+package com.daw.apimeals.upload_images;
 
 //import java.nio.file.Path;
 //import java.util.stream.Stream;
