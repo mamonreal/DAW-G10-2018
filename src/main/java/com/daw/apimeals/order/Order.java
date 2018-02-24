@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.daw.apimeals.menu.Menu;
+import com.daw.apimeals.product.Product;
 
 @Entity
 public class Order {
@@ -23,6 +24,9 @@ public class Order {
 	
 	@OneToMany
 	private List<Menu> menus;
+
+	@OneToMany
+	private List<Product> products;
 	
 	protected Order() {}
 
@@ -71,8 +75,12 @@ public class Order {
 	public void setMenus(List<Menu> menus) {
 		this.menus = menus;
 	}
-	
-	
-	
 
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
 }

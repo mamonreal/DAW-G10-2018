@@ -20,10 +20,7 @@ public class webController {
 		return "orders";
 }
 
-	@RequestMapping("/plates")
-	public String plates() {
-		return "plates";
-}
+
 
 
 }
