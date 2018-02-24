@@ -153,8 +153,8 @@
 						<h3 class="tit-mainmenu tit10 p-b-25">ENTRANTES</h3>
 						
 						{{#entrees}}
-						<div id="{{product-id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
-							{{product-name}}
+						<div id="{{product-id}}" class="flex-w flex-b m-b-3">
+							<div onclick="popupImage(&quot;{{product-id}}&quot;);">{{product-name}}</div>
 						
 							<div class="line-item-mainmenu bg3-pattern"></div>
 						
@@ -163,8 +163,8 @@
 							</div>
 						
 							<!-- popup -->			
-							<div class="modal">
-								<spam class="{{product-id}}.close">&times;</spam>
+							<div id="{{product-id}}.modal" class="modal">
+								<spam id="{{product-id}}.close" class="close">&times;</spam>
 								<img src="{{product-img}}" class="modal-content">
 								<div>{{product-name}}</div>
 							</div>
@@ -179,7 +179,7 @@
 						
 						{{#first}}
 						<div id="{{product-id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
-							{{product-name}}
+							<div onclick="popupImage(&quot;{{product-id}}&quot;);">{{product-name}}</div>
 						
 							<div class="line-item-mainmenu bg3-pattern"></div>
 						
@@ -188,7 +188,7 @@
 							</div>
 						
 							<!-- popup -->			
-							<div class="modal">
+							<div id="{{product-id}}.modal" class="modal">
 								<spam class="{{product-id}}.close">&times;</spam>
 								<img src="{{product-img}}" class="modal-content">
 								<div>{{product-name}}</div>
@@ -204,7 +204,7 @@
 						
 						{{#second}}
 						<div id="{{product-id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
-							{{product-name}}
+							<div onclick="popupImage(&quot;{{product-id}}&quot;);">{{product-name}}</div>
 						
 							<div class="line-item-mainmenu bg3-pattern"></div>
 						
@@ -213,7 +213,7 @@
 							</div>
 						
 							<!-- popup -->			
-							<div class="modal">
+							<div id="{{product-id}}.modal" class="modal">
 								<spam class="{{product-id}}.close">&times;</spam>
 								<img src="{{product-img}}" class="modal-content">
 								<div>{{product-name}}</div>
@@ -229,7 +229,7 @@
 						
 						{{#desserts}}
 						<div id="{{product-id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
-							{{product-name}}
+							<div onclick="popupImage(&quot;{{product-id}}&quot;);">{{product-name}}</div>
 						
 							<div class="line-item-mainmenu bg3-pattern"></div>
 						
@@ -238,7 +238,7 @@
 							</div>
 						
 							<!-- popup -->			
-							<div class="modal">
+							<div id="{{product-id}}.modal" class="modal">
 								<spam class="{{product-id}}.close">&times;</spam>
 								<img src="{{product-img}}" class="modal-content">
 								<div>{{product-name}}</div>
