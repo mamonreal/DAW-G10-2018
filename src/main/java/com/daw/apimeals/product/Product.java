@@ -5,8 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
 import com.daw.apimeals.menu.Menu;
 
 @Entity
@@ -27,7 +25,7 @@ public class Product{
 	@ManyToOne
 	private Menu menu;
 
-protected Product() {}
+	protected Product() {}
 	
 	public Product (String name, String description, String type, String category, Integer kc, String path, long price){
 		this.name=name;
@@ -95,5 +93,23 @@ protected Product() {}
 	public void setMenu(Menu menu) {
 		this.menu = menu;
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+	
+	
 	
 }

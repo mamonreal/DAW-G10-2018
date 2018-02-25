@@ -33,16 +33,44 @@ public class ProductController {
     @RequestMapping("/plates")
     public String plates(Model model) {
 
-	    List<Product> entrees = pRepository.findByProductType("entrees");
-	    List<Product> first = pRepository.findByProductType("first");
-	    List<Product> sencond = pRepository.findByProductType("Second");
-	    List<Product> desserts = pRepository.findByProductType("Dessert");
-
+	    List<Product> entrees = pRepository.findByType("entrees");
+	    List<Product> first = pRepository.findByType("first");
+	    List<Product> second = pRepository.findByType("Second");
+	    List<Product> desserts = pRepository.findByType("Dessert");
+	   
 	    model.addAttribute("entrees", entrees);
         model.addAttribute("first", first);
-        model.addAttribute("second", sencond);
+        model.addAttribute("second", second);
         model.addAttribute("dessets", desserts);
-
+	    
+	    for (Product p: entrees) {
+	    	model.addAttribute("product-id", p.getId());
+	    	model.addAttribute("product-name", p.getName());
+	    	model.addAttribute("product-price", p.getPrice());
+	    	model.addAttribute("product-img", p.getPath());
+	    }
+	    
+	    for (Product p: first) {
+	    	model.addAttribute("product-id", p.getId());
+	    	model.addAttribute("product-name", p.getName());
+	    	model.addAttribute("product-price", p.getPrice());
+	    	model.addAttribute("product-img", p.getPath());
+	    }
+	    
+	    for (Product p: second) {
+	    	model.addAttribute("product-id", p.getId());
+	    	model.addAttribute("product-name", p.getName());
+	    	model.addAttribute("product-price", p.getPrice());
+	    	model.addAttribute("product-img", p.getPath());
+	    }
+	    
+	    for (Product p: desserts) {
+	    	model.addAttribute("product-id", p.getId());
+	    	model.addAttribute("product-name", p.getName());
+	    	model.addAttribute("product-price", p.getPrice());
+	    	model.addAttribute("product-img", p.getPath());
+	    }
+	    
 	    return "plates";
     }
 }
