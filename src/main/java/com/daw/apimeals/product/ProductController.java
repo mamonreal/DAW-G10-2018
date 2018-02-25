@@ -33,7 +33,7 @@ public class ProductController {
     @RequestMapping("/plates")
     public String plates(Model model) {
 
-	    List<Product> entrees = pRepository.findByType("entrees");
+	    List<Product> entrees = pRepository.findByType("entree");
 	    List<Product> first = pRepository.findByType("first");
 	    List<Product> second = pRepository.findByType("Second");
 	    List<Product> desserts = pRepository.findByType("Dessert");
@@ -44,31 +44,31 @@ public class ProductController {
         model.addAttribute("dessets", desserts);
 	    
 	    for (Product p: entrees) {
-	    	model.addAttribute("product-id", p.getId());
-	    	model.addAttribute("product-name", p.getName());
-	    	model.addAttribute("product-price", p.getPrice());
-	    	model.addAttribute("product-img", p.getPath());
+	    	model.addAttribute("entrees-id", p.getId());
+	    	model.addAttribute("entrees-name", p.getName());
+	    	model.addAttribute("entrees-price", p.getPrice());
+	    	model.addAttribute("entrees-img", p.getPath());
 	    }
 	    
 	    for (Product p: first) {
-	    	model.addAttribute("product-id", p.getId());
-	    	model.addAttribute("product-name", p.getName());
-	    	model.addAttribute("product-price", p.getPrice());
-	    	model.addAttribute("product-img", p.getPath());
+	    	model.addAttribute("first-id", p.getId());
+	    	model.addAttribute("first-name", p.getName());
+	    	model.addAttribute("first-price", p.getPrice());
+	    	model.addAttribute("first-img", p.getPath());
 	    }
 	    
 	    for (Product p: second) {
-	    	model.addAttribute("product-id", p.getId());
-	    	model.addAttribute("product-name", p.getName());
-	    	model.addAttribute("product-price", p.getPrice());
-	    	model.addAttribute("product-img", p.getPath());
+	    	model.addAttribute("second-id", p.getId());
+	    	model.addAttribute("second-name", p.getName());
+	    	model.addAttribute("second-price", p.getPrice());
+	    	model.addAttribute("second-img", p.getPath());
 	    }
 	    
 	    for (Product p: desserts) {
-	    	model.addAttribute("product-id", p.getId());
-	    	model.addAttribute("product-name", p.getName());
-	    	model.addAttribute("product-price", p.getPrice());
-	    	model.addAttribute("product-img", p.getPath());
+	    	model.addAttribute("desserts-id", p.getId());
+	    	model.addAttribute("desserts-name", p.getName());
+	    	model.addAttribute("desserts-price", p.getPrice());
+	    	model.addAttribute("desserts-img", p.getPath());
 	    }
 	    
 	    return "plates";
