@@ -18,7 +18,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     http.authorizeRequests().antMatchers("/logout").permitAll();*/
 
     // Private pages (all other pages)
-    http.authorizeRequests().anyRequest().authenticated();
+	http.authorizeRequests().anyRequest().permitAll();
 
     // Login form
     http.formLogin().loginPage("/login");
