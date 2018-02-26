@@ -153,14 +153,17 @@
 					{{#breakfast}}
 					<div class="blo3 flex-w flex-col-l-sm m-b-30">
 						<div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
-							<a href="#"><img src="{{menu-image}}" alt="IMG-MENU"></a>
+							<a href="#"><img src="{{path}}" alt="IMG-MENU"></a>
 						</div>
 
 						<div class="text-blo3 size21 flex-col-l-m">
-							<a href="#" class="txt21 m-b-3"> {{menu-name}} </a> <span
-								class="txt23"> {{menu-description}} </span> <span
-								class="txt22 m-t-20"> {{menu-price}} </span>
+							<a href="#" class="txt21 m-b-3"> {{name}} </a> <span
+								class="txt23"> {{description}} </span> <span
+								class="txt22 m-t-20"> {{price}} </span>
 						</div>
+                        <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
+                                    data-summary="summary 1" data-price="{{price}}" 
+                                    data-quantity="1" data-image="{{path}}">Añadir</button>
 					</div>
 					{{/breakfast}}
 				</div>
@@ -187,14 +190,17 @@
 					{{#lunch}}
 					<div class="blo3 flex-w flex-col-l-sm m-b-30">
 						<div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
-							<a href="#"><img src="{{menu-image}}" alt="IMG-MENU"></a>
+							<a href="#"><img src="{{path}}" alt="IMG-MENU"></a>
 						</div>
 
 						<div class="text-blo3 size21 flex-col-l-m">
-							<a href="#" class="txt21 m-b-3"> {{menu-name}} </a> <span
-								class="txt23"> {{menu-description}} </span> <span
-								class="txt22 m-t-20"> {{menu-price}} </span>
+							<a href="#" class="txt21 m-b-3"> {{name}} </a> <span
+								class="txt23"> {{description}} </span> <span
+								class="txt22 m-t-20"> {{price}} </span>
 						</div>
+                        <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
+                                    data-summary="summary 1" data-price="{{price}}" 
+                                    data-quantity="1" data-image="{{path}}">Añadir</button>
 					</div>
 					{{/lunch}}
 				</div>
@@ -223,12 +229,15 @@
 						</div>
 
 						<div class="text-blo3 size21 flex-col-l-m">
-							<a href="#" class="txt21 m-b-3"> {{menu-name}} </a> <span
-								class="txt23"> {{menu-description}} </span> <span
-								class="txt22 m-t-20"> {{menu-price}} </span>
+							<a href="#" class="txt21 m-b-3"> {{name}} </a> <span
+								class="txt23"> {{description}} </span> <span
+								class="txt22 m-t-20"> {{price}} </span>
 						</div>
+                        <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
+                                    data-summary="summary 1" data-price="{{price}}" 
+                                    data-quantity="1" data-image="{{path}}">Añadir</button>
 					</div>
-					{{/diner}}
+					{{/dinner}}
 				</div>
 			</div>
 		</div>
@@ -410,8 +419,8 @@
 
 
 	<!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
-	<!--===============================================================================================-->
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/jquery.mycart.js"></script>	<!--===============================================================================================-->
 	<script type="text/javascript"
 		src="vendor/animsition/js/animsition.min.js"></script>
 	<!--===============================================================================================-->

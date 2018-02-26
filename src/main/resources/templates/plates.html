@@ -156,24 +156,24 @@
 						<h3 class="tit-mainmenu tit10 p-b-25">ENTRANTES</h3>
 						
 						{{#entrees}}
-						<div id="{{entrees-id}}" class="flex-w flex-b m-b-3">
-							<div onclick="popupImage(&quot;{{entrees-id}}&quot;);">{{entrees-name}}</div>
+						<div id="{{id}}" class="flex-w flex-b m-b-3">
+							<div onclick="popupImage(&quot;{{id}}&quot;);">{{name}}</div>
 						
 							<div class="line-item-mainmenu bg3-pattern"></div>
 						
 							<div class="price-item-mainmenu txt22">
-								{{entrees-price}}
+								{{price}}
 							</div>
 						
 							<!-- popup -->			
-							<div id="{{entrees-id}}.modal" class="modal">
-								<spam id="{{entrees-id}}.close" class="close">&times;</spam>
-								<img src="{{entrees-img}}" class="modal-content">
-								<div>{{entrees-name}}</div>
+							<div id="{{id}}.modal" class="modal">
+								<spam id="{{id}}.close" class="close">&times;</spam>
+								<img src="{{path}}" class="modal-content">
+								<div>{{name}}</div>
 							</div>
-                            <button class="btn btn-danger my-cart-btn" data-id="{{entrees-id}}" data-name="{{entrees-name}}" 
-                                    data-summary="summary 1" data-price="{{entrees-price}}" 
-                                    data-quantity="1" data-image="{{entrees-img}}">Añadir</button>
+                            <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
+                                    data-summary="summary 1" data-price="{{price}}" 
+                                    data-quantity="1" data-image="{{path}}">Añadir</button>
 						</div>
 						{{/entrees}}
 					</div>
@@ -184,24 +184,24 @@
 						<h3 class="tit-mainmenu tit10 p-b-25">PLATOS PRINCIPALES</h3>
 						
 						{{#first}}
-						<div id="{{first-id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
-							<div onclick="popupImage(&quot;{{first-id}}&quot;);">{{first-name}}</div>
+						<div id="{{id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
+							<div onclick="popupImage(&quot;{{id}}&quot;);">{{name}}</div>
 						
 							<div class="line-item-mainmenu bg3-pattern"></div>
 						
 							<div class="price-item-mainmenu txt22">
-								{{first-price}}
+								{{price}}
 							</div>
 						
 							<!-- popup -->			
-							<div id="{{first-id}}.modal" class="modal">
-								<spam class="{{first-id}}.close">&times;</spam>
-								<img src="{{first-img}}" class="modal-content">
-								<div>{{first-name}}</div>
+							<div id="{{id}}.modal" class="modal">
+								<spam class="{{id}}.close">&times;</spam>
+								<img src="{{path}}" class="modal-content">
+								<div>{{name}}</div>
 							</div>
-                            <button class="btn btn-danger my-cart-btn" data-id="{{first-id}}" data-name="{{first-name}}"
-                                    data-summary="summary 1" data-price="{{first-price}}"
-                                    data-quantity="1" data-image="{{first-img}}">Añadir</button>
+                            <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
+                                    data-summary="summary 1" data-price="{{price}}"
+                                    data-quantity="1" data-image="{{path}}">Añadir</button>
 						</div>
 						{{/first}}
 					</div>
@@ -212,24 +212,24 @@
 						<h3 class="tit-mainmenu tit10 p-b-25">SEGUNDOS PLATOS</h3>
 						
 						{{#second}}
-						<div id="{{second-id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
-							<div onclick="popupImage(&quot;{{second-id}}&quot;);">{{second-name}}</div>
+						<div id="{{id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
+							<div onclick="popupImage(&quot;{{id}}&quot;);">{{name}}</div>
 						
 							<div class="line-item-mainmenu bg3-pattern"></div>
 						
 							<div class="price-item-mainmenu txt22">
-								{{second-price}}
+								{{price}}
 							</div>
 						
 							<!-- popup -->			
-							<div id="{{second-id}}.modal" class="modal">
-								<spam class="{{second-id}}.close">&times;</spam>
-								<img src="{{second-img}}" class="modal-content">
-								<div>{{second-name}}</div>
+							<div id="{{id}}.modal" class="modal">
+								<spam class="{{id}}.close">&times;</spam>
+								<img src="{{path}}" class="modal-content">
+								<div>{{name}}</div>
 							</div>
-                            <button class="btn btn-danger my-cart-btn" data-id="{{second-id}}" data-name="{{second-name}}"
-                            data-summary="summary 1" data-price="{{second-price}}"
-                            data-quantity="1" data-image="{{second-img}}">Añadir</button>
+                            <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
+                            data-summary="summary 1" data-price="{{price}}"
+                            data-quantity="1" data-image="{{path}}">Añadir</button>
 						</div>
 						{{/second}}
 					</div>
@@ -240,24 +240,24 @@
 						<h3 class="tit-mainmenu tit10 p-b-25">POSTRES</h3>
 						
 						{{#desserts}}
-						<div id="{{deserts-id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
-							<div onclick="popupImage(&quot;{{deserts-id}}&quot;);">{{desserts-name}}</div>
+						<div id="{{id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
+							<div onclick="popupImage(&quot;{{id}}&quot;);">{{name}}</div>
 						
 							<div class="line-item-mainmenu bg3-pattern"></div>
 						
 							<div class="price-item-mainmenu txt22">
-								{{desserts-price}}
+								{{price}}
 							</div>
 						
 							<!-- popup -->			
-							<div id="{{desserts-id}}.modal" class="modal">
-								<spam class="{{desserts-id}}.close">&times;</spam>
-								<img src="{{desserts-img}}" class="modal-content">
-								<div>{{desserts-name}}</div>
+							<div id="{{id}}.modal" class="modal">
+								<spam class="{{id}}.close">&times;</spam>
+								<img src="{{path}}" class="modal-content">
+								<div>{{name}}</div>
 							</div>
-                            <button class="btn btn-danger my-cart-btn" data-id="{{desserts-id}}" data-name="{{desserts-name}}"
-                            data-summary="summary 1" data-price="{{desserts-price}}"
-                            data-quantity="1" data-image="{{desserts-img}}">Añadir</button>
+                            <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
+                            data-summary="summary 1" data-price="{{price}}"
+                            data-quantity="1" data-image="{{path}}">Añadir</button>
 
 						</div>
 						{{/desserts}}

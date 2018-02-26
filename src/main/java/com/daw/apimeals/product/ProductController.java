@@ -43,33 +43,7 @@ public class ProductController {
         model.addAttribute("second", second);
         model.addAttribute("dessets", desserts);
 	    
-	    for (Product p: entrees) {
-	    	model.addAttribute("entrees-id", p.getId());
-	    	model.addAttribute("entrees-name", p.getName());
-	    	model.addAttribute("entrees-price", p.getPrice());
-	    	model.addAttribute("entrees-img", p.getPath());
-	    }
 	    
-	    for (Product p: first) {
-	    	model.addAttribute("first-id", p.getId());
-	    	model.addAttribute("first-name", p.getName());
-	    	model.addAttribute("first-price", p.getPrice());
-	    	model.addAttribute("first-img", p.getPath());
-	    }
-	    
-	    for (Product p: second) {
-	    	model.addAttribute("second-id", p.getId());
-	    	model.addAttribute("second-name", p.getName());
-	    	model.addAttribute("second-price", p.getPrice());
-	    	model.addAttribute("second-img", p.getPath());
-	    }
-	    
-	    for (Product p: desserts) {
-	    	model.addAttribute("desserts-id", p.getId());
-	    	model.addAttribute("desserts-name", p.getName());
-	    	model.addAttribute("desserts-price", p.getPrice());
-	    	model.addAttribute("desserts-img", p.getPath());
-	    }
 	    
 	    return "plates";
     }

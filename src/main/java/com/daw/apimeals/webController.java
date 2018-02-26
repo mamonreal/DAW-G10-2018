@@ -10,17 +10,10 @@ public class webController {
 		public String index() {
 			return "index";
 	}
-	@RequestMapping("/menu")
-	public String menu () {
-		return "menu";
-}
-
-	@RequestMapping("/orders")
-	public String orders() {
-		return "orders";
-}
-
-
-
 
 }
+
+
+
+
+
