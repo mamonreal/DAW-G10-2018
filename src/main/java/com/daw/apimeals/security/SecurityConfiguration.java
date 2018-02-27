@@ -12,16 +12,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
     
 	// Public pages
-    /*http.authorizeRequests().antMatchers("/").permitAll();
+    http.authorizeRequests().antMatchers("/").permitAll();
     http.authorizeRequests().antMatchers("/login").permitAll();
     http.authorizeRequests().antMatchers("/loginerror").permitAll();
-    http.authorizeRequests().antMatchers("/logout").permitAll();*/
+    http.authorizeRequests().antMatchers("/logout").permitAll();
 
     // Private pages (all other pages)
 	http.authorizeRequests().anyRequest().permitAll();
 
     // Login form
-    http.formLogin().loginPage("/login");
+    http.formLogin().loginPage("/user");
     http.formLogin().usernameParameter("username");
     http.formLogin().passwordParameter("password");
     http.formLogin().defaultSuccessUrl("/home");
