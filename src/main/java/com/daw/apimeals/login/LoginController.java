@@ -31,7 +31,7 @@ public class LoginController {
 	@RequestMapping(value={"/loginerror"})
 	public String loginerrorController(Model model, HttpServletRequest request){
 		model.addAttribute("loginerror",true);
-		return "login";
+		return "loginerror";
 	}
 }
 
