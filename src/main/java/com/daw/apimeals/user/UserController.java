@@ -23,8 +23,8 @@ public class UserController extends MainService {
 	
 	@PostConstruct
 	public void init() {
-		uRepository.save(new User("Jorge", "689542138", "jorge@gmail.com",
-				"theyorch", "paco", "Manchester", "C/ Ave del paraiso", "28913"));
+		User jorge= new User("Jorge","674123456", "jorge.g@hotmail.com", "theyorch", "pass","Mostoles","calle velazquez yo soy guapa","27854","ROLE_USER");
+		uRepository.save(jorge);
 	}
 	
 	@RequestMapping("/user")
@@ -55,13 +55,12 @@ public class UserController extends MainService {
 	@RequestMapping("addUser")
 	public String addUser(@RequestParam String name, @RequestParam String mobile,@RequestParam String email,@RequestParam String UserName,
 			@RequestParam String password,@RequestParam String city,@RequestParam String address,@RequestParam String PC) {
-		User user = new User(name, mobile, email, UserName, password, city, address, PC);
+		User user = new User(name, mobile, email, UserName, password, city, address, PC, "ROLE_USER");
 		uRepository.save(user);
 		userComponent.setLoggedUser(user);
 		return "/user";
 		
 	}
-	
 	
 	public void loadUser(Model model){
 		model.addAttribute("loggedUser",userComponent.getLoggedUser());
