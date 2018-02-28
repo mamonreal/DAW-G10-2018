@@ -33,7 +33,7 @@ import com.daw.apimeals.user.UserRepository;
 			String username = authentication.getName();
 			String password = (String) authentication.getCredentials();
 
-			User user = userRepository.findByName(username);
+			User user = userRepository.findByUserName(username);
 
 			if (user == null) {
 				throw new BadCredentialsException("User not found");
