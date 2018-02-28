@@ -128,9 +128,33 @@ public class User {
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
 	}
-	
-	
-	
-		
 
+	public String getUserName() {
+		return UserName;
+	}
+
+	public void setUserName(String userName) {
+		UserName = userName;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getPC() {
+		return PC;
+	}
+
+	public void setPC(String pC) {
+		PC = pC;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
 }

@@ -1,6 +1,7 @@
 package com.daw.apimeals.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner.Mode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,12 +20,27 @@ public class UserController {
 	
 	@RequestMapping("/user")
 	public String user(Model model) {
-		return "user";
+        Boolean b = userComponent.isLoggedUser();
+        model.addAttribute("logged", b);
+        
+		if (b) {
+			User user = userComponent.getLoggedUser();
+			
+			model.addAttribute("name", user.getName());
+			model.addAttribute("username", user.getUserName());
+			model.addAttribute("phone", user.getTelephone());
+			model.addAttribute("address", user.getAddress());
+			model.addAttribute("city", user.getCity());
+			model.addAttribute("cp", user.getPC());
+		}
+		
+        return "user";
 	}
 	
 	@RequestMapping("/register")
 	public String register(Model model) {
-		return "register";
+
+	    return "register";
 	}
 	
 	@RequestMapping("addUser")
