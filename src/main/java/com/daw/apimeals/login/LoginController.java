@@ -30,7 +30,7 @@ public class LoginController {
 		model.addAttribute("loginerror",true);
 		return "loginerror";
 	}
-    @RequestMapping("/")
+    @RequestMapping("/afterLog")
     public String home(Model model, HttpServletRequest request) {
     	
     	model.addAttribute("admin", request.isUserInRole("ADMIN"));
