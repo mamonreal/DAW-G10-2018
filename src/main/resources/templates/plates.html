@@ -264,6 +264,34 @@
 						</div>
 						{{/desserts}}
 					</div>
+					
+					<div id="drinks" class="wrap-item-mainmenu p-b-22">
+						<a name="Bebidas"></a>
+						<h3 class ="tit-mainmenu tit10 p-b-25">BEBIDAS</h3>
+						
+						{{#drinks}}
+						<div id="{{id}}" class="flex-w flex-b m-b-3" onclick="popupimage();">
+							<div onclick="popupImage(&quot;{{id}}&quot;);">{{name}}</div>
+							
+							<div class="line-item-mainmenu bg3-pattern"></div>
+						
+							<div class="price-item-mainmenu txt22 mr-3">
+								{{price}}€
+							</div>
+						
+							<!-- popup -->			
+							<div id="{{id}}.modal" class="modal">
+								<spam class="{{id}}.close">&times;</spam>
+								<img src="{{path}}" class="modal-content">
+								<div>{{name}}</div>
+							</div>
+                            <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
+                            data-summary="summary 1" data-price="{{price}}"
+                            data-quantity="1" data-image="{{path}}">+</button>
+
+						</div>
+						{{/drinks}}
+					</div>
 
 				</div>
 			</div>

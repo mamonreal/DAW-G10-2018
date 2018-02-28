@@ -1,12 +1,18 @@
 package com.daw.apimeals.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
+@EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+	
+	@Autowired
+	public UserRepositoryAuthProvider authenticationProvider;
 	
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -16,15 +22,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     http.authorizeRequests().antMatchers("/login").permitAll();
     http.authorizeRequests().antMatchers("/loginerror").permitAll();
     http.authorizeRequests().antMatchers("/logout").permitAll();
-
-    // Private pages (all other pages)
-	http.authorizeRequests().anyRequest().permitAll();
-
+    
+    // Private pages
+    http.authorizeRequests().antMatchers("/afterLog").hasAnyRole("USER");
+	http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");	
+	
     // Login form
     http.formLogin().loginPage("/user");
-    http.formLogin().usernameParameter("username");
+    http.formLogin().usernameParameter("User");
     http.formLogin().passwordParameter("password");
-    http.formLogin().defaultSuccessUrl("/home");
+    http.formLogin().defaultSuccessUrl("/afterLog");
     http.formLogin().failureUrl("/loginerror");
 
     // Logout
@@ -33,16 +40,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     
     // Disable CSRF at the moment
     http.csrf().disable();
- 
 }
 
 @Override
 protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    
-	// User
-    auth.inMemoryAuthentication().withUser("user").password("pass").roles("USER");
-    
-
+	auth.authenticationProvider(authenticationProvider);
 }
 
 }
