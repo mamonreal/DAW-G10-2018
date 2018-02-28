@@ -18,9 +18,6 @@ import org.springframework.ui.Model;
 
 @Controller
 public class LoginController {
-
-	
-	
 	
 	@RequestMapping(value={"/login"})
 	public String loginController(Model model, HttpServletRequest request){
@@ -33,5 +30,16 @@ public class LoginController {
 		model.addAttribute("loginerror",true);
 		return "loginerror";
 	}
+    @RequestMapping("/")
+    public String home(Model model, HttpServletRequest request) {
+    	
+    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
+    	
+    	return "afterLog";
+    }
+    @RequestMapping("/admin")
+    public String admin() {
+    	return "admin";
+    }
 }
 

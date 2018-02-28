@@ -1,5 +1,7 @@
 package com.daw.apimeals.user;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -11,6 +13,8 @@ import org.springframework.web.context.WebApplicationContext;
 	public class UserComponent {
 
 		private User user;
+		
+		private List<String> roles;
 
 		public User getLoggedUser() {
 			return user;
@@ -22,6 +26,10 @@ import org.springframework.web.context.WebApplicationContext;
 
 		public boolean isLoggedUser() {
 			return this.user != null;
+		}
+		
+		public boolean isUSerInRole(String str) {
+			return this.roles.contains(str);
 		}
 
 }
