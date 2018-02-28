@@ -23,27 +23,46 @@ public class User {
 	private String name;
 	private String email;
 	private String passwordHash;
-	private String addres;
+	private String address;
 	private long telephone;
+	private String UserName;
+	
 	
 	@OneToMany
 	private List<Order> orders= new ArrayList<>();
 	
 	@ElementCollection(fetch = FetchType.EAGER)
 	 private List<String> roles;
+
+	private String city;
+
+	private String PC;
+
+	
 	
 	protected User() {}
 
-	public User(String name, String email, String passwordHash, String addres, long telephone, List<Order> orders,
+	public User(String name, String email, String passwordHash, String address, long telephone, List<Order> orders,
 			List<String> roles) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.passwordHash = passwordHash;
-		this.addres = addres;
+		this.address = address;
 		this.telephone = telephone;
 		this.orders = orders;
 		this.roles = roles;
+	}
+	
+	public User(String name, String mobile, String email, String UserName, String password, String city, String address, String PC ) {
+		this.name=name;
+		this.telephone=(long)Long.parseLong(mobile);
+		this.email=email;
+		this.UserName=UserName;
+		this.passwordHash=password;
+		this.city=city;
+		this.address=address;
+		this.PC=PC;		
 	}
 
 	public long getId() {
@@ -78,12 +97,12 @@ public class User {
 		this.passwordHash = passwordHash;
 	}
 
-	public String getAddres() {
-		return addres;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAddres(String addres) {
-		this.addres = addres;
+	public void setAddres(String address) {
+		this.address = address;
 	}
 
 	public long getTelephone() {

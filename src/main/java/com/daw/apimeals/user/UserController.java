@@ -2,6 +2,9 @@ package com.daw.apimeals.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.daw.apimeals.menu.MenuRepository;
 
@@ -10,5 +13,41 @@ public class UserController {
 	
 	@Autowired 
 	private UserRepository uRepository;
+	
+	@Autowired
+	private UserComponent userComponent;
+	
+	@RequestMapping("/user")
+	public String user(Model model) {
+		return "user";
+	}
+	
+	@RequestMapping("/register")
+	public String register(Model model) {
+		return "register";
+	}
+	
+	@RequestMapping("addUser")
+	public String addUser(@RequestParam String name, @RequestParam String mobile,@RequestParam String email,@RequestParam String UserName,
+			@RequestParam String password,@RequestParam String city,@RequestParam String address,@RequestParam String PC) {
+		User user = new User(name, mobile, email, UserName, password, city, address, PC);
+		uRepository.save(user);
+		userComponent.setLoggedUser(user);
+		return "/user";
+		
+	}
+	
+	
+	public void loadUser(Model model){
+		model.addAttribute("loggedUser",userComponent.getLoggedUser());
+		if(userComponent.isLoggedUser()){
+			User currentUser = uRepository.findOne(userComponent.getLoggedUser().getId());
+			model.addAttribute("currentUser", userComponent.getLoggedUser());
+		}
+		
+		
+
+		
+	}
 
 }

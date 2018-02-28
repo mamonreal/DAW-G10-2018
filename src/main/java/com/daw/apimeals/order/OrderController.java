@@ -17,7 +17,7 @@ public class OrderController {
 	@Autowired 
 	private OrderRepository oRepository;
 	
-	@RequestMapping("/order")
+@RequestMapping("/order")
 	public String order(Model model) {
 		
 		List<Order> orders = new UserComponent().getLoggedUser().getOrders();
@@ -25,6 +25,7 @@ public class OrderController {
 		model.addAttribute("orders", orders);
 		
 		return "order";
+
 	}
 }
 
