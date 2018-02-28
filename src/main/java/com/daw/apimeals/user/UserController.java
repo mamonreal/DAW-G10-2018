@@ -68,11 +68,7 @@ public class UserController extends MainService {
 		if(userComponent.isLoggedUser()){
 			User currentUser = uRepository.findOne(userComponent.getLoggedUser().getId());
 			model.addAttribute("currentUser", userComponent.getLoggedUser());
-		}
-		
-		
-
-		
+		}		
 	}
 
 }
