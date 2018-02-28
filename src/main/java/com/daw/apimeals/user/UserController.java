@@ -4,14 +4,12 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner.Mode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.daw.apimeals.menu.MenuRepository;
 import com.daw.apimeals.service.MainService;
 
 @Controller
@@ -27,7 +25,6 @@ public class UserController extends MainService {
 	public void init() {
 		User jorge= new User("Jorge","674123456", "jorge.g@hotmail.com", "theyorch", "pass","Mostoles","calle velazquez yo soy guapa","27854","ROLE_USER");
 		uRepository.save(jorge);
-		
 	}
 	
 	@RequestMapping("/user")
