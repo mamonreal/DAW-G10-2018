@@ -1,6 +1,7 @@
 package com.daw.apimeals.user;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
@@ -25,7 +26,9 @@ public class User {
 	private String passwordHash;
 	private String address;
 	private long telephone;
-	private String UserName;
+	private String userName;
+	private String city;
+	private String PC;
 	
 	
 	@OneToMany
@@ -34,16 +37,14 @@ public class User {
 	@ElementCollection(fetch = FetchType.EAGER)
 	 private List<String> roles;
 
-	private String city;
-
-	private String PC;
+	
 
 	
 	
 	protected User() {}
 
 	public User(String name, String email, String passwordHash, String address, long telephone, List<Order> orders,
-			List<String> roles) {
+			String... roles) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -51,18 +52,19 @@ public class User {
 		this.address = address;
 		this.telephone = telephone;
 		this.orders = orders;
-		this.roles = roles;
+		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 	
-	public User(String name, String mobile, String email, String UserName, String password, String city, String address, String PC ) {
+	public User(String name, String mobile, String email, String userName, String password, String city, String address, String PC, String...roles ) {
 		this.name=name;
 		this.telephone=(long)Long.parseLong(mobile);
 		this.email=email;
-		this.UserName=UserName;
+		this.userName=userName;
 		this.passwordHash=password;
 		this.city=city;
 		this.address=address;
-		this.PC=PC;		
+		this.PC=PC;	
+		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 
 	public long getId() {
@@ -130,11 +132,11 @@ public class User {
 	}
 
 	public String getUserName() {
-		return UserName;
+		return userName;
 	}
 
 	public void setUserName(String userName) {
-		UserName = userName;
+		userName = userName;
 	}
 
 	public String getCity() {

@@ -18,8 +18,10 @@ import org.springframework.ui.Model;
 
 @Controller
 public class LoginController {
+	@Autowired
+	UserComponent userComponent;
 	
-	@RequestMapping(value={"/login"})
+	/*@RequestMapping(value={"/login"})
 	public String loginController(Model model, HttpServletRequest request){
 		model.addAttribute("loginerror",false);
 		return "login";
@@ -29,17 +31,30 @@ public class LoginController {
 	public String loginerrorController(Model model, HttpServletRequest request){
 		model.addAttribute("loginerror",true);
 		return "loginerror";
-	}
+	}*/
     @RequestMapping("/afterLog")
     public String home(Model model, HttpServletRequest request) {
     	
-    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
     	
-    	return "afterLog";
+    	 Boolean b = userComponent.isLoggedUser();
+         model.addAttribute("logged", b);
+         
+ 		if (b) {
+ 			User user = userComponent.getLoggedUser();
+ 			
+ 			model.addAttribute("name", user.getName());
+ 			model.addAttribute("username", user.getUserName());
+ 			model.addAttribute("phone", user.getTelephone());
+ 			model.addAttribute("address", user.getAddress());
+ 			model.addAttribute("city", user.getCity());
+ 			model.addAttribute("cp", user.getPC());
+ 		}
+    	
+    	return "user";
     }
-    @RequestMapping("/admin")
+    /*@RequestMapping("/admin")
     public String admin() {
     	return "admin";
-    }
+    }*/
 }
 
