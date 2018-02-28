@@ -3,15 +3,20 @@ package com.daw.apimeals.user;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
+import com.daw.apimeals.cart.Cart;
 import com.daw.apimeals.order.Order;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class User {
@@ -33,6 +38,10 @@ public class User {
 	
 	@ElementCollection(fetch = FetchType.EAGER)
 	 private List<String> roles;
+	
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "cartId")
+	private Cart cart;
 
 	private String city;
 
@@ -156,5 +165,15 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+	
+	
 	
 }
