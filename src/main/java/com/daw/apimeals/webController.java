@@ -12,8 +12,6 @@ public class webController {
 			return "index";
 	}
 	
-
-	
 }
 
 

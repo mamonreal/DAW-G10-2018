@@ -174,6 +174,11 @@
                             <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
                                     data-summary="summary 1" data-price="{{price}}" 
                                     data-quantity="1" data-image="{{path}}">+</button>
+                            <div id="info">
+		                        {{#admin}}
+		                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+		                        {{/admin}}     
+                        	</div>     
 						</div>
 						{{/entrees}}
 					</div>
@@ -203,6 +208,11 @@
                             <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
                                     data-summary="summary 1" data-price="{{price}}"
                                     data-quantity="1" data-image="{{path}}">+</button>
+                            <div id="info">
+		                        {{#admin}}
+		                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+		                        {{/admin}}     
+                        	</div>    
 						</div>
 						{{/first}}
 					</div>
@@ -232,6 +242,11 @@
                             <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
                             data-summary="summary 1" data-price="{{price}}"
                             data-quantity="1" data-image="{{path}}">+</button>
+                            <div id="info">
+		                        {{#admin}}
+		                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+		                        {{/admin}}     
+                        	</div>    
 						</div>
 						{{/second}}
 					</div>
@@ -260,7 +275,11 @@
                             <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
                             data-summary="summary 1" data-price="{{price}}"
                             data-quantity="1" data-image="{{path}}">+</button>
-
+							<div id="info">
+		                        {{#admin}}
+		                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+		                        {{/admin}}     
+                        	</div>    
 						</div>
 						{{/desserts}}
 					</div>
@@ -288,7 +307,11 @@
                             <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
                             data-summary="summary 1" data-price="{{price}}"
                             data-quantity="1" data-image="{{path}}">+</button>
-
+                            <div id="info">
+		                        {{#admin}}
+		                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+		                        {{/admin}}     
+                        	</div>    
 						</div>
 						{{/drinks}}
 					</div>
@@ -527,6 +550,7 @@
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
     <script src="js/initCart.js"></script>
+    <script src="js/plates.js"></script>
 
 </body>
 </html>
