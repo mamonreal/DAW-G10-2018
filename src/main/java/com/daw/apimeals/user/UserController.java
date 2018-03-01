@@ -23,8 +23,7 @@ public class UserController extends MainService {
 	
 	@PostConstruct
 	public void init() {
-		User jorge= new User("Jorge","674123456", "jorge.g@hotmail.com", "theyorch", "pass","Mostoles","calle velazquez yo soy guapa","27854","ROLE_USER");
-		uRepository.save(jorge);
+		uRepository.save(new User("name", "6475859", "email","UserName", "pass", "city", "address", "PC", "ROLE_USER" ));
 	}
 	
 	@RequestMapping("/user")
@@ -62,6 +61,17 @@ public class UserController extends MainService {
 		
 	}
 	
-			
+	
+	public void loadUser(Model model){
+		model.addAttribute("loggedUser",userComponent.getLoggedUser());
+		if(userComponent.isLoggedUser()){
+			User currentUser = uRepository.findOne(userComponent.getLoggedUser().getId());
+			model.addAttribute("currentUser", userComponent.getLoggedUser());
+		}
+		
+		
+
+		
+	}
 
 }
