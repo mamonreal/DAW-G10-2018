@@ -24,6 +24,7 @@ public class UserController extends MainService {
 	@PostConstruct
 	public void init() {
 		uRepository.save(new User("jorge", "6475859", "j.gamero@gmailcom","theyorch11", "pass", "city", "address", "PC", "ROLE_USER" ));
+		uRepository.save(new User("jorge", "6475859", "j.gamero@gmailcom","theyorch11", "pass", "city", "address", "PC", "ROLE_ADMIN","ROLE_USER"));
 	}
 	
 	@RequestMapping("/user")

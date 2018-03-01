@@ -38,7 +38,6 @@ import com.daw.apimeals.user.UserRepository;
 			if (user == null) {
 				throw new BadCredentialsException("User not found");
 			}
-
 			if (!new BCryptPasswordEncoder().matches(password, user.getPasswordHash())) {
 
 				throw new BadCredentialsException("Wrong password");
@@ -51,7 +50,7 @@ import com.daw.apimeals.user.UserRepository;
 					roles.add(new SimpleGrantedAuthority(role));
 				}
 
-				return new UsernamePasswordAuthenticationToken(username, password, roles);
+				return new UsernamePasswordAuthenticationToken(user.getUserName(), password, roles);
 			}
 		}
 
