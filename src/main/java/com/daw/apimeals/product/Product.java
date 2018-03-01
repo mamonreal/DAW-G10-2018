@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import com.daw.apimeals.cart.Cart;
 import com.daw.apimeals.menu.Menu;
 
 @Entity
@@ -24,6 +26,17 @@ public class Product{
 	
 	@ManyToOne
 	private Menu menu;
+	
+	@ManyToOne
+	private Cart cart;
+
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
 
 	protected Product() {}
 	
