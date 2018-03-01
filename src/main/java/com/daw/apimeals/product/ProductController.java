@@ -1,11 +1,18 @@
 package com.daw.apimeals.product;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.daw.apimeals.menu.Menu;
 
 import java.util.List;
 
@@ -54,7 +61,7 @@ public class ProductController {
 	}
 
     @RequestMapping("/plates")
-    public String plates(Model model) {
+    public String plates(Model model,HttpServletRequest request) {
 
 	    List<Product> entrees = pRepository.findByType("entree");
 	    List<Product> first = pRepository.findByType("first");
@@ -67,9 +74,25 @@ public class ProductController {
         model.addAttribute("second", second);
         model.addAttribute("desserts", desserts);
         model.addAttribute("drinks", drinks);
-	    
-	    
-	    
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+
+	       
 	    return "plates";
     }
+	@RequestMapping("/plates/")
+	public List<Product> getProducts() {
+		return pRepository.findAll();
+	}
+	
+	@RequestMapping(value = "/plates/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Product> deleteProduct(@PathVariable long id) {
+		Product product = pRepository.getOne(id);
+		pRepository.delete(id);
+
+		if (product != null) {
+			return new ResponseEntity<>(product, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 }
