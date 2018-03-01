@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
@@ -24,6 +25,8 @@ public class LoginController {
 	
 	@RequestMapping(value={"/login"})
 	public String loginController(Model model, HttpServletRequest request){
+		CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+		model.addAttribute("token", token.getToken()); 
 		model.addAttribute("loginerror",false);
 		return "login";
 	}
@@ -33,7 +36,7 @@ public class LoginController {
 		model.addAttribute("loginerror",true);
 		return "loginerror";
 	}
-    /*@RequestMapping("/afterLog")
+    @RequestMapping("/afterLog")
     public String home(Model model, HttpServletRequest request) {
     	
     //model.addAttribute("admin", request.isUserInRole("ADMIN"));
@@ -48,7 +51,7 @@ public class LoginController {
     	
     	}
     	return "user";
-    }*/
+    }
     @RequestMapping("/admin")
     public String admin() {
     	return "admin";

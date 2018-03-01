@@ -29,6 +29,8 @@ public class User {
 	private String address;
 	private long telephone;
 	private String UserName;
+	private String city;
+	private String PC;
 	
 	
 	@OneToMany
@@ -37,9 +39,7 @@ public class User {
 	@ElementCollection(fetch = FetchType.EAGER)
 	 private List<String> roles;
 
-	private String city;
-
-	private String PC;
+	
 
 	
 	

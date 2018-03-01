@@ -173,6 +173,10 @@
 										<div>{{city}}</div>
 										<div>{{cp}}</div>									
 									</div>
+									<form method="post" action="/logout">
+ 									<input type="submit" value="Sign Out" />
+ 									<input type="hidden" name="_csrf" " value="{{token}}"/>
+ 									</form>
 									<div>
 										<button name="History"></button>
 										<button name="make-order"></button>
