@@ -79,20 +79,5 @@ public class ProductController {
 	       
 	    return "plates";
     }
-	@RequestMapping("/plates/")
-	public List<Product> getProducts() {
-		return pRepository.findAll();
-	}
-	
-	@RequestMapping(value = "/plates/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Product> deleteProduct(@PathVariable long id) {
-		Product product = pRepository.getOne(id);
-		pRepository.delete(id);
 
-		if (product != null) {
-			return new ResponseEntity<>(product, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-	}
 }

@@ -14,15 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class MenuController {
 	
 	@Autowired 
 	private MenuRepository mRepository;
 	
 	
-	/*Esto creo que hay que borrarlo de aqui y meterlo directamente en el web controller porque
-	 * esto ha pasado a ser un REST Controller y tiene que devolver objetos*/
 	@RequestMapping("/menu")
 	public String menus(Model model, HttpServletRequest request) {
 		
@@ -37,21 +35,5 @@ public class MenuController {
 		
 		return "menu";
 	}
-	
-	@RequestMapping("/menu/")
-	public List<Menu> getMenus() {
-		return mRepository.findAll();
-	}
-	
-	@RequestMapping(value = "/menu/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Menu> deleteMenu(@PathVariable long id) {
-		Menu menu = mRepository.getOne(id);
-		mRepository.delete(id);
 
-		if (menu != null) {
-			return new ResponseEntity<>(menu, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-	}
 }
