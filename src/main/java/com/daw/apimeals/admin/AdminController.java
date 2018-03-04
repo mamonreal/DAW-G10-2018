@@ -1,10 +1,11 @@
 package com.daw.apimeals.admin;
 
-/*import java.util.List;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,8 +26,12 @@ public class AdminController {
 	@Autowired 
 	private ProductRepository pRepository;
 	
+	@RequestMapping("/admin/")
+	public String admin(Model model) {
+		return "admin";
+	}
 	
-	@RequestMapping("/menu")
+	@RequestMapping("/menu/")
 	public List<Menu> getMenus() {
 		return mRepository.findAll();
 	}
@@ -59,15 +64,17 @@ public class AdminController {
 		}
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value="/menu",method = RequestMethod.POST)
 	public ResponseEntity<Menu> addMenu(@RequestBody Menu menu) {
 		Menu newMenu = mRepository.save(menu);
 		return new ResponseEntity<>(newMenu,HttpStatus.CREATED);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value="/plates",method = RequestMethod.POST)
 	public ResponseEntity<Product> addProduct(@RequestBody Product product) {
 		Product newProduct = pRepository.save(product);
 		return new ResponseEntity<>(newProduct,HttpStatus.CREATED);
 	}
-}*/
+	
+}
+
