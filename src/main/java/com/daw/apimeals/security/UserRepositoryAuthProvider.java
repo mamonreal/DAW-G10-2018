@@ -33,12 +33,11 @@ import com.daw.apimeals.user.UserRepository;
 			String username = authentication.getName();
 			String password = (String) authentication.getCredentials();
 
-			User user = userRepository.findByUserName(username);
+			User user = userRepository.findByName(username);
 
 			if (user == null) {
 				throw new BadCredentialsException("User not found");
 			}
-
 			if (!new BCryptPasswordEncoder().matches(password, user.getPasswordHash())) {
 
 				throw new BadCredentialsException("Wrong password");
@@ -51,7 +50,7 @@ import com.daw.apimeals.user.UserRepository;
 					roles.add(new SimpleGrantedAuthority(role));
 				}
 
-				return new UsernamePasswordAuthenticationToken(username, password, roles);
+				return new UsernamePasswordAuthenticationToken(user.getUserName(), password, roles);
 			}
 		}
 

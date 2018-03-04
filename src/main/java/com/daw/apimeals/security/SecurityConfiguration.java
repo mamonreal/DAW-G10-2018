@@ -18,7 +18,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
     
 	// Public pages
-    http.authorizeRequests().antMatchers("/").permitAll();
+	http.authorizeRequests().antMatchers("/").permitAll();
     http.authorizeRequests().antMatchers("/login").permitAll();
     http.authorizeRequests().antMatchers("/loginerror").permitAll();
     http.authorizeRequests().antMatchers("/logout").permitAll();
@@ -26,10 +26,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     // Private pages
     http.authorizeRequests().antMatchers("/afterLog").hasAnyRole("USER");
 	http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");	
+	//http.authorizeRequests().anyRequest().permitAll();
 	
     // Login form
     http.formLogin().loginPage("/user");
-    http.formLogin().usernameParameter("UserName");
+    http.formLogin().usernameParameter("user");
     http.formLogin().passwordParameter("password");
     http.formLogin().defaultSuccessUrl("/user");
     http.formLogin().failureUrl("/loginerror");

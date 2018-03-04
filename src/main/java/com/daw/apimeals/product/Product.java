@@ -30,6 +30,14 @@ public class Product{
 	@ManyToOne
 	private Cart cart;
 
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+
 	protected Product() {}
 	
 	public Product (String name, String description, String type, String category, Integer kc, String path, long price){
@@ -113,14 +121,6 @@ public class Product{
 
 	public void setPath(String path) {
 		this.path = path;
-	}
-
-	public Cart getCart() {
-		return cart;
-	}
-
-	public void setCart(Cart cart) {
-		this.cart = cart;
 	}
 	
 	

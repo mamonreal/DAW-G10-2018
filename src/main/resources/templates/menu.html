@@ -164,6 +164,11 @@
                         <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
                                     data-summary="summary 1" data-price="{{price}}" 
                                     data-quantity="1" data-image="{{path}}">Añadir</button>
+                        <div id="info">
+                        {{#admin}}
+                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+                        {{/admin}}     
+                        </div>       
 					</div>
 					{{/breakfast}}
 				</div>
@@ -201,6 +206,11 @@
                         <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
                                     data-summary="summary 1" data-price="{{price}}" 
                                     data-quantity="1" data-image="{{path}}">Añadir</button>
+                        <div id="info">
+                        {{#admin}}
+                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+                        {{/admin}}  
+                        </div>
 					</div>
 					{{/lunch}}
 				</div>
@@ -236,6 +246,12 @@
                         <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
                                     data-summary="summary 1" data-price="{{price}}" 
                                     data-quantity="1" data-image="{{path}}">Añadir</button>
+                                                <div id="info">
+                        <div id="info">
+                        {{#admin}}
+                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+                        {{/admin}}  
+                        </div>
 					</div>
 					{{/dinner}}
 				</div>
@@ -451,6 +467,7 @@
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
     <script src="js/initCart.js"></script>
+    <script src="configMenu.js"></script>
 
 
 </body>

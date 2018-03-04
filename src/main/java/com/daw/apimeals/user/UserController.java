@@ -23,8 +23,8 @@ public class UserController extends MainService {
 	
 	@PostConstruct
 	public void init() {
-		User jorge= new User("Jorge","674123456", "jorge.g@hotmail.com", "theyorch", "pass","Mostoles","calle velazquez yo soy guapa","27854","ROLE_USER");
-		uRepository.save(jorge);
+		uRepository.save(new User("jorge", "6475859", "j.gamero@gmailcom","theyorch11", "pass", "city", "address", "PC", "ROLE_USER" ));
+		uRepository.save(new User("jorge", "6475859", "j.gamero@gmailcom","theyorch11", "pass", "city", "address", "PC", "ROLE_ADMIN","ROLE_USER"));
 	}
 	
 	@RequestMapping("/user")
@@ -62,12 +62,24 @@ public class UserController extends MainService {
 		
 	}
 	
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 4a4346c97097f26938ea68484cd6ab1df878635d
 	public void loadUser(Model model){
 		model.addAttribute("loggedUser",userComponent.getLoggedUser());
 		if(userComponent.isLoggedUser()){
 			User currentUser = uRepository.findOne(userComponent.getLoggedUser().getId());
 			model.addAttribute("currentUser", userComponent.getLoggedUser());
+<<<<<<< HEAD
 		}		
+=======
+		}
+		
+		
+
+		
+>>>>>>> 4a4346c97097f26938ea68484cd6ab1df878635d
 	}
 
 }

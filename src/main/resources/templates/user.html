@@ -173,16 +173,20 @@
 										<div>{{city}}</div>
 										<div>{{cp}}</div>									
 									</div>
+									<form method="post" action="/logout">
+ 									<input type="submit" value="Sign Out" />
+ 									<input type="hidden" name="_csrf" " value="{{token}}"/>
+ 									</form>
 									<div>
 										<button name="History"></button>
 										<button name="make-order"></button>
 									</div>
                                     {{/logged}} {{^logged}}
-                                    <form action="/user" method="post">
-                                        <input type="text" placeholder="&#128272; Usuario" name="UserName">
+                                    <form class="wrap-form-reservation size22 m-l-r-auto" action="/user" method="post">
+                                        <input type="text" placeholder="&#128272; Usuario" name="user">
                                         <input type="password" placeholder="&#128272; Contraseña" name="password">
                                         <input type="submit" value="Enviar">
-                                        <a href="/register" class="btn3 flex-c-m size18 txt11 trans-0-4 m-10">
+                                        <a href="register" class="btn3 flex-c-m size18 txt11 trans-0-4 m-10">
                                             Registrarse
                                         </a>
                                     </form>
