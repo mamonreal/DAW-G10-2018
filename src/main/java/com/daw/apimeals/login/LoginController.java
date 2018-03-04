@@ -25,8 +25,8 @@ public class LoginController {
 	
 	@RequestMapping(value={"/login"})
 	public String loginController(Model model, HttpServletRequest request){
-		CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
-		model.addAttribute("token", token.getToken()); 
+		//CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+		//model.addAttribute("token", token.getToken()); 
 		model.addAttribute("loginerror",false);
 		return "login";
 	}
@@ -39,7 +39,7 @@ public class LoginController {
     @RequestMapping("/afterLog")
     public String home(Model model, HttpServletRequest request) {
     	
-    //model.addAttribute("admin", request.isUserInRole("ADMIN"));
+    model.addAttribute("admin", request.isUserInRole("ADMIN"));
    	model.addAttribute("logged", userComponent.isLoggedUser());
     	if (userComponent.isLoggedUser()) {
     	 	model.addAttribute("name", userComponent.getLoggedUser().getName());

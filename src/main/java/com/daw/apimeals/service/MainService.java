@@ -27,7 +27,6 @@ public class MainService {
 	private MenuRepository mRepository;
 	
 	public void session (Model model, HttpServletRequest request, RedirectAttributes redirectAttributes) {
-		int i = 0;
 		if (request.isUserInRole("ROLE_USER") || request.isUserInRole("ROLE_ADMIN")){
 			User loggedUser = uRepository.findByName(request.getUserPrincipal().getName());
 			if(request.isUserInRole("ROLE_USER")) {

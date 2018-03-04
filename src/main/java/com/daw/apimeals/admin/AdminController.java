@@ -1,6 +1,6 @@
 package com.daw.apimeals.admin;
 
-import java.util.List;
+/*import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +25,8 @@ public class AdminController {
 	@Autowired 
 	private ProductRepository pRepository;
 	
-	@RequestMapping("/menu/")
+	
+	@RequestMapping("/menu")
 	public List<Menu> getMenus() {
 		return mRepository.findAll();
 	}
@@ -41,7 +42,7 @@ public class AdminController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	@RequestMapping("/plates/")
+	@RequestMapping("/plates")
 	public List<Product> getProducts() {
 		return pRepository.findAll();
 	}
@@ -69,4 +70,4 @@ public class AdminController {
 		Product newProduct = pRepository.save(product);
 		return new ResponseEntity<>(newProduct,HttpStatus.CREATED);
 	}
-}
+}*/

@@ -23,8 +23,8 @@ public class UserController extends MainService {
 	
 	@PostConstruct
 	public void init() {
-		uRepository.save(new User("jorge", "6475859", "j.gamero@gmailcom","theyorch11", "pass", "city", "address", "PC", "ROLE_USER" ));
-		uRepository.save(new User("jorge", "6475859", "j.gamero@gmailcom","theyorch11", "pass", "city", "address", "PC", "ROLE_ADMIN","ROLE_USER"));
+		uRepository.save(new User("miguel", "647585913", "mamonreal@gmailcom","mamonreal", "paco", "city", "address", "PC", "ROLE_USER" ));
+		uRepository.save(new User("jorge", "647585912", "j.gamero@gmailcom","theyorch11", "pass", "city", "address", "PC", "ROLE_ADMIN","ROLE_USER"));
 	}
 	
 	@RequestMapping("/user")
@@ -41,6 +41,7 @@ public class UserController extends MainService {
 			model.addAttribute("address", user.getAddress());
 			model.addAttribute("city", user.getCity());
 			model.addAttribute("cp", user.getPC());
+			model.addAttribute("role", user.getRoles());
 		}
 		
         return "user";
