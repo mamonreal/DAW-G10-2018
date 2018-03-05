@@ -137,8 +137,8 @@ public class User {
 		return UserName;
 	}
 
-	public void setUserName(String userName) {
-		UserName = userName;
+	public void setUserName(String UserName) {
+		UserName = UserName;
 	}
 
 	public String getCity() {

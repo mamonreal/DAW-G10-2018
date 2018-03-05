@@ -30,10 +30,10 @@ import com.daw.apimeals.user.UserRepository;
 		@Override
 		public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
-			String username = authentication.getName();
+			String name = authentication.getName();
 			String password = (String) authentication.getCredentials();
 
-			User user = userRepository.findByName(username);
+			User user = userRepository.findByName(name);
 
 			if (user == null) {
 				throw new BadCredentialsException("User not found");
