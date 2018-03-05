@@ -26,4 +26,3 @@ dist/
 nbdist/
 .nb-gradle/
 
-src/main/java/com/daw/apimeals/webController.java

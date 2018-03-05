@@ -64,17 +64,13 @@ public class UserController extends MainService {
 		
 	}
 	
-	
 	public void loadUser(Model model){
 		model.addAttribute("loggedUser",userComponent.getLoggedUser());
 		if(userComponent.isLoggedUser()){
 			User currentUser = uRepository.findOne(userComponent.getLoggedUser().getId());
 			model.addAttribute("currentUser", userComponent.getLoggedUser());
-		}
-		
-		
 
-		
+		}
 	}
 
 }
