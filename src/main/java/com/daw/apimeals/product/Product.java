@@ -20,7 +20,7 @@ public class Product{
 	private String description;
 	private String type;
 	private String category;
-	private Integer kc;
+	private String kc;
 	private String path;
 	private long price;
 	
@@ -40,7 +40,7 @@ public class Product{
 
 	protected Product() {}
 	
-	public Product (String name, String description, String type, String category, Integer kc, String path, long price){
+	public Product (String name, String description, String type, String category, String kc, String path, long price){
 		this.name=name;
 		this.description=description;
 		this.type=type;
@@ -83,11 +83,11 @@ public class Product{
 		this.category = category;
 	}
 
-	public Integer getKc() {
+	public String getKc() {
 		return kc;
 	}
 
-	public void setKc(Integer kc) {
+	public void setKc(String kc) {
 		this.kc = kc;
 	}
 

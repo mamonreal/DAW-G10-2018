@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +18,7 @@ import com.daw.apimeals.menu.MenuRepository;
 import com.daw.apimeals.product.Product;
 import com.daw.apimeals.product.ProductRepository;
 
-/*@RestController
+@Controller
 public class AdminController {
 	
 	@Autowired 
@@ -47,10 +48,10 @@ public class AdminController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	@RequestMapping("/plates")
+	/*@RequestMapping("/plates")
 	public List<Product> getProducts() {
 		return pRepository.findAll();
-	}
+	}*/
 	
 	@RequestMapping(value = "/plates/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Product> deleteProduct(@PathVariable long id) {
@@ -76,5 +77,5 @@ public class AdminController {
 		return new ResponseEntity<>(newProduct,HttpStatus.CREATED);
 	}
 	
-}*/
+}
 
