@@ -63,24 +63,13 @@ public class UserController extends MainService {
 		
 	}
 	
-<<<<<<< HEAD
-=======
-	
->>>>>>> 4a4346c97097f26938ea68484cd6ab1df878635d
 	public void loadUser(Model model){
 		model.addAttribute("loggedUser",userComponent.getLoggedUser());
 		if(userComponent.isLoggedUser()){
 			User currentUser = uRepository.findOne(userComponent.getLoggedUser().getId());
 			model.addAttribute("currentUser", userComponent.getLoggedUser());
-<<<<<<< HEAD
-		}		
-=======
-		}
-		
-		
 
-		
->>>>>>> 4a4346c97097f26938ea68484cd6ab1df878635d
+		}
 	}
 
 }
