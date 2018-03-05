@@ -35,3 +35,10 @@
 Home page
 
 ![Image of Home](https://github.com/mamonreal/DAW-G10-2018/blob/master/imagenesReadme/Captura%20de%20pantalla%202018-02-05%2012.27.59.png)
+
+## Fase 3.
+
+###Entorno de desarrollo. 
+
+El entorno de desarrollo para poder compilar y ejecutar la aplicación puede ser cualquier editor de código pero esto pueda dar lugar a multiples errores por lo que se recomienda usar la aplicación STS(source-tool-suite -> https://spring.io/tools/sts/all). Para que la aplicación funcione correctamente sin errores en tiempo de ejecución es necesario el uso de una base de datos MySQL y el entorno MySQL Workbench.
+
