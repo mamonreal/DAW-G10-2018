@@ -67,7 +67,7 @@
 
 								<li><a href="menu">Menu</a></li>
 
-								<li><a href="plates">Platos</a></li>
+								<li><a href="products">Platos</a></li>
 
 								<li><a href="contact">Contacto</a></li>
 
@@ -165,7 +165,7 @@
                                     data-quantity="1" data-image="{{path}}">Añadir</button>
                         <div id="info">
                         {{#admin}}
-                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
                         {{/admin}}     
                         </div>       
 					</div>
@@ -207,7 +207,7 @@
                                     data-quantity="1" data-image="{{path}}">Añadir</button>
                         <div id="info">
                         {{#admin}}
-                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
                         {{/admin}}  
                         </div>
 					</div>
@@ -245,10 +245,9 @@
                         <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
                                     data-summary="summary 1" data-price="{{price}}" 
                                     data-quantity="1" data-image="{{path}}">Añadir</button>
-                                                <div id="info">
                         <div id="info">
                         {{#admin}}
-                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
                         {{/admin}}  
                         </div>
 					</div>

@@ -63,7 +63,7 @@
 								</li>
 
 								<li>
-									<a href="plates">Platos</a>
+									<a href="products">Platos</a>
 								</li>
 
 								<li>
@@ -173,7 +173,7 @@
                                     data-quantity="1" data-image="{{path}}">+</button>
                             <div id="info">
 		                        {{#admin}}
-		                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+		                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
 		                        {{/admin}}     
                         	</div>     
 						</div>
@@ -207,7 +207,7 @@
                                     data-quantity="1" data-image="{{path}}">+</button>
                             <div id="info">
 		                        {{#admin}}
-		                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+		                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
 		                        {{/admin}}     
                         	</div>    
 						</div>
@@ -241,7 +241,7 @@
                             data-quantity="1" data-image="{{path}}">+</button>
                             <div id="info">
 		                        {{#admin}}
-		                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+		                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
 		                        {{/admin}}     
                         	</div>    
 						</div>
@@ -274,7 +274,7 @@
                             data-quantity="1" data-image="{{path}}">+</button>
 							<div id="info">
 		                        {{#admin}}
-		                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+		                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
 		                        {{/admin}}     
                         	</div>    
 						</div>
@@ -306,7 +306,12 @@
                             data-quantity="1" data-image="{{path}}">+</button>
                             <div id="info">
 		                        {{#admin}}
-		                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+<<<<<<< HEAD
+		                        	
+		                        	<button class="btn btn-danger my-cart-btn" >Quitar</button>
+=======
+		                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
+>>>>>>> 9f4e3b73af46d7385881759fcad88daca1503e0c
 		                        {{/admin}}     
                         	</div>    
 						</div>
@@ -316,17 +321,17 @@
 						{{#admin}}
 								<form action="addProduct" method="post">
 									<p>Nombre: </p>
-									<input type='text' name='name'/>
+									<input type='text' name='name'required/>
 									<p>Categoria</p>
-									<input type='text' name='category'/>
+									<input type='text' name='category' required/>
 									<p>Tipo:</p>
-									<input type='text' name='type'/>
+									<input type='text' name='type' required/>
 									<p>Kilocalorias:</p>
-									<input type='text' name='kc'/>
+									<input type='text' name='kc' required/>
 									<p>Precio:</p>
-									<input type='text' name='price'/>
+									<input type='text' name='price' required/>
 									<p>Descripción:</p>
-									<textarea name='description' rows=5 cols=40></textarea>
+									<textarea name='description' rows=5 cols=40 required></textarea>
 									<input type='submit' value='Enviar'/>
 								</form>
 						{{/admin}}
@@ -566,6 +571,7 @@
 	<script src="js/main.js"></script>
     <script src="js/initCart.js"></script>
     <script src="js/plates.js"></script>
+    <script src="js/configPlates.js"></script>
 
 </body>
 </html>
