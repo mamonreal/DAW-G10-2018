@@ -17,7 +17,7 @@ import com.daw.apimeals.menu.MenuRepository;
 import com.daw.apimeals.product.Product;
 import com.daw.apimeals.product.ProductRepository;
 
-/*@RestController
+@RestController
 public class AdminController {
 	
 	@Autowired 
@@ -76,5 +76,5 @@ public class AdminController {
 		return new ResponseEntity<>(newProduct,HttpStatus.CREATED);
 	}
 	
-}*/
+}
 
