@@ -42,3 +42,17 @@ Home page
 
 El entorno de desarrollo para poder compilar y ejecutar la aplicación puede ser cualquier editor de código pero esto pueda dar lugar a multiples errores por lo que se recomienda usar la aplicación STS(source-tool-suite -> https://spring.io/tools/sts/all). Para que la aplicación funcione correctamente sin errores en tiempo de ejecución es necesario el uso de una base de datos MySQL y el entorno MySQL Workbench.
 
+### Diagrama de clases.
+
+![Img](https://github.com/mamonreal/DAW-G10-2018/tree/master/src/main/resources/static/images/readme/diagramaEntero.png)
+
+En este diagrama de clases se aprecia las dependencias,asociaciones,composiciones,etc.. de las que dispone nuestra aplicación web. 
+
+![Img](https://github.com/mamonreal/DAW-G10-2018/tree/master/src/main/resources/static/images/readme/templates.png)
+
+Diagrama de relación  donde se muestra la relación de los controladores con sus archivos HTML. 
+
+![Img](https://github.com/mamonreal/DAW-G10-2018/tree/master/src/main/resources/static/images/readme/basesdedatos.png)
+
+En este diagrama el primer atributo puesto es la llave primaria de la base de datos. Entre las diferentes tablas se puede apreciar también la relación que hay entre ellas(@OneToMany,@OneToOne..)
+
