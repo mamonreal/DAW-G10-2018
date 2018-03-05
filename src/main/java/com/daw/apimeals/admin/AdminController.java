@@ -18,11 +18,8 @@ import com.daw.apimeals.menu.MenuRepository;
 import com.daw.apimeals.product.Product;
 import com.daw.apimeals.product.ProductRepository;
 
-<<<<<<< HEAD
+
 @Controller
-=======
-@RestController
->>>>>>> 9f4e3b73af46d7385881759fcad88daca1503e0c
 public class AdminController {
 	
 	@Autowired 
