@@ -26,10 +26,6 @@ public class AdminController {
 	@Autowired 
 	private ProductRepository pRepository;
 	
-	@RequestMapping("/admin/")
-	public String admin(Model model) {
-		return "admin";
-	}
 	
 	@RequestMapping("/menu/")
 	public List<Menu> getMenus() {
