@@ -1,13 +1,16 @@
 package com.daw.apimeals.product;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-import com.daw.apimeals.cart.Cart;
 import com.daw.apimeals.menu.Menu;
+import com.daw.apimeals.shoppingCart.ShoppingCart;
 
 @Entity
 public class Product{
@@ -19,27 +22,19 @@ public class Product{
 	private String description;
 	private String type;
 	private String category;
-	private Integer kc;
+	private String kc;
 	private String path;
 	private long price;
 	
 	@ManyToOne
 	private Menu menu;
 	
-	@ManyToOne
-	private Cart cart;
-
-	public Cart getCart() {
-		return cart;
-	}
-
-	public void setCart(Cart cart) {
-		this.cart = cart;
-	}
+	@ManyToMany(mappedBy = "products")
+	private List<ShoppingCart> cart;
 
 	protected Product() {}
 	
-	public Product (String name, String description, String type, String category, Integer kc, String path, long price){
+	public Product (String name, String description, String type, String category, String kc, String path, long price){
 		this.name=name;
 		this.description=description;
 		this.type=type;
@@ -82,11 +77,11 @@ public class Product{
 		this.category = category;
 	}
 
-	public Integer getKc() {
+	public String getKc() {
 		return kc;
 	}
 
-	public void setKc(Integer kc) {
+	public void setKc(String kc) {
 		this.kc = kc;
 	}
 

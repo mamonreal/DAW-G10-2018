@@ -7,9 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import com.daw.apimeals.product.Product;
+import com.daw.apimeals.shoppingCart.ShoppingCart;
 
 
 @Entity
@@ -28,6 +30,9 @@ public class Menu {
 	
 	@OneToMany(mappedBy="menu")
 	private List<Product> products;
+	
+	@ManyToMany
+	private List<ShoppingCart> cart;
 	
 	protected Menu() {}
 	

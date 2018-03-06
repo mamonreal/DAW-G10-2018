@@ -72,6 +72,8 @@
 								<li><a href="contact">Contacto</a></li>
 
 								<li><a href="user">Usuario</a></li>
+								
+								<li><a href="shoppingCart">Carrito</a></li>
 
                                 <li>
                                      <span class="glyphicon glyphicon-shopping-cart my-cart-icon  fa fa-shopping-cart"><span class="badge badge-notify my-cart-badge">Carrito</span></span>
@@ -127,139 +129,42 @@
 
 
 	<!-- Title Page -->
-	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15"
-		style="background-image: url(images/menuMainPicTitlePage01.jpeg);">
-		<h2 class="tit6 t-center">Menu ApiMeals</h2>
-	</section>
-
-
-	<!-- Main menu -->
-	<br>
-	<br>
-	<!-- Desayuno -->
-	<section class="section-desayuno bgwhite">
-		<div class="header-desayuno parallax0 parallax100"
-			style="background-image: url(images/custom/Desayuno.jpg)">
-			<div class="bg1-overlay t-center p-t-170 p-b-165">
-				<h2 class="tit4 t-center">Desayuno</h2>
-			</div>
-		</div>
-
-		<div class="container">
-			<div class="row p-t-108 p-b-70">
-				<div class="col-md-8 col-lg-6 m-l-r-auto">
-					<!-- menu-template -->
-					{{#breakfast}}
-					<div class="blo3 flex-w flex-col-l-sm m-b-30">
-						<div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
-							<a href="#"><img src="{{path}}" alt="IMG-MENU"></a>
-						</div>
-
-						<div class="text-blo3 size21 flex-col-l-m">
-							<a href="#" class="txt21 m-b-3"> {{name}} </a> <span
-								class="txt23"> {{description}} </span> <span
-								class="txt22 m-t-20"> {{price}} </span>
-						</div>
-                        <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
-                                    data-summary="summary 1" data-price="{{price}}" 
-                                    data-quantity="1" data-image="{{path}}">Añadir</button>
-                        <div id="info">
-                        {{#admin}}
-                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
-                        {{/admin}}     
-                        </div>       
-					</div>
-					{{/breakfast}}
-				</div>
-			</div>
-		</div>
-
-	</section>
-
-
-	<!-- Comida -->
-	<section class="section-lunch bgwhite">
-		<div class="header-lunch parallax0 parallax100"
-			style="background-image: url(images/custom/Comida.jpg);">
-			<div class="bg1-overlay t-center p-t-170 p-b-165">
-				<h2 class="tit4 t-center">Comida</h2>
-			</div>
-		</div>
-
-		<div class="container">
-			<div class="row p-t-108 p-b-70">
-				<div class="col-md-8 col-lg-6 m-l-r-auto">
-
-					<!-- menu-template -->
-					{{#lunch}}
-					<div class="blo3 flex-w flex-col-l-sm m-b-30">
-						<div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
-							<a href="#"><img src="{{path}}" alt="IMG-MENU"></a>
-						</div>
-
-						<div class="text-blo3 size21 flex-col-l-m">
-							<a href="#" class="txt21 m-b-3"> {{name}} </a> <span
-								class="txt23"> {{description}} </span> <span
-								class="txt22 m-t-20"> {{price}} </span>
-						</div>
-                        <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
-                                    data-summary="summary 1" data-price="{{price}}" 
-                                    data-quantity="1" data-image="{{path}}">Añadir</button>
-                        <div id="info">
-                        {{#admin}}
-                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
-                        {{/admin}}  
-                        </div>
-					</div>
-					{{/lunch}}
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-	<!-- Dinner -->
-	<section class="section-dinner bgwhite">
-		<div class="header-dinner parallax0 parallax100"
-			style="background-image: url(images/custom/Cena.jpg);">
-			<div class="bg1-overlay t-center p-t-170 p-b-165">
-				<h2 class="tit4 t-center">Cena</h2>
-			</div>
-		</div>
-
-		<div class="container">
-			<div class="row p-t-108 p-b-70">
-				<div class="col-md-8 col-lg-6 m-l-r-auto">
-					<!-- menu-template -->
-					{{#dinner}}
-					<div class="blo3 flex-w flex-col-l-sm m-b-30">
-						<div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
-							<img src="{{menu-image}}" alt="IMG-MENU" onclick="popupImage();">
-						</div>
-
-						<div class="text-blo3 size21 flex-col-l-m">
-							<a href="#" class="txt21 m-b-3"> {{name}} </a> <span
-								class="txt23"> {{description}} </span> <span
-								class="txt22 m-t-20"> {{price}} </span>
-						</div>
-                        <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
-                                    data-summary="summary 1" data-price="{{price}}" 
-                                    data-quantity="1" data-image="{{path}}">Añadir</button>
-                        <div id="info">
-                        {{#admin}}
-                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
-                        {{/admin}}  
-                        </div>
-					</div>
-					{{/dinner}}
-				</div>
-			</div>
-		</div>
-	</section>
 
 
 	<!-- Sign up -->
 	<div class="section-signup bg1-pattern p-t-85 p-b-85">
+		<div class="container">
+			<div class="row">
+				<!-- Plates -->
+				<div class="col-md-10 col-lg-6 p-r-35 p-r-15-lg m-l-r-auto">
+					{{#plates}}
+						<div >{{product.name}}</div>
+						
+						<div class="line-item-mainmenu bg3-pattern"></div>
+						
+						<div class="price-item-mainmenu txt22 mr-3">
+							x{{amount}}
+						</div>
+					{{/plates}}
+				</div>
+				
+				<!-- Menus -->
+				<div class="col-md-10 col-lg-6 p-r-35 p-r-15-lg m-l-r-auto">
+					{{#menus}}
+						<div >{{product.name}}</div>
+						
+						<div class="line-item-mainmenu bg3-pattern"></div>
+						
+						<div class="price-item-mainmenu txt22 mr-3">
+							x{{amount}}
+						</div>
+					{{/menus}}
+				</div>
+			</div>
+		</div>
+
+
+
 		<form class="flex-c-m flex-w flex-col-c-m-lg p-l-5 p-r-5">
 			<span class="txt5 m-10"> Ofertas especiales </span>
 

@@ -63,7 +63,7 @@
 								</li>
 
 								<li>
-									<a href="plates">Platos</a>
+									<a href="products">Platos</a>
 								</li>
 
 								<li>
@@ -168,14 +168,21 @@
 								<img src="{{path}}" class="modal-content">
 								<div>{{name}}</div>
 							</div>
-                            <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
+                            	<button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
                                     data-summary="summary 1" data-price="{{price}}" 
                                     data-quantity="1" data-image="{{path}}">+</button>
-                            <div id="info">
-		                        {{#admin}}
-		                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
-		                        {{/admin}}     
-                        	</div>     
+                            
+                            
+                            
+                            {{#admin}}
+                            <form method="post" action="/deleteProduct/{{id}}"> 
+                            <div id="info" class="flex-w flex-b m-b-3">
+		                        
+		                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
+		                             
+                        	</div> 
+                        	</form>
+                        	{{/admin}}    
 						</div>
 						{{/entrees}}
 					</div>
@@ -205,11 +212,13 @@
                             <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
                                     data-summary="summary 1" data-price="{{price}}"
                                     data-quantity="1" data-image="{{path}}">+</button>
+                            <form method="post" action="/deleteProduct/{{id}}">
                             <div id="info">
 		                        {{#admin}}
-		                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+		                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
 		                        {{/admin}}     
-                        	</div>    
+                        	</div>
+                        	</form>    
 						</div>
 						{{/first}}
 					</div>
@@ -239,11 +248,13 @@
                             <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
                             data-summary="summary 1" data-price="{{price}}"
                             data-quantity="1" data-image="{{path}}">+</button>
+                            <form method="post" action="/deleteProduct/{{id}}">
                             <div id="info">
 		                        {{#admin}}
-		                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+		                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
 		                        {{/admin}}     
-                        	</div>    
+                        	</div>
+                        	</form>    
 						</div>
 						{{/second}}
 					</div>
@@ -272,11 +283,13 @@
                             <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
                             data-summary="summary 1" data-price="{{price}}"
                             data-quantity="1" data-image="{{path}}">+</button>
+                            <form method="post" action="/deleteProduct/{{id}}">
 							<div id="info">
 		                        {{#admin}}
-		                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+		                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
 		                        {{/admin}}     
-                        	</div>    
+                        	</div> 
+                        	</form>   
 						</div>
 						{{/desserts}}
 					</div>
@@ -306,7 +319,9 @@
                             data-quantity="1" data-image="{{path}}">+</button>
                             <div id="info">
 		                        {{#admin}}
-		                        	<button class="btn btn-danger my-cart-btn">Quitar</button>
+
+		                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
+		                        	
 		                        {{/admin}}     
                         	</div>    
 						</div>
@@ -316,17 +331,17 @@
 						{{#admin}}
 								<form action="addProduct" method="post">
 									<p>Nombre: </p>
-									<input type='text' name='name'/>
+									<input type='text' name='name'required/>
 									<p>Categoria</p>
-									<input type='text' name='category'/>
+									<input type='text' name='category' required/>
 									<p>Tipo:</p>
-									<input type='text' name='type'/>
+									<input type='text' name='type' required/>
 									<p>Kilocalorias:</p>
-									<input type='text' name='kc'/>
+									<input type='text' name='kc' required/>
 									<p>Precio:</p>
-									<input type='text' name='price'/>
+									<input type='text' name='price' required/>
 									<p>Descripción:</p>
-									<textarea name='description' rows=5 cols=40></textarea>
+									<textarea name='description' rows=5 cols=40 required></textarea>
 									<input type='submit' value='Enviar'/>
 								</form>
 						{{/admin}}
@@ -566,6 +581,7 @@
 	<script src="js/main.js"></script>
     <script src="js/initCart.js"></script>
     <script src="js/plates.js"></script>
+    <script src="js/configPlates.js"></script>
 
 </body>
 </html>
