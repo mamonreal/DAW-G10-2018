@@ -1,7 +1,6 @@
 package com.daw.apimeals.shoppingCart;
 
-import java.util.Map;
-
+import java.util.List;
 import com.daw.apimeals.product.Product;
 
 public interface ShoppingCartService {
@@ -10,7 +9,9 @@ public interface ShoppingCartService {
 	
 	void removeProduct(Product product);
 	
-	Map<Product, Integer> getProductsInShoppingCart();
+	List<ProductAmount> getProductsInShoppingCart();
+	
+	List<MenuAmount> getMenuInShoppingCart();
 	
 	void checkout();
 	

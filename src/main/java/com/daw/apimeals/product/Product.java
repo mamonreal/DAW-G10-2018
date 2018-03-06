@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-import com.daw.apimeals.cart.Cart;
 import com.daw.apimeals.menu.Menu;
 import com.daw.apimeals.shoppingCart.ShoppingCart;
 

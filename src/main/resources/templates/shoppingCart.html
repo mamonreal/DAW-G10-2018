@@ -133,6 +133,38 @@
 
 	<!-- Sign up -->
 	<div class="section-signup bg1-pattern p-t-85 p-b-85">
+		<div class="container">
+			<div class="row">
+				<!-- Plates -->
+				<div class="col-md-10 col-lg-6 p-r-35 p-r-15-lg m-l-r-auto">
+					{{#plates}}
+						<div >{{product.name}}</div>
+						
+						<div class="line-item-mainmenu bg3-pattern"></div>
+						
+						<div class="price-item-mainmenu txt22 mr-3">
+							x{{amount}}
+						</div>
+					{{/plates}}
+				</div>
+				
+				<!-- Menus -->
+				<div class="col-md-10 col-lg-6 p-r-35 p-r-15-lg m-l-r-auto">
+					{{#menus}}
+						<div >{{product.name}}</div>
+						
+						<div class="line-item-mainmenu bg3-pattern"></div>
+						
+						<div class="price-item-mainmenu txt22 mr-3">
+							x{{amount}}
+						</div>
+					{{/menus}}
+				</div>
+			</div>
+		</div>
+
+
+
 		<form class="flex-c-m flex-w flex-col-c-m-lg p-l-5 p-r-5">
 			<span class="txt5 m-10"> Ofertas especiales </span>
 
