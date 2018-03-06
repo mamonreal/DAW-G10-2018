@@ -14,7 +14,9 @@ import javax.persistence.OneToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.daw.apimeals.order.Order;
+import com.daw.apimeals.shoppingCart.ShoppingCart;
+
+//import com.daw.apimeals.order.Order;
 
 @Entity
 public class User {
@@ -33,27 +35,24 @@ public class User {
 	private String PC;
 	
 	
-	@OneToMany
-	private List<Order> orders= new ArrayList<>();
+	@OneToMany(mappedBy = "user")
+	private List<ShoppingCart> cart= new ArrayList<>();
 	
 	@ElementCollection(fetch = FetchType.EAGER)
 	 private List<String> roles;
 
 	
-
-	
 	
 	protected User() {}
 
-	public User(String name, String email, String passwordHash, String address, long telephone, List<Order> orders,
-			List<String> roles) {
+	public User(String name, String email, String passwordHash, String address, long telephone, List<String> roles) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.passwordHash = passwordHash;
 		this.address = address;
 		this.telephone = telephone;
-		this.orders = orders;
+//		this.orders = orders;
 		this.roles = roles;
 	}
 	
@@ -116,14 +115,14 @@ public class User {
 	public void setTelephone(long telephone) {
 		this.telephone = telephone;
 	}
-
-	public List<Order> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
-	}
+//
+//	public List<Order> getOrders() {
+//		return orders;
+//	}
+//
+//	public void setOrders(List<Order> orders) {
+//		this.orders = orders;
+//	}
 
 	public List<String> getRoles() {
 		return roles;
