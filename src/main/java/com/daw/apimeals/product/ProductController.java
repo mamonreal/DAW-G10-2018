@@ -31,7 +31,7 @@ public class ProductController {
 	
 	@PostConstruct
 	public void init() {
-<<<<<<< HEAD
+
 		Product s1,s2,s3,s4,f5,f6,f7,f8,f9,f10,f11,f12,f13,f14,f15,f16,se7,se8,dr9,dr10;
 		s1=new Product("Nachos","Deliciosos nachos al estilo tex-mex","entree","foreign",306,"",12);
 		s2=new Product("Ensalada Cesar","Ensalada de luechuga con pollo y salsa cesar","entree","mediterranean",44,"",10);
@@ -66,7 +66,7 @@ public class ProductController {
 		pRepository.save(f14);
 		pRepository.save(f15);
 		pRepository.save(f16);
-=======
+
 	Product s1,s2,s3,s4,f5,f6,f7,f8,f9,f10,f11,f12,f13,f14,f15,f16,se1,se2,se3,d1,d2,dr1,dr2;
 	// s=starter, f=first course, se=second course, d=dessert, dr=drink;
 	s1=new Product("Nachos","Deliciosos nachos al estilo tex-mex","entree","foreign","306","",12);
@@ -102,7 +102,7 @@ public class ProductController {
 	pRepository.save(d2);
 	pRepository.save(dr1);
 	pRepository.save(dr2);
->>>>>>> ce40cbc20fb0209bc155ba3f15cc51f5092b3142
+
 	}
 
     @RequestMapping("/products")
