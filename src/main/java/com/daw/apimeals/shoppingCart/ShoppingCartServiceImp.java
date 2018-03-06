@@ -1,7 +1,9 @@
 package com.daw.apimeals.shoppingCart;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.daw.apimeals.product.ProductRepository;
+
+import com.daw.apimeals.menu.Menu;
 import com.daw.apimeals.product.Product;
 
 @Service
@@ -23,6 +27,7 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 	private ProductRepository pRepository;
 	
 	private Map<Product, Integer> products = new HashMap<>();
+	private Map<Menu, Integer> menus = new HashMap<>();
 
 	@Override
 	public void addProduct(Product product) {
@@ -48,8 +53,30 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 	}
 
 	@Override
-	public Map<Product, Integer> getProductsInShoppingCart() {
-		return Collections.unmodifiableMap(products);
+	public List<ProductAmount> getProductsInShoppingCart() {
+		List<Product> prod = new ArrayList<> (products.keySet());
+		List<Integer> amount = new ArrayList<> (products.values());
+		List<ProductAmount> pa = new LinkedList<>();
+		if (prod.size() == amount.size()) {
+			for (int i = 0; i < prod.size(); i++) {
+				pa.add(new ProductAmount(prod.get(i), amount.get(i)));
+			}
+		}
+		
+		return pa;
+	}
+	
+	@Override
+	public List<MenuAmount> getMenuInShoppingCart() {
+		List<Menu> menu = new ArrayList<>(menus.keySet());
+		List<Integer> amount = new ArrayList<>(menus.values());
+		List<MenuAmount> ma = new LinkedList<>();
+		if (menu.size() == amount.size()) {
+			for (int i = 0; i < menu.size(); i++) {
+				ma.add(new MenuAmount(menu.get(i), amount.get(i)));
+			}
+		}
+		return ma;
 	}
 
 	@Override
@@ -73,5 +100,7 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 		}
 		return total;
 	}
+
+	
 
 }
