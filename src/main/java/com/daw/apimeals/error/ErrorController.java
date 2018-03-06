@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 public class ErrorController {
 
-	@RequestMapping("/com/daw/apimeals/error")
+	@RequestMapping("/error")
 	public String error(Model model) {
-		return "com/daw/apimeals/error";
+		return "error";
 	}
 }
