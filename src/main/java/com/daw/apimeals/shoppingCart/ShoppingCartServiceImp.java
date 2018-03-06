@@ -67,8 +67,11 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 
 	@Override
 	public Long getTotal() {
-		// TODO Auto-generated method stub
-		return null;
+		Long total = new Long(0);
+		for (Map.Entry<Product, Integer> entry: products.entrySet()) {
+			total += (entry.getKey().getPrice() * entry.getValue());
+		}
+		return total;
 	}
 
 }
