@@ -97,12 +97,12 @@ public class ProductController {
     	return "/products";
     }
     
-    /*@RequestMapping("/deleteProduct/{id}")
+    @RequestMapping("/deleteProduct/{id}")
     public String deleteProduct(Model model,@PathVariable long id ) {
     	Product product = pRepository.findById(id);
     	pRepository.delete(product);
-    	return "/plates";
-    }*/
+    	return "/products";
+    }
     	    
     }
     
