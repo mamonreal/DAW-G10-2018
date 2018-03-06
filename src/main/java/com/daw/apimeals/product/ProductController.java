@@ -4,6 +4,8 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -69,11 +71,11 @@ public class ProductController {
     @RequestMapping("/products")
     public String plates(Model model,HttpServletRequest request) {
 
-	    List<Product> entrees = pRepository.findByType("entree");
-	    List<Product> first = pRepository.findByType("first");
-	    List<Product> second = pRepository.findByType("Second");
-	    List<Product> desserts = pRepository.findByType("Dessert");
-	    List<Product> drinks = pRepository.findByType("drinks");
+    	List<Product> entrees = pRepository.findByType("entree");//, new PageRequest(0, 10));
+	    List<Product> first = pRepository.findByType("first");//,new PageRequest(0, 10));
+	    List<Product> second = pRepository.findByType("Second");//,new PageRequest(0, 10));
+	    List<Product> desserts = pRepository.findByType("Dessert");//,new PageRequest(0, 10));
+	    List<Product> drinks = pRepository.findByType("drinks");//,new PageRequest(0, 10));
 	   
 	    model.addAttribute("entrees", entrees);
         model.addAttribute("first", first);
