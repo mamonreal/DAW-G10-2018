@@ -62,7 +62,7 @@ public class UserController extends MainService {
 		return "/user";
 		
 	}
-	
+
 	public void loadUser(Model model){
 		model.addAttribute("loggedUser",userComponent.getLoggedUser());
 		if(userComponent.isLoggedUser()){
