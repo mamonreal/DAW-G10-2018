@@ -2,6 +2,7 @@ package com.daw.apimeals.menu;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.daw.apimeals.product.Product;
+
 @Controller
 public class MenuController {
 	
 	@Autowired 
 	private MenuRepository mRepository;
+	
+	
+	@PostConstruct
+	public void init() {
+		Menu m1,m2,m3;
+		m1=new Menu(1,"Veggie","Vegano","Menu vegano","lunch","306","",12);
+		m2=new Menu(2,"Mediterranean","Mediterraneo","Desayuno mediterraneo","breakfast","44","",12);
+		m3=new Menu(3,"American","Americano","Cena americana","dinner","306","",12);
+		
+		mRepository.save(m1);
+		mRepository.save(m2);
+		mRepository.save(m3);
+	}
+	
 	
 	
 	@RequestMapping("/menu")
