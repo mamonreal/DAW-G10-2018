@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<base href="/">
 <title>Menu</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -132,19 +133,25 @@
 
 
 	<!-- Sign up -->
-	<div class="section-signup bg1-pattern p-t-85 p-b-85">
+	<div class="section-mainmenu p-t-150 p-b-70 bg1-pattern">
+	<div class="">
 		<div class="container">
 			<div class="row">
 				<!-- Plates -->
 				<div class="col-md-10 col-lg-6 p-r-35 p-r-15-lg m-l-r-auto">
 					{{#plates}}
+					<form method="post" action="/shoppingCart/removeProduct/{id}">
 						<div >{{product.name}}</div>
 						
+						
 						<div class="line-item-mainmenu bg3-pattern"></div>
+						
 						
 						<div class="price-item-mainmenu txt22 mr-3">
 							x{{amount}}
 						</div>
+						<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
+						</form>
 					{{/plates}}
 				</div>
 				
@@ -161,6 +168,7 @@
 					{{/menus}}
 				</div>
 			</div>
+		</div>
 		</div>
 
 

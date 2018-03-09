@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.daw.apimeals.product.ProductRepository;
@@ -44,10 +45,15 @@ public class ShoppingCartController extends MainService{
 //        return modelAndView;
 //    }
 //
-	@RequestMapping(value="/shoppingCart/addProduct/{productId}")
-    public String addProductToCart(Model model, HttpServletRequest request, RedirectAttributes redirectAttrs,@PathVariable("productId") Long productId) {
+	@RequestMapping(value="/addProduct/{productId}")
+    public String addProductToCart(Model model, HttpServletRequest request, RedirectAttributes redirectAttrs, @PathVariable("productId") Long productId) {
 		shoppingCartService.addProduct(productService.findById(productId));
-        return "shoppingCart";
+		this.session(model, request, redirectAttrs);
+		List<ProductAmount> plates = shoppingCartService.getProductsInShoppingCart();
+		List<MenuAmount> menus = shoppingCartService.getMenuInShoppingCart();
+		model.addAttribute("plates", plates);
+		model.addAttribute("menus", menus);
+        return "/shoppingCart";
     }
 
     @GetMapping("/shoppingCart/removeProduct/{id}")

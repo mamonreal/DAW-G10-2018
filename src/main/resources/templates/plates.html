@@ -208,10 +208,11 @@
 								<img src="{{path}}" class="modal-content">
 								<div>{{name}}</div>
 							</div>
-
+							<form method="post" action="/addProduct/{{id}}">
                             <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
                                     data-summary="summary 1" data-price="{{price}}"
                                     data-quantity="1" data-image="{{path}}">+</button>
+                            </form>
                             <form method="post" action="/deleteProduct/{{id}}">
                             <div id="info">
 		                        {{#admin}}
