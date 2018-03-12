@@ -7,10 +7,10 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface MenuRepository extends JpaRepository<Menu, Long> {
 	
-	List<Menu> findBytype(String type);
-	@Query("SELECT * FROM tabla WHERE CATEOGORIA = :category")
-	List<Menu> findBycategory(String category);
-	List<Menu> findByprice(long price);
+	List<Menu> findByType(String type);
+//	@Query("SELECT * FROM tabla WHERE CATEOGORIA = :category")
+	List<Menu> findByCategory(String category);
+	List<Menu> findByPrice(long price);
 	
 }
 
