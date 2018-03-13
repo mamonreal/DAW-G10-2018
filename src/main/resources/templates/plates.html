@@ -74,6 +74,10 @@
 								<li>
 									<a href="user">Usuario</a>
 								</li>
+								
+								<li>
+									<a href="shoppingCart">Carrito</a>
+								</li>
 
                                 <li>
                                     <span class="glyphicon glyphicon-shopping-cart my-cart-icon  fa fa-shopping-cart"><span class="badge badge-notify my-cart-badge">Carrito</span></span>
@@ -169,14 +173,11 @@
 								<img src="{{path}}" class="modal-content">
 								<div>{{name}}</div>
 							</div>
-                            	<button class="btn btn-danger my-cart-btn" data-productId="{{id}}" data-name="{{name}}" 
-                                    data-summary="summary 1" data-price="{{price}}" 
-                                    data-quantity="1" data-image="{{path}}">
+                            <form method="post" action="shoppingCart/addProduct/{{id}}">
+	                            <button class="btn btn-danger my-cart-btn" data-productId="{{id}}">
                                     <i class="fa fa-plus"></i>
-                                </button>
-                            
-                            
-                            
+                            	</button>
+                            </form>
                             {{#admin}}
 							<form method="post" action="/deleteProduct/{{id}}">
 								<div id="info" class="flex-w flex-b m-b-3">
@@ -248,12 +249,11 @@
 								<img src="{{path}}" class="modal-content">
 								<div>{{name}}</div>
 							</div>
-
-	                            <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
-	                            data-summary="summary 1" data-price="{{price}}"
-	                            data-quantity="1" data-image="{{path}}">
-	                            	<i class="fa fa-plus"></i>
-	                            </button>
+							<form method="post" action="shoppingCart/addProduct/{{id}}">
+	                            <button class="btn btn-danger my-cart-btn" data-productId="{{id}}">
+                                    <i class="fa fa-plus"></i>
+                            	</button>
+                            </form>
                             <form method="post" action="/deleteProduct/{{id}}">
                             <div id="info">
 		                        {{#admin}}
@@ -286,11 +286,11 @@
 								<img src="{{path}}" class="modal-content">
 								<div>{{name}}</div>
 							</div>
-                            <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
-                            data-summary="summary 1" data-price="{{price}}"
-                            data-quantity="1" data-image="{{path}}">
-                            <i class="fa fa-plus"></i>
-                            </button>
+                            <form method="post" action="shoppingCart/addProduct/{{id}}">
+	                            <button class="btn btn-danger my-cart-btn" data-productId="{{id}}">
+                                    <i class="fa fa-plus"></i>
+                            	</button>
+                            </form>
                             <form method="post" action="/deleteProduct/{{id}}">
 							<div id="info">
 		                        {{#admin}}
@@ -322,9 +322,11 @@
 								<img src="{{path}}" class="modal-content">
 								<div>{{name}}</div>
 							</div>
-                            <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
-                            data-summary="summary 1" data-price="{{price}}"
-                            data-quantity="1" data-image="{{path}}"><i class="fa fa-plus"></i></button>
+                           <form method="post" action="shoppingCart/addProduct/{{id}}">
+	                            <button class="btn btn-danger my-cart-btn" data-productId="{{id}}">
+                                    <i class="fa fa-plus"></i>
+                            	</button>
+                            </form>
                             <div id="info">
 		                        {{#admin}}
 
