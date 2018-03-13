@@ -41,9 +41,9 @@ public class MenuController {
 	@RequestMapping("/menu")
 	public String menus(Model model, HttpServletRequest request) {
 		
-		List<Menu> breakfast = mRepository.findBycategory("breakfast");
-		List<Menu> lunch = mRepository.findBycategory("lunch");
-		List<Menu> dinner = mRepository.findBycategory("dinner");
+		List<Menu> breakfast = mRepository.findByCategory("breakfast");
+		List<Menu> lunch = mRepository.findByCategory("lunch");
+		List<Menu> dinner = mRepository.findByCategory("dinner");
 		
 		model.addAttribute("breakfast", breakfast);
 		model.addAttribute("lunch", lunch);

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -23,13 +24,13 @@ public class ShoppingCartController extends MainService{
     private ShoppingCartService shoppingCartService;
 
     @Autowired
-    private ProductRepository productService;
+    private ProductRepository productRepository;
     
     @RequestMapping("/shoppingCart")
-	public String shoppingCart(Model model, HttpServletRequest request, RedirectAttributes redirectAttrs) {
+	public String shoppingCart(Model model) {
 		
 		
-		this.session(model, request, redirectAttrs);
+//		this.session(model, request, redirectAttrs);
 		List<ProductAmount> plates = shoppingCartService.getProductsInShoppingCart();
 		List<MenuAmount> menus = shoppingCartService.getMenuInShoppingCart();
 		model.addAttribute("plates", plates);
@@ -45,20 +46,17 @@ public class ShoppingCartController extends MainService{
 //        return modelAndView;
 //    }
 //
-	@RequestMapping(value="/addProduct/{productId}")
-    public String addProductToCart(Model model, HttpServletRequest request, RedirectAttributes redirectAttrs, @PathVariable("productId") Long productId) {
-		shoppingCartService.addProduct(productService.findById(productId));
-		this.session(model, request, redirectAttrs);
-		List<ProductAmount> plates = shoppingCartService.getProductsInShoppingCart();
-		List<MenuAmount> menus = shoppingCartService.getMenuInShoppingCart();
-		model.addAttribute("plates", plates);
-		model.addAttribute("menus", menus);
-        return "/shoppingCart";
+	@PostMapping(value="/shoppingCart/addProduct/{id}")
+    public String addProductToCart(Model model, @PathVariable("id") Long id) {
+		shoppingCartService.addProduct(productRepository.findById(id));
+		model.addAttribute("plates", shoppingCartService.getProductsInShoppingCart());
+		model.addAttribute("menus", shoppingCartService.getMenuInShoppingCart());
+		return "shoppingCart";
     }
 
     @GetMapping("/shoppingCart/removeProduct/{id}")
-    public String removeProductFromCart(@PathVariable("productId") Long productId) {
-        shoppingCartService.removeProduct(productService.findById(productId));
+    public String removeProductFromCart(@PathVariable("id") Long id) {
+        shoppingCartService.removeProduct(productRepository.findById(id));
         return "shoppingCart";
     }
 
