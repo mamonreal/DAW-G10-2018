@@ -1,10 +1,13 @@
 package com.daw.apimeals.shoppingCart;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -32,12 +35,10 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 	@Override
 	public void addProduct(Product product) {
 		if (products.containsKey(product)) {
-			products.replace(product, products.get(product)+1);
-		}
-		else {
+			products.replace(product, products.get(product)+1);			
+		} else {
 			products.put(product, 1);
-		}
-		
+		}		
 	}
 
 	@Override

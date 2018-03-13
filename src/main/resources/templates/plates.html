@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<base href="/">
+
 	<title>Platos</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +38,6 @@
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
-
 	<!-- Header -->
 	<header>
 		<!-- Header desktop -->
@@ -168,21 +169,23 @@
 								<img src="{{path}}" class="modal-content">
 								<div>{{name}}</div>
 							</div>
-                            	<button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
+                            	<button class="btn btn-danger my-cart-btn" data-productId="{{id}}" data-name="{{name}}" 
                                     data-summary="summary 1" data-price="{{price}}" 
-                                    data-quantity="1" data-image="{{path}}">+</button>
+                                    data-quantity="1" data-image="{{path}}">
+                                    <i class="fa fa-plus"></i>
+                                </button>
                             
                             
                             
                             {{#admin}}
-                            <form method="post" action="/deleteProduct/{{id}}"> 
-                            <div id="info" class="flex-w flex-b m-b-3">
-		                        
-		                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
-		                             
-                        	</div> 
-                        	</form>
-                        	{{/admin}}    
+							<form method="post" action="/deleteProduct/{{id}}">
+								<div id="info" class="flex-w flex-b m-b-3">
+
+									<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
+
+								</div>
+							</form>
+							{{/admin}}    
 						</div>
 						{{/entrees}}
 					</div>
@@ -208,10 +211,11 @@
 								<img src="{{path}}" class="modal-content">
 								<div>{{name}}</div>
 							</div>
-
-                            <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
-                                    data-summary="summary 1" data-price="{{price}}"
-                                    data-quantity="1" data-image="{{path}}">+</button>
+							<form method="post" action="shoppingCart/addProduct/{{id}}">
+	                            <button class="btn btn-danger my-cart-btn" data-productId="{{id}}">
+                                    <i class="fa fa-plus"></i>
+                            	</button>
+                            </form>
                             <form method="post" action="/deleteProduct/{{id}}">
                             <div id="info">
 		                        {{#admin}}
@@ -245,9 +249,11 @@
 								<div>{{name}}</div>
 							</div>
 
-                            <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
-                            data-summary="summary 1" data-price="{{price}}"
-                            data-quantity="1" data-image="{{path}}">+</button>
+	                            <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
+	                            data-summary="summary 1" data-price="{{price}}"
+	                            data-quantity="1" data-image="{{path}}">
+	                            	<i class="fa fa-plus"></i>
+	                            </button>
                             <form method="post" action="/deleteProduct/{{id}}">
                             <div id="info">
 		                        {{#admin}}
@@ -282,7 +288,9 @@
 							</div>
                             <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
                             data-summary="summary 1" data-price="{{price}}"
-                            data-quantity="1" data-image="{{path}}">+</button>
+                            data-quantity="1" data-image="{{path}}">
+                            <i class="fa fa-plus"></i>
+                            </button>
                             <form method="post" action="/deleteProduct/{{id}}">
 							<div id="info">
 		                        {{#admin}}
@@ -316,7 +324,7 @@
 							</div>
                             <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}"
                             data-summary="summary 1" data-price="{{price}}"
-                            data-quantity="1" data-image="{{path}}">+</button>
+                            data-quantity="1" data-image="{{path}}"><i class="fa fa-plus"></i></button>
                             <div id="info">
 		                        {{#admin}}
 
