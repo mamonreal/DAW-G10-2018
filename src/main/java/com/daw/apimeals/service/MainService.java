@@ -19,10 +19,7 @@ public class MainService {
 	
 	@Autowired
 	private ProductRepository pRepository;
-	
-//	@Autowired
-//	private OrderRepository oRepository;
-	
+
 	@Autowired
 	private MenuRepository mRepository;
 	

@@ -24,9 +24,6 @@ public class ShoppingCartController extends MainService{
     
     @RequestMapping("/shoppingCart")
 	public String shoppingCart(Model model) {
-		
-		
-//		this.session(model, request, redirectAttrs);
 		List<ProductAmount> plates = shoppingCartService.getProductsInShoppingCart();
 		List<MenuAmount> menus = shoppingCartService.getMenuInShoppingCart();
 		model.addAttribute("plates", plates);
@@ -34,15 +31,7 @@ public class ShoppingCartController extends MainService{
 		return "shoppingCart";
 	}
 	
-//	@GetMapping("/shoppingCart")
-//    public ModelAndView shoppingCart() {
-//        ModelAndView modelAndView = new ModelAndView("shoppingCart");
-//        modelAndView.addObject("products", shoppingCartService.getProductsInShoppingCart());
-//        modelAndView.addObject("total", shoppingCartService.getTotal().toString());
-//        return modelAndView;
-//    }
-//
-	@PostMapping(value="/shoppingCart/addProduct/{id}")
+    @PostMapping(value="/shoppingCart/addProduct/{id}")
     public String addProductToCart(Model model, @PathVariable("id") Long id) {
 		shoppingCartService.addProduct(productRepository.findById(id));
 		model.addAttribute("plates", shoppingCartService.getProductsInShoppingCart());
