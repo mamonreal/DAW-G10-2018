@@ -153,8 +153,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="center" style="font:bold 16px/25px Arial, Helvetica, sans-serif; color:#888; padding:0 0 23px;">
-                                                        Bienvenido a CONTaFIN, una aplicación para aprender a elaborar asientos contables, en el libro diario de contabilidad.
-                                                    </td>
+                                                      Gracias por confiar en Apimeals, su pedido llegará en breve.           </td>
                                                 </tr>
                                             </table>
                                         </table>
@@ -178,24 +177,24 @@
                                         <table width="100%" cellpadding="0" cellspacing="0">
                                             <tr>
                                                 <td data-color="title" data-size="size title" data-min="20" data-max="40" data-link-color="link title color" data-link-style="text-decoration:none; color:#292c34;" class="title" align="center" style="font:30px/33px Arial, Helvetica, sans-serif; color:#292c34; padding:0 0 23px;">
-                                                    Nuestras recomendaciones
+                                                    Pasos a seguir:
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="center" style="font:bold 16px/25px Arial, Helvetica, sans-serif; color:#888; padding:0 0 23px;">
-                                                    1. Poner nuestra página web en favoritos.
+                                                    1. Ponga la mesa
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="center" style="font:bold 16px/25px Arial, Helvetica, sans-serif; color:#888; padding:0 0 23px;">
-                                                    2. Practicar todos los días.
+                                                    2. Espere a que nuestro repartidor llegue
 
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="center" style="font:bold 16px/25px Arial, Helvetica, sans-serif; color:#888; padding:0 0 23px;">
-                                                    Si lo deseas puedes empezar ahora.
+                                                    Preparése para saborear nuestra deliciosa comida
 
                                                 </td>
                                             </tr>
