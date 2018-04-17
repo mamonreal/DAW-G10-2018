@@ -33,6 +33,7 @@ public class User {
 	private String UserName;
 	private String city;
 	private String PC;
+	private String kc;
 	
 	
 	@OneToMany(mappedBy = "user")
@@ -40,7 +41,6 @@ public class User {
 	
 	@ElementCollection(fetch = FetchType.EAGER)
 	 private List<String> roles;
-
 	
 	
 	protected User() {}
@@ -54,6 +54,7 @@ public class User {
 		this.telephone = telephone;
 //		this.orders = orders;
 		this.roles = roles;
+		this.kc = "";
 	}
 	
 	public User(String name, String mobile, String email, String UserName, String password, String city, String address, String PC, String... roles ) {
@@ -66,6 +67,7 @@ public class User {
 		this.address=address;
 		this.PC=PC;		
 		this.roles = new ArrayList<>(Arrays.asList(roles));
+		this.kc = "";
 	}
 
 	public long getId() {
@@ -159,5 +161,9 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+
+	
+	
 	
 }
