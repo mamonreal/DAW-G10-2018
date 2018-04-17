@@ -40,9 +40,11 @@ public class ShoppingCartController extends MainService{
     }
 
     @PostMapping("/shoppingCart/removeProduct/{id}")
-    public String removeProductFromCart(@PathVariable("id") Long id) {
+    public String removeProductFromCart(Model model, @PathVariable("id") Long id) {
         shoppingCartService.removeProduct(productRepository.findById(id));
-        return "shoppingCart";
+        model.addAttribute("plates", shoppingCartService.getProductsInShoppingCart());
+		model.addAttribute("menus", shoppingCartService.getMenuInShoppingCart());
+        return "/shoppingCart";
     }
 
     @GetMapping("/shoppingCart/checkout")
