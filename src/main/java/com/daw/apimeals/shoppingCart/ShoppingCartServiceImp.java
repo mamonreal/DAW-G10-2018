@@ -19,6 +19,7 @@ import org.springframework.web.context.WebApplicationContext;
 import com.daw.apimeals.product.ProductRepository;
 import com.daw.apimeals.user.User;
 import com.daw.apimeals.user.UserComponent;
+import com.daw.apimeals.user.UserRepository;
 import com.daw.apimeals.menu.Menu;
 import com.daw.apimeals.product.Product;
 
@@ -32,6 +33,9 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 	
 	@Autowired
 	private UserComponent userComponent;
+	
+	@Autowired
+	private UserRepository userRepository;
 	
 	private Map<Product, Integer> products = new HashMap<>();
 	private Map<Menu, Integer> menus = new HashMap<>();
@@ -95,8 +99,9 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 
 	@Override
 	public void checkout(ShoppingCart shoppingCart) {
+		
 		if (userComponent.isLoggedUser()) {
-			User user = userComponent.getLoggedUser();
+			User user = userRepository.findByName(userComponent.getLoggedUser().getName());
 			
 			shoppingCart.setUser(user);
 			shoppingCart.setAddress(user.getAddress());

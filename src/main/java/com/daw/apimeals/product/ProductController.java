@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.daw.apimeals.menu.Menu;
 import com.daw.apimeals.user.UserComponent;
+import com.daw.apimeals.user.UserRepository;
 
 import java.util.List;
 
