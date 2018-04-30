@@ -339,7 +339,6 @@
 					</div>
 					{{#admin}}
                     <div id="add-new-product">
-                        <div class="modal fade">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -368,39 +367,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
-                        <div class="modal fade">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Añadir nuevo plato</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form type ="hydden" action="addProduct" method="post">
-                                            <p>Nombre: </p>
-                                            <input type='text' name='name'required/>
-                                            <p>Categoria</p>
-                                            <input type='text' name='category' required/>
-                                            <p>Tipo:</p>
-                                            <input type='text' name='type' required/>
-                                            <p>Kilocalorias:</p>
-                                            <input type='text' name='kc' required/>
-                                            <p>Precio:</p>
-                                            <input type='text' name='price' required/>
-                                            <p>Descripción:</p>
-                                            <textarea name='description' rows=5 cols=40 required></textarea>
-                                            <input type='submit' value='Enviar'/>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-					{{/admin}}
+                 {{/admin}}
 				</div>
 			</div>
 		</div>
