@@ -43,7 +43,7 @@ public class EmailService {
 		helper.setText(html, true);
 		helper.setSubject("Gracias por registrarte en Apimeals");
 
-		//emailSender.send(message);
+		emailSender.send(message);
 	}
 
 }
