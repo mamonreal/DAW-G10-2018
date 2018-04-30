@@ -97,6 +97,7 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 	public void checkout(ShoppingCart shoppingCart) {
 		if (userComponent.isLoggedUser()) {
 			shoppingCart.setUser(userComponent.getLoggedUser());
+			userComponent.getLoggedUser().addShoppingCart(shoppingCart);
 		}
 		shoppingCartRepository.save(shoppingCart);
 		shoppingCartRepository.flush();
