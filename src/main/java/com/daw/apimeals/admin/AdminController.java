@@ -35,40 +35,33 @@ public class AdminController {
 		return mRepository.findAll();
 	}
 	
-	@RequestMapping(value = "/menu/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Menu> deleteMenu(@PathVariable long id) {
+	@RequestMapping(value = "/menu/{id}", method = RequestMethod.POST)
+	public String deleteMenu(@PathVariable long id) {
 		Menu menu = mRepository.getOne(id);
 		mRepository.delete(id);
-
-		if (menu != null) {
-			return new ResponseEntity<>(menu, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+		return "/menu";
+		
 	}
 
-	@RequestMapping(value = "/plates/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Product> deleteProduct(@PathVariable long id) {
+	@RequestMapping(value = "/plates/{id}", method = RequestMethod.POST)
+	public  String deleteProduct(@PathVariable long id) {
 		Product product = pRepository.getOne(id);
 		pRepository.delete(id);
-
-		if (product != null) {
-			return new ResponseEntity<>(product, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+		return "/plates";
 	}
 	
 	@RequestMapping(value="/menu",method = RequestMethod.POST)
-	public ResponseEntity<Menu> addMenu(@RequestBody Menu menu) {
-		Menu newMenu = mRepository.save(menu);
-		return new ResponseEntity<>(newMenu,HttpStatus.CREATED);
+	public String addMenu(@RequestBody Menu menu) {
+		Menu newMenu = menu; 
+		mRepository.save(newMenu);
+		return "/menu";
 	}
 	
 	@RequestMapping(value="/plates",method = RequestMethod.POST)
-	public ResponseEntity<Product> addProduct(@RequestBody Product product) {
-		Product newProduct = pRepository.save(product);
-		return new ResponseEntity<>(newProduct,HttpStatus.CREATED);
+	public String addProduct(@RequestBody Product product) {
+		Product newProduct = product;
+		pRepository.save(newProduct);
+		return "/plates";
 	}
 	
 }
