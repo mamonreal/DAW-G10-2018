@@ -34,7 +34,7 @@ public class ProductController {
 		Product s1,s2,s3,s4,f5,f6,f7,f8,f9,f10,f11,f12,f13,f14,f15,f16,se1,se2,se3,d1,d2,dr1,dr2;
 		// s=starter, f=first course, se=second course, d=dessert, dr=drink;
 		s1=new Product("Nachos","Deliciosos nachos al estilo tex-mex","entree","foreign","306","",12);
-		s2=new Product("Ensalada Cesar","Ensalada de luechuga con pollo y salsa cesar","entree","mediterranean","44","",10);
+		s2=new Product("Ensalada Cesar","Ensalada de lechuga con pollo y salsa cesar","entree","mediterranean","44","",10);
 		s3=new Product("Combo de entrantess","Un delicioso entrante con 6 aros de cebolla, nachos texmex, fingers de queso, alitas de pollo, croquetas","entree","foreign","370","",14);
 		s4=new Product("Croquetas","Croquetas de jamón, Mozzarella y pan rallado al estilo japonés. Acompañadas de tomate seco, cebolla crujiente, alcaparras fritas y salsas BBQ Ranch y tomate.", "entree","mediterranean","280","",9);
 		f5=new Product("Ensaladilla Rusa","Deliciosa ensaladilla rusa con aceitunas, atún, zanahoria, patata, guisantes y huevo.","first","vegetarian","170","",11);

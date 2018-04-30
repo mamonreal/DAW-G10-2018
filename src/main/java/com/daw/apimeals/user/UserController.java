@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.daw.apimeals.product.ProductRepository;
 import com.daw.apimeals.service.MainService;
 
 @Controller
@@ -20,6 +21,9 @@ public class UserController extends MainService {
 	
 	@Autowired
 	private UserComponent userComponent;
+	
+	@Autowired
+	private ProductRepository pRepository;
 	
 	@PostConstruct
 	public void init() {
