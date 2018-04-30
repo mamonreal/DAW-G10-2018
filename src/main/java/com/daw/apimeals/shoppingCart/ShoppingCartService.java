@@ -2,6 +2,7 @@ package com.daw.apimeals.shoppingCart;
 
 import java.util.List;
 import com.daw.apimeals.product.Product;
+import com.daw.apimeals.user.User;
 
 public interface ShoppingCartService {
 	
@@ -13,7 +14,7 @@ public interface ShoppingCartService {
 	
 	List<MenuAmount> getMenuInShoppingCart();
 	
-	void checkout();
+	void checkout(ShoppingCart shoppingCart);
 	
 	Long getTotal();
 

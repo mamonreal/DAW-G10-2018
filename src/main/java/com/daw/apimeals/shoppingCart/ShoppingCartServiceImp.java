@@ -17,7 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.daw.apimeals.product.ProductRepository;
-
+import com.daw.apimeals.user.User;
+import com.daw.apimeals.user.UserComponent;
 import com.daw.apimeals.menu.Menu;
 import com.daw.apimeals.product.Product;
 
@@ -27,7 +28,10 @@ import com.daw.apimeals.product.Product;
 public class ShoppingCartServiceImp implements ShoppingCartService {
 	
 	@Autowired
-	private ProductRepository pRepository;
+	private ShoppingCartRepository shoppingCartRepository;
+	
+	@Autowired
+	private UserComponent userComponent;
 	
 	private Map<Product, Integer> products = new HashMap<>();
 	private Map<Menu, Integer> menus = new HashMap<>();
@@ -81,19 +85,6 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 	}
 
 	@Override
-	public void checkout() {
-		Product product;
-        for (Map.Entry<Product, Integer> entry : products.entrySet()) {
-            // Refresh quantity for every product before checking
-            product = pRepository.findOne(entry.getKey().getId());
-        }
-        pRepository.save(products.keySet());
-        pRepository.flush();
-        products.clear();
-		
-	}
-
-	@Override
 	public Long getTotal() {
 		Long total = new Long(0);
 		for (Map.Entry<Product, Integer> entry: products.entrySet()) {
@@ -102,6 +93,35 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 		return total;
 	}
 
-	
+	@Override
+	public void checkout(ShoppingCart shoppingCart) {
+		if (userComponent.isLoggedUser()) {
+			User user = userComponent.getLoggedUser();
+			
+			shoppingCart.setUser(user);
+			shoppingCart.setAddress(user.getAddress());
+			user.addShoppingCart(shoppingCart);
+		}
+		shoppingCartRepository.save(shoppingCart);
+		shoppingCartRepository.flush();
+	}
 
+	public Map<Product, Integer> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Map<Product, Integer> products) {
+		this.products = products;
+	}
+
+	public Map<Menu, Integer> getMenus() {
+		return menus;
+	}
+
+	public void setMenus(Map<Menu, Integer> menus) {
+		this.menus = menus;
+	}
+	
+	
+	
 }

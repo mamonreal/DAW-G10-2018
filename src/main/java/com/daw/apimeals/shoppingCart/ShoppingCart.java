@@ -21,7 +21,7 @@ public class ShoppingCart {
 	
 	private long id;
 	private long totalPrice;
-	private String addres;
+	private String address;
 	
 	@ManyToOne
 	private User user;
@@ -34,10 +34,24 @@ public class ShoppingCart {
 	
 	protected ShoppingCart() {}
 
-	public ShoppingCart(String addres, User user) {
+	public ShoppingCart(String address) {
 		this.totalPrice = 0;
-		this.addres = addres;
-		this.user = user;
+		this.address = address;
+	}
+
+	public ShoppingCart(String address, List<Product> products, List<Menu> menus) {
+		super();
+		this.address = address;
+		this.products = products;
+		this.menus = menus;
+		
+		this.totalPrice = 0;
+		for (Product p : products) {
+			totalPrice += p.getPrice();
+		}
+		for (Menu m: menus) {
+			totalPrice += m.getPrice();
+		}
 	}
 
 	public long getId() {
@@ -57,11 +71,11 @@ public class ShoppingCart {
 	}
 
 	public String getAddres() {
-		return addres;
+		return address;
 	}
 
-	public void setAddres(String addres) {
-		this.addres = addres;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public User getUser() {
