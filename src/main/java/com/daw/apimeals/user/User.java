@@ -36,7 +36,7 @@ public class User {
 	
 	
 	@OneToMany(mappedBy = "user")
-	private List<ShoppingCart> cart= new ArrayList<>();
+	private List<ShoppingCart> cart;
 	
 	@ElementCollection(fetch = FetchType.EAGER)
 	 private List<String> roles;
@@ -115,14 +115,6 @@ public class User {
 	public void setTelephone(long telephone) {
 		this.telephone = telephone;
 	}
-//
-//	public List<Order> getOrders() {
-//		return orders;
-//	}
-//
-//	public void setOrders(List<Order> orders) {
-//		this.orders = orders;
-//	}
 
 	public List<String> getRoles() {
 		return roles;
@@ -158,6 +150,18 @@ public class User {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public List<ShoppingCart> getCart() {
+		return cart;
+	}
+
+	public void setCart(List<ShoppingCart> cart) {
+		this.cart = cart;
+	}
+	
+	public void addShoppingCart(ShoppingCart shoppingCart) {
+		cart.add(shoppingCart);
 	}
 	
 }

@@ -104,5 +104,5 @@ public class ProductController {
     	return "/products";
     }
     	    
-    }
+}
     
