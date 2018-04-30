@@ -96,8 +96,11 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 	@Override
 	public void checkout(ShoppingCart shoppingCart) {
 		if (userComponent.isLoggedUser()) {
-			shoppingCart.setUser(userComponent.getLoggedUser());
-			userComponent.getLoggedUser().addShoppingCart(shoppingCart);
+			User user = userComponent.getLoggedUser();
+			
+			shoppingCart.setUser(user);
+			shoppingCart.setAddress(user.getAddress());
+			user.addShoppingCart(shoppingCart);
 		}
 		shoppingCartRepository.save(shoppingCart);
 		shoppingCartRepository.flush();
