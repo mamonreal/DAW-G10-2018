@@ -53,6 +53,13 @@ public class ShoppingCart {
 			totalPrice += m.getPrice();
 		}
 	}
+	public int cartKC(List<Product> products) {
+		int kctotal=0;
+		for(int i=0; i<products.size();i++) {
+			kctotal+=Integer.parseInt(products.get(i).getKc());
+		}
+		return kctotal;
+	}
 
 	public long getId() {
 		return id;

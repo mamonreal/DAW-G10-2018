@@ -1,5 +1,8 @@
 package com.daw.apimeals.user;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.daw.apimeals.product.ProductRepository;
 import com.daw.apimeals.service.MainService;
+import com.daw.apimeals.shoppingCart.ShoppingCart;
 
 @Controller
 public class UserController extends MainService {
@@ -49,6 +53,19 @@ public class UserController extends MainService {
 		}
 		
         return "user";
+	}
+	
+	@RequestMapping("/user")
+		public void mostrarRecomendados(String kcrecomendadas) {
+		User user = userComponent.getLoggedUser();
+		String kCcarrito;
+		ShoppingCart last;
+		List<ShoppingCart> lastCart= new ArrayList<ShoppingCart>();
+		lastCart=user.getCart();
+		int n=lastCart.size();
+		last=lastCart.get(n-1);
+		
+	
 	}
 	
 	@RequestMapping("/register")
