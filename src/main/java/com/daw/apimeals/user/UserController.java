@@ -55,7 +55,6 @@ public class UserController extends MainService {
         return "user";
 	}
 	
-	@RequestMapping("/user")
 		public void mostrarRecomendados(String kcrecomendadas) {
 		User user = userComponent.getLoggedUser();
 		String kCcarrito;
@@ -64,7 +63,6 @@ public class UserController extends MainService {
 		lastCart=user.getCart();
 		int n=lastCart.size();
 		last=lastCart.get(n-1);
-		
 	
 	}
 	

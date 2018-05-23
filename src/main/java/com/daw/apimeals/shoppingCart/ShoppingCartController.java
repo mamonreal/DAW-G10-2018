@@ -68,7 +68,7 @@ public class ShoppingCartController extends MainService{
     	}
     	
     	shoppingCartService.checkout(new ShoppingCart(address, p, m));
-        return "shoppingCart";
+        return "/shoppingCart";
     }
 	
 
