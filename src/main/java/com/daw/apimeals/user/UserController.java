@@ -55,15 +55,18 @@ public class UserController extends MainService {
         return "user";
 	}
 	
-		public void mostrarRecomendados(String kcrecomendadas) {
+	public int kcCart(String kcrecomendadas) {
 		User user = userComponent.getLoggedUser();
-		String kCcarrito;
+		int kCcarrito=0;
 		ShoppingCart last;
 		List<ShoppingCart> lastCart= new ArrayList<ShoppingCart>();
 		lastCart=user.getCart();
 		int n=lastCart.size();
 		last=lastCart.get(n-1);
-	
+		for(int i=0; i<last.getProducts().size(); i++) {
+			kCcarrito+=Integer.parseInt(last.getProducts().get(i).getKc());
+		}
+		return kCcarrito;
 	}
 	
 	@RequestMapping("/register")
