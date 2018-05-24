@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.daw.apimeals.product.Product;
 import com.daw.apimeals.product.ProductRepository;
 import com.daw.apimeals.service.MainService;
 import com.daw.apimeals.shoppingCart.ShoppingCart;
@@ -39,7 +40,6 @@ public class UserController extends MainService {
 	public String user(Model model) {
         Boolean b = userComponent.isLoggedUser();
         model.addAttribute("logged", b);
-        
 		if (b) {
 			User user = userComponent.getLoggedUser();
 			
@@ -50,12 +50,18 @@ public class UserController extends MainService {
 			model.addAttribute("city", user.getCity());
 			model.addAttribute("cp", user.getPC());
 			model.addAttribute("role", user.getRoles());
+			//if(!user.getCart().isEmpty())
+			//model.addAttribute("cart", user.getCart());
+				//model.addAttribute("recomemended", showRecommend());
+			
 		}
+		
+		
 		
         return "user";
 	}
 	
-	public int kcCart(String kcrecomendadas) {
+	public int kcCart() {
 		User user = userComponent.getLoggedUser();
 		int kCcarrito=0;
 		ShoppingCart last;
@@ -68,6 +74,15 @@ public class UserController extends MainService {
 		}
 		return kCcarrito;
 	}
+	
+	public List<Product> showRecommend() {
+		String kcRecommended=String.valueOf(kcCart());
+		
+		List<Product>productsRecommended=pRepository.findByKc(kcRecommended);
+		return productsRecommended;
+		
+		}
+	
 	
 	@RequestMapping("/register")
 	public String register(Model model, HttpServletRequest request, RedirectAttributes redirectAttributes) {
