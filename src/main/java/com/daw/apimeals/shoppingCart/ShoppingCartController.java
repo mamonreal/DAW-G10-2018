@@ -51,7 +51,7 @@ public class ShoppingCartController extends MainService{
         return "/shoppingCart";
     }
 
-    @GetMapping("/shoppingCart/checkout/{address}")
+    @PostMapping("/shoppingCart/checkout/{address}")
     public String checkout(@PathVariable("address") String address) {
     	List<Product> p = new ArrayList<>();
     	List<Menu> m = new ArrayList<>();

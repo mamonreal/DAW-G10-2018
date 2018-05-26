@@ -168,10 +168,18 @@
 					{{/menus}}
 				</div>
 			</div>
+			{{#logged}}
 			 <form method="post" action="/shoppingCart/checkout/{address}">
 			<button class="btn btn-danger my-cart-btn">Finalizar pedido</button>
 			
 			</form>
+			{{/logged}} {{^logged}}
+			<form method="post" action="/shoppingCart/checkout/{address}">
+			<p>Introduzca la direccion de envío</p>
+			<input type="text" name="address"required>
+			<button class="btn btn-danger my-cart-btn">Finalizar pedido</button>
+			</form>
+			{{/logged}}
 		</div>
 		</div>
 

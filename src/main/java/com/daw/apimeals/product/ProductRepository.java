@@ -12,7 +12,9 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product,Long>{
 
 	List<Product> findByType(String type);
-//    Page<Product> findByType(String type, Pageable page);
+//    	Page<Product> findByType(String type, Pageable page);
+	List<Product> findByCategory(String category);
+//		Page<Product> findByCategory(String category, Pageable page);
     Product findById(long id);
     Product findOne(long id);
     @Query("select p from Product p where p.kc < :kc")

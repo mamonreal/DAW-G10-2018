@@ -350,15 +350,27 @@
                                             <p>Nombre: </p>
                                             <input type='text' name='name'required/>
                                             <p>Categoria</p>
-                                            <input type='text' name='category' required/>
+                                            <select name="category" required>
+                                            <option value="light">Light</option>
+                                            <option value="mediterranean">Mediterranean</option>
+                                            <option value="fast">Fast</option>
+                                            </select>
                                             <p>Tipo:</p>
-                                            <input type='text' name='type' required/>
+                                            <select name="type" required>
+                                            <option value="entree">Entree</option>
+                                            <option value="first">First</option>
+                                            <option value="second">Second</option>
+                                            <option value="desert">Desert</option>
+                                            <option value="drinks">Drinks</option>
+                                            </select>
                                             <p>Kilocalorias:</p>
                                             <input type='text' name='kc' required/>
                                             <p>Precio:</p>
                                             <input type='text' name='price' required/>
                                             <p>Descripción:</p>
                                             <textarea name='description' rows=5 cols=40 required></textarea>
+                                            <p>Imagen</p>
+                                            <input name="myFile" type="file">
                                             <input type='submit' value='Enviar'/>
                                         </form>
                                     </div>
