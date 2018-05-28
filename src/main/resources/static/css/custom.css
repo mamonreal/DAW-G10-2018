@@ -26,3 +26,12 @@ input[type="submit"]{
     width: 100%;
     margin: 30px 0 ;
 }
+.alinear{
+	position:absolute;
+	left:600px;
+}
+.alinearQuitar{
+	position:relative;
+	left:250px;
+	top: -70px;
+}
