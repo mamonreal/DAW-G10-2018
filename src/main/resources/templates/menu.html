@@ -154,15 +154,15 @@
 					{{#breakfast}}
 					<div class="blo3 flex-w flex-col-l-sm m-b-30">
 						<div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
-							<a href="#"><img src="{{path}}" alt="IMG-MENU"></a>
+							<!--<a href="#"><img src="{{path}}" alt="IMG-MENU"></a>-->
 						</div>
 
 						<div class="text-blo3 size21 flex-col-l-m">
 							<a href="#" class="txt21 m-b-3"> {{name}} </a> <span
 								class="txt23"> {{description}} </span> <span
-								class="txt22 m-t-20"> {{price}} </span>
+								class="txt22 m-t-20"> {{price}}€</span>
 						</div>
-                        <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
+                        <button class="btn btn-danger my-cart-btn alinear" data-id="{{id}}" data-name="{{name}}" 
                                     data-summary="summary 1" data-price="{{price}}" 
                                     data-quantity="1" data-image="{{path}}">Añadir</button>
                         <div id="info">
@@ -196,15 +196,14 @@
 					{{#lunch}}
 					<div class="blo3 flex-w flex-col-l-sm m-b-30">
 						<div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
-							<a href="#"><img src="{{path}}" alt="IMG-MENU"></a>
-						</div>
+						<!--<a href="#"><img src="{{path}}" alt="IMG-MENU"></a>-->						</div>
 
 						<div class="text-blo3 size21 flex-col-l-m">
 							<a href="#" class="txt21 m-b-3"> {{name}} </a> <span
 								class="txt23"> {{description}} </span> <span
-								class="txt22 m-t-20"> {{price}} </span>
+								class="txt22 m-t-20"> {{price}} €</span>
 						</div>
-                        <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
+                        <button class="btn btn-danger my-cart-btn alinear" data-id="{{id}}" data-name="{{name}}" 
                                     data-summary="summary 1" data-price="{{price}}" 
                                     data-quantity="1" data-image="{{path}}">Añadir</button>
                         <div id="info">
@@ -236,15 +235,16 @@
 					{{#dinner}}
 					<div class="blo3 flex-w flex-col-l-sm m-b-30">
 						<div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
-							<img src="{{menu-image}}" alt="IMG-MENU" onclick="popupImage();">
+								<!--<a href="#"><img src="{{path}}" alt="IMG-MENU"></a>-->
 						</div>
 
 						<div class="text-blo3 size21 flex-col-l-m">
 							<a href="#" class="txt21 m-b-3"> {{name}} </a> <span
 								class="txt23"> {{description}} </span> <span
-								class="txt22 m-t-20"> {{price}} </span>
+								class="txt22 m-t-20"> {{price}}€ </span>
+						
 						</div>
-                        <button class="btn btn-danger my-cart-btn" data-id="{{id}}" data-name="{{name}}" 
+                        <button class="btn btn-danger my-cart-btn alinear" data-id="{{id}}" data-name="{{name}}" 
                                     data-summary="summary 1" data-price="{{price}}" 
                                     data-quantity="1" data-image="{{path}}">Añadir</button>
                         <div id="info">
