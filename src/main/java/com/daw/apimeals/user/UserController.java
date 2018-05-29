@@ -1,6 +1,5 @@
 package com.daw.apimeals.user;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -19,8 +18,7 @@ import com.daw.apimeals.service.MainService;
 import com.daw.apimeals.shoppingCart.ShoppingCart;
 
 @Controller
-public class UserController extends MainService {
-	
+public class UserController extends MainService {	
 	@Autowired 
 	private UserRepository uRepository;
 	
@@ -50,17 +48,32 @@ public class UserController extends MainService {
 			model.addAttribute("city", user.getCity());
 			model.addAttribute("cp", user.getPC());
 			model.addAttribute("role", user.getRoles());
+			model.addAttribute("cart", user.getCart());
+			model.addAttribute("recomended", this.recommend());
 			//if(!user.getCart().isEmpty())
 			//model.addAttribute("cart", user.getCart());
 				//model.addAttribute("recomemended", showRecommend());
-			
 		}
-		
-		
-		
-        return "user";
+		return "user";
 	}
 	
+	public List<Product> recommend() {
+		if(userComponent.isLoggedUser()) {
+			User user = userComponent.getLoggedUser();
+			List<ShoppingCart> userShoppingCarts = user.getCart();
+			if (!userShoppingCarts.isEmpty()) {
+				ShoppingCart lastShppingCart = userShoppingCarts.get(userShoppingCarts.size() - 1);
+				int kcAmount = 0;
+				for (Product p: lastShppingCart.getProducts()) {
+					kcAmount += p.getKc();
+				}
+				return pRepository.findByKcLessThan(kcAmount);
+			}
+		}
+		return null;
+	}
+	
+	/*
 	public int kcCart() {
 		User user = userComponent.getLoggedUser();
 		int kCcarrito=0;
@@ -89,7 +102,7 @@ public class UserController extends MainService {
 		
 		}
 	
-	
+	*/
 	@RequestMapping("/register")
 	public String register(Model model, HttpServletRequest request, RedirectAttributes redirectAttributes) {
 		this.session(model, request, redirectAttributes);
@@ -109,7 +122,7 @@ public class UserController extends MainService {
 	public void loadUser(Model model){
 		model.addAttribute("loggedUser",userComponent.getLoggedUser());
 		if(userComponent.isLoggedUser()){
-			User currentUser = uRepository.findOne(userComponent.getLoggedUser().getId());
+			//User currentUser = uRepository.findOne(userComponent.getLoggedUser().getId());
 			model.addAttribute("currentUser", userComponent.getLoggedUser());
 
 		}

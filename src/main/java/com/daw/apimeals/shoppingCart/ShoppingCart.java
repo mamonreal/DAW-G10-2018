@@ -54,11 +54,10 @@ public class ShoppingCart {
 		}
 	}
 	public int cartKC(List<Product> products) {
-		int kctotal=0;
-		for(int i=0; i<products.size();i++) {
-			kctotal+=Integer.parseInt(products.get(i).getKc());
-		}
-		return kctotal;
+		int kcTotal = 0;
+		for(Product p: products)
+			kcTotal += p.getKc();
+		return kcTotal;
 	}
 
 	public long getId() {
