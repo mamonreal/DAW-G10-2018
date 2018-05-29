@@ -90,8 +90,14 @@ public class UserController extends MainService {
 	
 	public List<Product> showRecommend() {
 		String kcRecommended=String.valueOf(kcCart());
-		
-		List<Product>productsRecommended=pRepository.findByKc(kcRecommended);
+		String category=null;
+		if(kcCart()>=600)
+			category="light";
+		if(kcCart()>250 && kcCart()<600)
+			category="mediterranean";
+		if(kcCart()<=250)
+			category="fast";
+		List<Product>productsRecommended=pRepository.findByCategory(category);
 		return productsRecommended;
 		
 		}
