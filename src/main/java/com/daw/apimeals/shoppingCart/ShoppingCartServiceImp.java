@@ -109,6 +109,9 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 		}
 		shoppingCartRepository.save(shoppingCart);
 		shoppingCartRepository.flush();
+		
+		products = new HashMap<>();
+		menus = new HashMap<>();
 	}
 
 	public Map<Product, Integer> getProducts() {

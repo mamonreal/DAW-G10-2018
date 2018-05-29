@@ -18,7 +18,6 @@ public class ShoppingCart {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.AUTO)
-	
 	private long id;
 	private long totalPrice;
 	private String address;
