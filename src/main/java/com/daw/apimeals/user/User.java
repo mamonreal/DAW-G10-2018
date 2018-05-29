@@ -36,7 +36,7 @@ public class User {
 	private String kc;
 	
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+	@OneToMany(mappedBy = "user")
 	private List<ShoppingCart> cart;
 	
 	@ElementCollection(fetch = FetchType.EAGER)
