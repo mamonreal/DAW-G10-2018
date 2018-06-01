@@ -174,12 +174,12 @@
 								<div>{{name}}</div>
 							</div>
                             <form method="post" action="shoppingCart/addProduct/{{id}}" class="line-item-mainmenu">
-	                            <button class="btn btn-danger my-cart-btn alinear" data-productId="{{id}}">
+	                            <button class="btn btn-danger my-cart-btn" data-productId="{{id}}">
                                     <i class="fa fa-plus"></i>
                             	</button>
                             </form>
                             {{#admin}}
-							<form method="post" action="/deleteProduct/{{id}}" class="alinearQuitar" >
+							<form method="post" action="/deleteProduct/{{id}}">
 								
 								<div id="info" class="flex-w flex-b m-b-3">
 									<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
