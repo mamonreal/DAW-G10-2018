@@ -49,7 +49,7 @@ public class UserController extends MainService {
 			model.addAttribute("cp", user.getPC());
 			model.addAttribute("role", user.getRoles());
 			model.addAttribute("cart", user.getCart());
-			model.addAttribute("recomended", this.recommend());
+			//model.addAttribute("recomended", this.recommend());
 			//if(!user.getCart().isEmpty())
 			//model.addAttribute("cart", user.getCart());
 				//model.addAttribute("recomemended", showRecommend());
@@ -62,9 +62,9 @@ public class UserController extends MainService {
 			User user = userComponent.getLoggedUser();
 			List<ShoppingCart> userShoppingCarts = user.getCart();
 			if (!userShoppingCarts.isEmpty()) {
-				ShoppingCart lastShppingCart = userShoppingCarts.get(userShoppingCarts.size() - 1);
+				ShoppingCart lastShoppingCart = userShoppingCarts.get(userShoppingCarts.size() - 1);
 				int kcAmount = 0;
-				for (Product p: lastShppingCart.getProducts()) {
+				for (Product p: lastShoppingCart.getProducts()) {
 					kcAmount += p.getKc();
 				}
 				return pRepository.findByKcLessThan(kcAmount);
