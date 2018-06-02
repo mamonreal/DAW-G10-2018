@@ -6,10 +6,15 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.daw.apimeals.product.Product;
@@ -17,8 +22,9 @@ import com.daw.apimeals.product.ProductRepository;
 import com.daw.apimeals.service.MainService;
 import com.daw.apimeals.shoppingCart.ShoppingCart;
 
-@Controller
-public class UserController extends MainService {	
+@RestController
+@RequestMapping("/api/user")
+public class UserRestController extends MainService {	
 	@Autowired 
 	private UserRepository uRepository;
 	
@@ -35,7 +41,7 @@ public class UserController extends MainService {
 	}
 	
 	@RequestMapping("/user")
-	public String user(Model model) {
+	public ResponseEntity<User> profile (Model model) {
         Boolean b = userComponent.isLoggedUser();
         model.addAttribute("logged", b);
 		if (b) {
@@ -51,12 +57,13 @@ public class UserController extends MainService {
 			model.addAttribute("cp", user.getPC());
 			model.addAttribute("role", user.getRoles());
 			model.addAttribute("cart", user.getCart());
-			//model.addAttribute("recomended", this.recommend());
+			model.addAttribute("recomended", this.recommend());
 			//if(!user.getCart().isEmpty())
 			//model.addAttribute("cart", user.getCart());
 				//model.addAttribute("recomemended", showRecommend());
+			return new ResponseEntity<>(user, HttpStatus.OK);
 		}
-		return "user";
+		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 	
 	public List<Product> recommend() {
@@ -64,9 +71,9 @@ public class UserController extends MainService {
 			User user = userComponent.getLoggedUser();
 			List<ShoppingCart> userShoppingCarts = user.getCart();
 			if (!userShoppingCarts.isEmpty()) {
-				ShoppingCart lastShoppingCart = userShoppingCarts.get(userShoppingCarts.size() - 1);
+				ShoppingCart lastShppingCart = userShoppingCarts.get(userShoppingCarts.size() - 1);
 				int kcAmount = 0;
-				for (Product p: lastShoppingCart.getProducts()) {
+				for (Product p: lastShppingCart.getProducts()) {
 					kcAmount += p.getKc();
 				}
 				return pRepository.findByKcLessThan(kcAmount);
@@ -105,19 +112,17 @@ public class UserController extends MainService {
 		}
 	
 	*/
-	@RequestMapping("/register")
-	public String register(Model model, HttpServletRequest request, RedirectAttributes redirectAttributes) {
+	@RequestMapping(value = "/id", method = RequestMethod.GET)
+	public ResponseEntity<User> register(Model model, HttpServletRequest request, RedirectAttributes redirectAttributes) {
 		this.session(model, request, redirectAttributes);
-		return "register";
+		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 	
-	@RequestMapping("addUser")
-	public String addUser(@RequestParam String name, @RequestParam String mobile,@RequestParam String email,@RequestParam String UserName,
-			@RequestParam String password,@RequestParam String city,@RequestParam String address,@RequestParam String PC) {
-		User user = new User(name, mobile, email, UserName, password, city, address, PC, "ROLE_USER");
-		uRepository.save(user);
+	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
+	public ResponseEntity<User> addUser(@RequestBody User user) {
+		User newUser = uRepository.save(user);
 		userComponent.setLoggedUser(user);
-		return "/user";
+		return new ResponseEntity<>(newUser, HttpStatus.CREATED);
 		
 	}
 

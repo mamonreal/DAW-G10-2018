@@ -45,7 +45,7 @@ public class User {
 	
 	protected User() {}
 
-	public User(String name, String email, String passwordHash, String address, long telephone, List<String> roles) {
+	public User(String name, String email, String passwordHash, String address, long telephone, List<String> roles, List<ShoppingCart> cart) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -55,9 +55,10 @@ public class User {
 //		this.orders = orders;
 		this.roles = roles;
 		this.kc = "";
+		this.cart = null;
 	}
 	
-	public User(String name, String mobile, String email, String UserName, String password, String city, String address, String PC, String... roles ) {
+	public User(String name, String mobile, String email, String UserName, String password, String city, String address, String PC, String... roles) {
 		this.name=name;
 		this.telephone=(long)Long.parseLong(mobile);
 		this.email=email;
@@ -68,6 +69,7 @@ public class User {
 		this.PC=PC;		
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 		this.kc = "";
+		this.cart = new ArrayList<ShoppingCart>();
 	}
 
 	public long getId() {
@@ -164,6 +166,10 @@ public class User {
 	
 	public void addShoppingCart(ShoppingCart shoppingCart) {
 		cart.add(shoppingCart);
+	}
+	
+	public void initializeCart() {
+		this.cart = new ArrayList<ShoppingCart>();
 	}
 	
 }
