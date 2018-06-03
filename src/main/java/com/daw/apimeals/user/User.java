@@ -43,7 +43,7 @@ public class User {
 	 private List<String> roles;
 	
 	
-	protected User() {}
+	public User() {}
 
 	public User(String name, String email, String passwordHash, String address, long telephone, List<String> roles, List<ShoppingCart> cart) {
 		super();

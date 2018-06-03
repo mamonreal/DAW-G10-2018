@@ -28,6 +28,11 @@ public class ProductRestController {
 	@Autowired
 	UserComponent userComponent;
 	
+		@RequestMapping(value="/Product/{id}", method=RequestMethod.GET)
+	    public ResponseEntity<Product>getProduct(@PathVariable long id) {
+	    	Product product= pRepository.findById(id);
+	    	return new ResponseEntity<>(product,HttpStatus.OK);
+	    }
 
 	    @RequestMapping(value="/Product/{id}", method=RequestMethod.POST)
 	    public ResponseEntity<Product>addProduct( @PathVariable String name,@PathVariable String description, @PathVariable String category, @PathVariable String type, @PathVariable String kc, @PathVariable String price ) {

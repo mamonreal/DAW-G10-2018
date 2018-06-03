@@ -18,6 +18,8 @@ import com.daw.apimeals.menu.Menu;
 import com.daw.apimeals.product.Product;
 import com.daw.apimeals.product.ProductRepository;
 import com.daw.apimeals.service.MainService;
+import com.daw.apimeals.user.User;
+import com.daw.apimeals.user.UserRepository;
 
 @RestController
 @RequestMapping("/api/ShoppingCart")
@@ -28,26 +30,34 @@ public class ShopingCartRestController {
 
 	    @Autowired
 	    private ProductRepository productRepository;
+
+	    @Autowired
+	    private ShoppingCartRepository cartRepository;
 	    
 	    @RequestMapping(value= "/shoppingCart/{id}", method= RequestMethod.GET)
 		public ResponseEntity<ShoppingCart> getShoppingCart(@PathVariable long id) {
-			List<ProductAmount> plates = shoppingCartService.getProductsInShoppingCart();
-			//return new ResponseEntity<>(plates, HttpStatus.OK);
+	    	ShoppingCart newCart = cartRepository.getCartById(id);
+			return new ResponseEntity<>(newCart, HttpStatus.OK);
 		}
 		
 	    @RequestMapping(value="/shoppingCart/Product/{id}", method= RequestMethod.PUT)
-	    public ResponseEntity<ShoppingCart> addProductToCart(@PathVariable("id") Long id) {
-			shoppingCartService.addProduct(productRepository.findById(id));
-	
-			//return new ResponseEntity<>(shoppingCart,HttpStatus.OK);
+	    public ResponseEntity<Boolean> addProductToCart(@PathVariable("id") long id) {
+	    	Product product = productRepository.findById(id);
+	    	if (product!=null) {
+	    		shoppingCartService.addProduct(product);
+	    	    return new ResponseEntity<>(true,HttpStatus.OK);
+	    	}
+	    	return new ResponseEntity<>(false,HttpStatus.NOT_FOUND);
 	    }
 
-	    @PostMapping("/shoppingCart/removeProduct/{id}")
-	    public String removeProductFromCart(Model model, @PathVariable("id") Long id) {
-	        shoppingCartService.removeProduct(productRepository.findById(id));
-	        model.addAttribute("plates", shoppingCartService.getProductsInShoppingCart());
-			model.addAttribute("menus", shoppingCartService.getMenuInShoppingCart());
-	        return "/shoppingCart";
+	    @RequestMapping(value="/shoppingCart/removeProduct/{id}", method = RequestMethod.DELETE)
+	    public ResponseEntity<Boolean> removeProductFromCart(@PathVariable("id") long id) {
+	    	Product product = productRepository.findById(id);
+	    	if (product!=null) {
+	    		shoppingCartService.removeProduct(productRepository.findById(id));
+	    		return new ResponseEntity<>(true,HttpStatus.OK);
+	    	}
+	        return new ResponseEntity<>(true,HttpStatus.NOT_FOUND);
 	    }
 
 	    @PostMapping("/shoppingCart/checkout/{address}")
@@ -70,7 +80,5 @@ public class ShopingCartRestController {
 	        return "/shoppingCart";
 	    }
 		
-
-	}
 
 }
