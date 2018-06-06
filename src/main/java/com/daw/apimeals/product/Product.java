@@ -6,30 +6,52 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import com.daw.apimeals.menu.Menu;
 import com.daw.apimeals.shoppingCart.ShoppingCart;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class Product{
 	
+	interface ProductBassic{}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonView(ProductBassic.class)
 	private long id;
 	
+	@JsonView(ProductBassic.class)
 	private String name;
+	
+	@JsonView(ProductBassic.class)
 	private String description;
+	
+	@JsonView(ProductBassic.class)
 	private String type;
+	
+	@JsonView(ProductBassic.class)
 	private String category;
+	
+	@JsonView(ProductBassic.class)
 	private int kc;
+	
+	@JsonIgnore
+	@Lob
 	private String path;
+	
+	@JsonView(ProductBassic.class)
 	private long price;
 	
+	@JsonIgnore
 	@ManyToOne
 	private Menu menu;
 	
+	@JsonIgnore
 	@ManyToMany(mappedBy = "products")
 	private List<ShoppingCart> cart;
 

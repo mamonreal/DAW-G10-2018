@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.daw.apimeals.service.MainService;
 
 @RestController
-@RequestMapping(value = "/api/user")
+@RequestMapping(value = "/api")
 public class UserRestController extends MainService {	
 	@Autowired 
 	private UserRepository uRepository;

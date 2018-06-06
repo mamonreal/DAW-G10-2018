@@ -19,6 +19,7 @@ import com.daw.apimeals.menu.Menu;
 import com.daw.apimeals.user.UserComponent;
 import com.daw.apimeals.user.UserRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -67,16 +68,31 @@ public class ProductController {
 		pRepository.save(d2);
 		pRepository.save(dr1);
 		pRepository.save(dr2);
+		for (int i = 0; i<15; i++) {
+			pRepository.save(new Product("Entrante " + i,"","entree","",10,"",10));
+		}
+		for (int i = 0; i<15; i++) {
+			pRepository.save(new Product("Principal " + i,"","first","",10,"",10));
+		}
+		for (int i = 0; i<15; i++) {
+			pRepository.save(new Product("Segundo " + i,"","second","",10,"",10));
+		}
+		for (int i = 0; i<15; i++) {
+			pRepository.save(new Product("Postre " + i,"","Dessert","",10,"",10));
+		}
+		for (int i = 0; i<15; i++) {
+			pRepository.save(new Product("Bebida" + i,"","drink","",10,"",10));
+		}
 	}
 
     @RequestMapping("/products")
     public String plates(Model model,HttpServletRequest request) {
-
-    	List<Product> entrees = pRepository.findByType("entree");//, new PageRequest(0, 10));
-	    List<Product> first = pRepository.findByType("first");//,new PageRequest(0, 10));
-	    List<Product> second = pRepository.findByType("Second");//,new PageRequest(0, 10));
-	    List<Product> desserts = pRepository.findByType("Dessert");//,new PageRequest(0, 10));
-	    List<Product> drinks = pRepository.findByType("drinks");//,new PageRequest(0, 10));
+    	List<Product> products = pRepository.findAll().subList(0, Math.min(pRepository.findAll().size(),10));
+    	List<Product> entrees = pRepository.findByType("entree").subList(0, Math.min(pRepository.findAll().size(),10));
+	    List<Product> first = pRepository.findByType("first").subList(0, Math.min(pRepository.findAll().size(),10));
+	    List<Product> second = pRepository.findByType("second").subList(0, Math.min(pRepository.findAll().size(),10));
+	    List<Product> desserts = pRepository.findByType("Dessert").subList(0, Math.min(pRepository.findAll().size(),10));
+	    List<Product> drinks = pRepository.findByType("drink").subList(0, Math.min(pRepository.findAll().size(),10));
 	   
 	    model.addAttribute("entrees", entrees);
         model.addAttribute("first", first);
@@ -87,6 +103,28 @@ public class ProductController {
 
 	    return "plates";
     }
+    
+    @RequestMapping(value={"showMore/{page}"})
+	public String indexScrollPosts(Model model, @PathVariable int page){
+    	List<Product> showMore = null;
+    	List<Product> products = new ArrayList<>();
+    	String t = null;
+    	String p = null;
+    	//if(type == 1) {
+    		products = pRepository.findByType("entree");
+    		t = "entrees";
+		//}
+		if (page*10 < products.size()){
+			if ((page+1)*10 <= products.size()){
+				showMore = products.subList(page*10, (page+1)*10);
+			} else {
+				showMore = products.subList(page*10,products.size());
+			}
+		}
+        model.addAttribute(t, showMore);
+//		model.addAttribute("admin", userComponent.getLoggedUser().getRoles().contains("ADMIN"));
+		return "showMore";
+	}
     
     
 

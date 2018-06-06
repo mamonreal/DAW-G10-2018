@@ -36,6 +36,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/custom.css">
 <!--===============================================================================================-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/pageable.js"></script>
 </head>
 <body class="animsition">
 	<!-- Header -->
@@ -150,13 +152,12 @@
 	<section class="section-mainmenu p-t-110 p-b-70 bg1-pattern">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-10 col-lg-6 p-r-35 p-r-15-lg m-l-r-auto">
+				<div id="allProducts" class="col-md-10 col-lg-6 p-r-35 p-r-15-lg m-l-r-auto">
 					
 					<!-- entrees -->
 					<div id="entrees" class="wrap-item-mainmenu p-b-22">
 						<a name="Entrantes"></a>
 						<h3 class="tit-mainmenu tit10 p-b-25">ENTRANTES</h3>
-						
 						{{#entrees}}
 						<div id="{{id}}" class="flex-w flex-b m-b-3">
 							<div onclick="popupImage(&quot;{{id}}&quot;);">{{name}}</div>
@@ -166,6 +167,8 @@
 							<div class="price-item-mainmenu txt22 mr-3">
 								{{price}}€
 							</div>
+							<section/>
+
 						
 							<!-- popup -->			
 							<div id="{{id}}.modal" class="modal">
@@ -190,13 +193,17 @@
 						{{/entrees}}
 					</div>
 					
+					<div id="loading" class="side-middle minHeight">
+				    <!-- Here the spinner will be shown -->
+				    </div>
+					<button id="showMore" class="btn btn-primary mt-3">Cargar más</button>
+					
 					<!-- first -->
 					<div id="first" class="wrap-item-mainmenu p-b-22">
 						<a name="Principales"></a>
 						<h3 class="tit-mainmenu tit10 p-b-25">PLATOS PRINCIPALES</h3>
-						
 						{{#first}}
-						<div id="{{id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
+						<div id="{{id}}" class="flex-w flex-b m-b-3">
 							<div onclick="popupImage(&quot;{{id}}&quot;);">{{name}}</div>
 						
 							<div class="line-item-mainmenu bg3-pattern"></div>
@@ -204,6 +211,7 @@
 							<div class="price-item-mainmenu txt22 mr-3">
 								{{price}}€
 							</div>
+							<section/>
 						
 							<!-- popup -->			
 							<div id="{{id}}.modal" class="modal">
@@ -212,27 +220,29 @@
 								<div>{{name}}</div>
 							</div>
 							   <form method="post" action="shoppingCart/addProduct/{{id}}" class="line-item-mainmenu">
-	                            <button class="btn btn-danger my-cart-btn alinear" data-productId="{{id}}">
+	                            <button class="btn btn-danger my-cart-btn" data-productId="{{id}}">
                                     <i class="fa fa-plus"></i>
                             	</button>
                             </form>
-                        
-                            <form method="post" action="/deleteProduct/{{id}}" class="alinearQuitar" >
+                        	{{#admin}}
+                            <form method="post" action="/deleteProduct/{{id}}">
                             <div id="info">
-		                        {{#admin}}
-		                        	<button class="btn btn-danger my-cart-btn " id="{{id}}">Quitar</button>
-		                        {{/admin}}     
+		                        	<button class="btn btn-danger my-cart-btn " id="{{id}}">Quitar</button>   
                         	</div>
-                        	</form>    
+                        	</form>  
+                        	{{/admin}}   
 						</div>
 						{{/first}}
+						<div id="loading" class="side-middle minHeight">
+					    <!-- Here the spinner will be shown -->
+					    </div>
+					    <button id="showMore" class="btn btn-primary mt-3">Cargar más</button>
 					</div>
 						
 					<!-- second -->
 					<div id="second" class="wrap-item-mainmenu p-b-22">
 						<a name="Segundos"></a>
 						<h3 class="tit-mainmenu tit10 p-b-25">SEGUNDOS PLATOS</h3>
-						
 						{{#second}}
 						<div id="{{id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
 							<div onclick="popupImage(&quot;{{id}}&quot;);">{{name}}</div>
@@ -242,6 +252,7 @@
 							<div class="price-item-mainmenu txt22 mr-3">
 								{{price}}€
 							</div>
+							<section/>
 						
 							<!-- popup -->			
 							<div id="{{id}}.modal" class="modal">
@@ -250,26 +261,29 @@
 								<div>{{name}}</div>
 							</div>
    							<form method="post" action="shoppingCart/addProduct/{{id}}" class="line-item-mainmenu">
-	                            <button class="btn btn-danger my-cart-btn alinear" data-productId="{{id}}">
+	                            <button class="btn btn-danger my-cart-btn" data-productId="{{id}}">
                                     <i class="fa fa-plus"></i>
                             	</button>
                             </form>
-                            <form method="post" action="/deleteProduct/{{id}}" class="alinearQuitar">
+                            {{#admin}}
+                            <form method="post" action="/deleteProduct/{{id}}">
                             <div id="info">
-		                        {{#admin}}
-		                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
-		                        {{/admin}}     
+		                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>    
                         	</div>
-                        	</form>    
+                        	</form> 
+                        	{{/admin}}   
 						</div>
 						{{/second}}
+						<div id="loading" class="side-middle minHeight">
+					    <!-- Here the spinner will be shown -->
+					    </div>
+					    <button id="showMore" class="btn btn-primary mt-3">Cargar más</button>
 					</div>
 					
 					<!-- desserts -->
 					<div id="desserts" class="wrap-item-mainmenu p-b-22">
 						<a name="Postres"></a>
 						<h3 class="tit-mainmenu tit10 p-b-25">POSTRES</h3>
-						
 						{{#desserts}}
 						<div id="{{id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
 							<div onclick="popupImage(&quot;{{id}}&quot;);">{{name}}</div>
@@ -279,6 +293,7 @@
 							<div class="price-item-mainmenu txt22 mr-3">
 								{{price}}€
 							</div>
+							<section/>
 						
 							<!-- popup -->			
 							<div id="{{id}}.modal" class="modal">
@@ -287,25 +302,28 @@
 								<div>{{name}}</div>
 							</div>
    							<form method="post" action="shoppingCart/addProduct/{{id}}" class="line-item-mainmenu">
-	                            <button class="btn btn-danger my-cart-btn alinear" data-productId="{{id}}">
+	                            <button class="btn btn-danger my-cart-btn" data-productId="{{id}}">
                                     <i class="fa fa-plus"></i>
                             	</button>
                             </form>
-                            <form method="post" action="/deleteProduct/{{id}}" class="alinearQuitar">
+                            {{#admin}}
+                            <form method="post" action="/deleteProduct/{{id}}">
 							<div id="info">
-		                        {{#admin}}
-		                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
-		                        {{/admin}}     
+		                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>     
                         	</div> 
-                        	</form>   
+                        	</form> 
+                        	{{/admin}}  
 						</div>
 						{{/desserts}}
+						<div id="loading" class="side-middle minHeight">
+					    <!-- Here the spinner will be shown -->
+					    </div>
+					    <button id="showMore" class="btn btn-primary mt-3">Cargar más</button>
 					</div>
 					
 					<div id="drinks" class="wrap-item-mainmenu p-b-22">
 						<a name="Bebidas"></a>
 						<h3 class ="tit-mainmenu tit10 p-b-25">BEBIDAS</h3>
-						
 						{{#drinks}}
 						<div id="{{id}}" class="flex-w flex-b m-b-3" onclick="popupimage();">
 							<div onclick="popupImage(&quot;{{id}}&quot;);">{{name}}</div>
@@ -323,19 +341,23 @@
 								<div>{{name}}</div>
 							</div>
    							<form method="post" action="shoppingCart/addProduct/{{id}}" class="line-item-mainmenu">
-	                            <button class="btn btn-danger my-cart-btn alinear" data-productId="{{id}}">
+	                            <button class="btn btn-danger my-cart-btn" data-productId="{{id}}">
                                     <i class="fa fa-plus"></i>
                             	</button>
-                            </form>                            
-                           	 <form method="post" action="/deleteProduct/{{id}}" class="alinearQuitar">
+                            </form>  
+                            {{#admin}}                          
+                           	<form method="post" action="/deleteProduct/{{id}}">
 							<div id="info">
-		                        {{#admin}}
-		                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
-		                        {{/admin}}     
+		                        	<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>    
                         	</div> 
                         	</form>
+                        	{{/admin}}
 						</div>
 						{{/drinks}}
+						<div id="loading" class="side-middle minHeight">
+					    <!-- Here the spinner will be shown -->
+					    </div>
+					    <button id="showMore" class="btn btn-primary mt-3">Cargar más</button>
 					</div>
 					{{#admin}}
                     <div id="add-new-product">

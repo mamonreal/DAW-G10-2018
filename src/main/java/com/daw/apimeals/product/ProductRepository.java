@@ -20,4 +20,5 @@ public interface ProductRepository extends JpaRepository<Product,Long>{
     @Query("select p from Product p where p.kc < :kc")
     List<Product> findByKc(@Param("kc") String kc);
     List<Product> findByKcLessThan(int kc);
+    List<Product> findAll();
 }

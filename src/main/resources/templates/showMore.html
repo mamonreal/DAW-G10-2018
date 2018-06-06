@@ -1,0 +1,34 @@
+
+						{{#entrees}}
+						<div id="{{id}}" class="flex-w flex-b m-b-3">
+							<div onclick="popupImage(&quot;{{id}}&quot;);">{{name}}</div>
+						
+							<div class="line-item-mainmenu bg3-pattern"></div>
+						
+							<div class="price-item-mainmenu txt22 mr-3">
+								{{price}}€
+							</div>
+							<section/>
+
+						
+							<!-- popup -->			
+							<div id="{{id}}.modal" class="modal">
+								<spam id="{{id}}.close" class="close">&times;</spam>
+								<img src="{{path}}" class="modal-content">
+								<div>{{name}}</div>
+							</div>
+                            <form method="post" action="shoppingCart/addProduct/{{id}}" class="line-item-mainmenu">
+	                            <button class="btn btn-danger my-cart-btn" data-productId="{{id}}">
+                                    <i class="fa fa-plus"></i>
+                            	</button>
+                            </form>
+                            {{#admin}}
+							<form method="post" action="/deleteProduct/{{id}}">
+								
+								<div id="info" class="flex-w flex-b m-b-3">
+									<button class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
+								</div>
+							</form>
+							{{/admin}}    
+						</div>
+						{{/entrees}}

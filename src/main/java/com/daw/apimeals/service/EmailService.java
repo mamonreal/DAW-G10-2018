@@ -42,6 +42,7 @@ public class EmailService {
 		helper.setTo(user.getEmail());
 		helper.setText(html, true);
 		helper.setSubject("Gracias por registrarte en Apimeals");
+		helper.setFrom("no-reply@hotmail.es");
 
 		emailSender.send(message);
 	}

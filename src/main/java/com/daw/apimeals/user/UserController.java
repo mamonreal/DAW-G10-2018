@@ -1,8 +1,10 @@
 package com.daw.apimeals.user;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +16,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.daw.apimeals.product.Product;
 import com.daw.apimeals.product.ProductRepository;
+import com.daw.apimeals.service.EmailService;
 import com.daw.apimeals.service.MainService;
 import com.daw.apimeals.shoppingCart.ShoppingCart;
+
+import freemarker.template.TemplateException;
 
 @Controller
 public class UserController extends MainService {	
@@ -27,6 +32,9 @@ public class UserController extends MainService {
 	
 	@Autowired
 	private ProductRepository pRepository;
+	
+	@Autowired
+	private EmailService emailService;
 	
 	@PostConstruct
 	public void init() {
@@ -114,10 +122,25 @@ public class UserController extends MainService {
 	@RequestMapping("addUser")
 	public String addUser(@RequestParam String name, @RequestParam String mobile,@RequestParam String email,@RequestParam String UserName,
 			@RequestParam String password,@RequestParam String city,@RequestParam String address,@RequestParam String PC) {
-		User user = new User(name, mobile, email, UserName, password, city, address, PC, "ROLE_USER");
-		uRepository.save(user);
-		userComponent.setLoggedUser(user);
-		return "/user";
+		if (uRepository.findByEmail(email) == null) {
+			User user = new User(name, mobile, email, UserName, password, city, address, PC, "ROLE_USER");
+			uRepository.save(user);
+			userComponent.setLoggedUser(user);
+			try {
+				  emailService.sendSimpleMessage(uRepository.findByEmail(email));
+				  } catch (MessagingException messaginException) {
+				   System.out.println(messaginException);
+				  } catch (IOException IOexception) {
+				   System.out.println(IOexception);
+				  } catch (TemplateException templateException) {
+				   System.out.println(templateException);
+				  }
+				  ;
+				  return "/user";
+	  } else {
+		   //model.addAttribute("errorMessage","¡Error al crear la cuenta! El correo introducido ya está vinculado a otra cuenta.");
+		      return "error2";
+		      }
 		
 	}
 
