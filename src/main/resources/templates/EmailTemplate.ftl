@@ -139,7 +139,7 @@
                                         <table width="100%" cellpadding="0" cellspacing="0">
                                             <table width="100%" cellpadding="0" cellspacing="0">
                                                 <tr>
-                                                    <h1 style="font:35px/38px Arial, Helvetica, sans-serif; color:#292c34; padding:0 0 24px;" align="center">CONTaFIN</h1>
+                                                    <h1 style="font:35px/38px Arial, Helvetica, sans-serif; color:#292c34; padding:0 0 24px;" align="center">Api Meals</h1>
                                                 </tr>
                                                 <tr>
                                                     <td class="img-flex">
@@ -153,7 +153,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="center" style="font:bold 16px/25px Arial, Helvetica, sans-serif; color:#888; padding:0 0 23px;">
-                                                      Gracias por confiar en Apimeals, su pedido llegará en breve.           </td>
+                                                      Gracias por registrarse en Apimeals, le damos la bienvenida al restaurante a domicilio mas suculento del Mundo         </td>
                                                 </tr>
                                             </table>
                                         </table>
@@ -174,26 +174,9 @@
                             <table class="flexible" width="600" align="center" style="margin:0 auto;" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td data-bgcolor="bg-block" class="holder" style="padding:64px 60px 10px;" bgcolor="#f9f9f9">
-                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                        <table width="100%" cellpadding="0" cellspacing="0">                                          
                                             <tr>
-                                                <td data-color="title" data-size="size title" data-min="20" data-max="40" data-link-color="link title color" data-link-style="text-decoration:none; color:#292c34;" class="title" align="center" style="font:30px/33px Arial, Helvetica, sans-serif; color:#292c34; padding:0 0 23px;">
-                                                    Pasos a seguir:
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="center" style="font:bold 16px/25px Arial, Helvetica, sans-serif; color:#888; padding:0 0 23px;">
-                                                    1. Ponga la mesa
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="center" style="font:bold 16px/25px Arial, Helvetica, sans-serif; color:#888; padding:0 0 23px;">
-                                                    2. Espere a que nuestro repartidor llegue
-
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="center" style="font:bold 16px/25px Arial, Helvetica, sans-serif; color:#888; padding:0 0 23px;">
+                                                <td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="center" style="font:bold 16px/25px Arial, Helvetica, sans-serif; color:#F00303  ; padding:0 0 23px;">
                                                     Preparése para saborear nuestra deliciosa comida
 
                                                 </td>
@@ -202,8 +185,8 @@
                                                 <td style="padding:0 0 20px;">
                                                     <table width="134" align="center" style="margin:0 auto;" cellpadding="0" cellspacing="0">
                                                         <tr>
-                                                            <td data-bgcolor="bg-button" data-size="size button" data-min="10" data-max="16" class="btn" align="center" style="font:12px/14px Arial, Helvetica, sans-serif; color:#FF9F40; text-transform:uppercase; mso-padding-alt:12px 10px 10px; border-radius:2px;" bgcolor="#FF9F40">
-                                                                <a target="_blank" style="text-decoration:none; color:#f8f9fb; display:block; padding:12px 10px 10px;" href="#">Comenzar</a>
+                                                            <td data-bgcolor="bg-button" data-size="size button" data-min="10" data-max="16" class="btn3" align="center" style="font:12px/14px Arial, Helvetica, sans-serif; color:#FF9F40; text-transform:uppercase; mso-padding-alt:12px 10px 10px; border-radius:2px;" bgcolor="#F00303  ">
+                                                                <a target="_blank" style="text-decoration:none; color:#f8f9fb; display:block; padding:12px 10px 10px;" href="https://localhost:8080/products">Comenzar</a>
                                                             </td>
                                                         </tr>
                                                     </table>

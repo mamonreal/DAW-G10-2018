@@ -23,6 +23,16 @@ public class LoginController {
 	@Autowired
 	UserComponent userComponent;
 	
+	//Connect to Angular
+		@RequestMapping("/new")
+		public String connectToAngular() {
+			return "new/login.html";
+		}
+		@RequestMapping("/new/")
+		public String connectToAngular2() {
+			return "new/login.html";
+		}
+	
 	@RequestMapping(value={"/login"})
 	public String loginController(Model model, HttpServletRequest request){ 
 		model.addAttribute("loginerror",false);
@@ -40,12 +50,12 @@ public class LoginController {
     model.addAttribute("admin", request.isUserInRole("ADMIN"));
    	model.addAttribute("logged", userComponent.isLoggedUser());
     	if (userComponent.isLoggedUser()) {
-    	 	model.addAttribute("name", userComponent.getLoggedUser().getName());
-    	 	model.addAttribute("username", userComponent.getLoggedUser().getName());
-    	 	model.addAttribute("phone", userComponent.getLoggedUser().getName());
-    	 	model.addAttribute("address", userComponent.getLoggedUser().getName());
-    	 	model.addAttribute("city", userComponent.getLoggedUser().getName());
-    	 	model.addAttribute("cp", userComponent.getLoggedUser().getName());
+    	 	model.addAttribute("name", userComponent.getLoggedUser().getUserName());
+    	 	model.addAttribute("username", userComponent.getLoggedUser().getUserName());
+    	 	model.addAttribute("phone", userComponent.getLoggedUser().getUserName());
+    	 	model.addAttribute("address", userComponent.getLoggedUser().getUserName());
+    	 	model.addAttribute("city", userComponent.getLoggedUser().getUserName());
+    	 	model.addAttribute("cp", userComponent.getLoggedUser().getUserName());
     	
     	}
     	return "user";
