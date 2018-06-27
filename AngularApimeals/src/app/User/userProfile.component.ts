@@ -11,7 +11,7 @@ import { user } from '../Interfaces/User/user.model';
     templateUrl: './user.component.html'
 })
 
-export class UserProfileComponent implements OnInit {
+export class userProfileComponent implements OnInit {
     loggedUser: user;
     name: user;
 
@@ -19,7 +19,8 @@ export class UserProfileComponent implements OnInit {
 constructor(private loginService: LoginService, private userService: UserService) {
     this.loggedUser = this.loginService.getLoggedUser();
 }
-
-ng
+ngOnInit(){
+    
+}
 
 }

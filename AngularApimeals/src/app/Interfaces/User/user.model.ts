@@ -11,5 +11,5 @@ export interface user{
     city:string;
     PC:string;
     kc:string;
-    cart: Array<shoppingcart>;
+    cart: Array<Cart>;
 }

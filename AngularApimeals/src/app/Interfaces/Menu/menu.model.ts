@@ -1,6 +1,6 @@
 import {Product} from '../Product/product.model';
 
-xport interface Menu{
+export interface Menu{
     id:number;
     name:string;
     description?:string;

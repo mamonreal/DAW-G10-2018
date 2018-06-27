@@ -6,7 +6,7 @@ export interface Product{
     description?:string;
     type:string;
     category:string;
-    kc:number;
+    kc:number|string;
     path?:string;
     price:number;
 }
