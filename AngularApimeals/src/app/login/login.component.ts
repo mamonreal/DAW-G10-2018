@@ -1,9 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgbModule, ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { LoginService } from './login.service';
-import { User } from '../Interfaces/User/user.model';
+import { user } from '../Interfaces/User/user.model';
 
 
 @Component({
@@ -13,7 +12,7 @@ import { User } from '../Interfaces/User/user.model';
 
 export class LoginComponent{
 
-    constructor(private router:Router, private loginService:LoginService, private modalService:NgbModal){}
+    constructor(private router:Router, private loginService:LoginService){}
     private result: string;
 
     @Input()
@@ -34,7 +33,7 @@ export class LoginComponent{
                         }
                     );
                 }
-            };
+            },
             error=>alert('Wrong user or password')
         );
     }

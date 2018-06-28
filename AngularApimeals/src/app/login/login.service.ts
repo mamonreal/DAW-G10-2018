@@ -49,5 +49,19 @@ const URL = environment.apiBase;
         //admin
     }
 
+    login(user: string, pass:string){
+        const log = user + ':' + pass;
+
+        //Autorizacion en headers
+
+        const options = new RequestOptions({withCredentials: true});
+        return this.http.get(URL +'/user',options).map(
+            response => {
+                this.processLogInResponse(response);
+                return this.user;
+            }
+        );
+    }
+
         
     }
