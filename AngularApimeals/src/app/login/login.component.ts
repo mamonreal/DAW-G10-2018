@@ -18,9 +18,9 @@ export class LoginComponent{
     @Input()
     private form: string;
 
-    login(event: any, userName:string, pass: string){
+    logIn(event: any, userName:string, pass: string){
         event.preventDefault();
-        this.loginService.login(userName, pass).subscribe(
+        this.loginService.logIn(userName, pass).subscribe(
             user=>{
                 console.log(user);
                 if(this.form=="1"){
@@ -36,5 +36,16 @@ export class LoginComponent{
             },
             error=>alert('Wrong user or password')
         );
+    }
+
+    logOut() {
+        this.loginService.logOut().subscribe(
+            response => {
+                console.log('Logged out');
+                this.router.navigate(['/']);
+            },
+            error => console.log('Error in the log out: ' + error)
+        );
+        
     }
 }

@@ -4,7 +4,7 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 import { environment } from '../../environments/environment';
 import 'rxjs/Rx';
 
-const URL = environment.apiBase;
+const BASE_URL = environment.apiBase;
 
 @Injectable()
     export class LoginService{
@@ -33,7 +33,7 @@ const URL = environment.apiBase;
             });
 
         const options = new RequestOptions({withCredentials:true, headers});
-        this.http.get(URL + '/login', options).subscribe(
+        this.http.get(BASE_URL + '/login', options).subscribe(
             response => this.processLogInResponse(response),
             error => {
                 if (error.status !== 401){
@@ -49,7 +49,7 @@ const URL = environment.apiBase;
         //admin
     }
 
-    login(user: string, pass:string){
+    logIn(user: string, pass:string){
         const log = user + ':' + pass;
 
         //Autorizacion en headers
@@ -59,6 +59,16 @@ const URL = environment.apiBase;
             response => {
                 this.processLogInResponse(response);
                 return this.user;
+            }
+        );
+    }
+
+    logOut(){
+        return this.http.get(URL + '/logout', {withCredentials: true}).map(
+            response => {
+                this.isLogged = false;
+                this.isAdmin = false;
+                return response;
             }
         );
     }
