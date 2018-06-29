@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Product} from '../Interfaces/Product/product.model';
 import { ProductService} from './product.service';
+import {Http} from '@angular/http';
+import {LoginService} from '../login/login.service';
+import { environment } from '../../environments/environment';
+
 
 @Component({
     selector: 'exercise',
@@ -12,17 +16,17 @@ import { ProductService} from './product.service';
 export class ProductComponent implements OnInit {
 
     id: number;
-    name: string;
+    /*name: string;
     category: string;
     description?:string;
     type:string;
     kc:string|number;
     path?:string;
-    price:number;
+    price:number;*/
 
     constructor(private router: Router, activatedRoute: ActivatedRoute, public productService: ProductService){
-        let idProduct = activatedRoute.snapshot.params['id'];
-        this.id = parseInt(idProduct);
+        this.id = activatedRoute.snapshot.params['id'];
+
 
     }
 
@@ -31,6 +35,10 @@ export class ProductComponent implements OnInit {
     }
 
     getProducts(){
-        this.productService.getProduct();
+        this.productService.getProducts();
+    }
+
+    getProduct(id:number){
+        
     }
 }
