@@ -5,10 +5,13 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { routing } from '../app/app.routing';
 
 import { AppComponent } from './app.component';
+import { CartComponent } from './Cart/cart.component';
+import { IndexComponent } from './Index/index.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
