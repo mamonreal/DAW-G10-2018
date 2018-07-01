@@ -6,7 +6,7 @@ import {user} from '../Interfaces/User/user.model';
 import 'rxjs/Rx';
 
 
-const URL = environment.apiBase + '/admin';
+//const URL = environment.apiBase + '/admin';
 
 
 @Injectable()
@@ -14,5 +14,5 @@ export class AdminService {
 
     constructor(private http: Http){ }
 
-    
+
 }

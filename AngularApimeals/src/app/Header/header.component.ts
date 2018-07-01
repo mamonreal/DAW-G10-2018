@@ -5,7 +5,7 @@ import { LoginService} from '../login/login.service';
 
 
 @Component({
-    selector: 'app-header',
+    selector: 'HeaderComponent',
     templateUrl: 'header.component.html'
 
 })
@@ -23,13 +23,10 @@ export class HeaderComponent {
         this.isAdmin = false;
     }
 
-    logIn(){
-        this.openLogin.emit();
-    }
 
     logOut(){
         this.service.logOut().subscribe(
-            response => { },
+            response => { this.router.navigate['/login'], console.log ('Te has desconectado')},
             error => console.log('Error in log out proccess: ' + error )
         );
     }
