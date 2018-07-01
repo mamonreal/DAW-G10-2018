@@ -18,6 +18,8 @@ import { CartComponent } from './Cart/cart.component';
 import { AdminService } from './Admin/admin.service';
 import { AdminComponent } from './Admin/admin.component';
 import { SignUpService } from './SignUp/signUp.service';
+import { IndexComponent } from './Index/index.component';
+import { SignUpComponent } from './SignUp/signup.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +31,9 @@ import { SignUpService } from './SignUp/signUp.service';
     LoginComponent,
     CartComponent,
     AdminComponent,
-    SignUpComponent
-  ],
+    SignUpComponent,
+    IndexComponent
+    ],
   imports: [
     BrowserModule,
     FormsModule,
