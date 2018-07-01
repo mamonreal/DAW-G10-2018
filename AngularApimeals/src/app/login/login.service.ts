@@ -12,7 +12,11 @@ const BASE_URL = environment.apiBase;
         isAdmin = false;
         user: user;
 
-        constructor(private http: Http){}
+        constructor(private http: Http){
+            this.reqisLogged();
+        }
+
+ 
 
         getLoggedUser(){
             return this.user;
@@ -33,7 +37,7 @@ const BASE_URL = environment.apiBase;
             });
 
         const options = new RequestOptions({withCredentials:true, headers});
-        this.http.get(BASE_URL + '/login', options).subscribe(
+        this.http.get(BASE_URL + '/logIn', options).subscribe(
             response => this.processLogInResponse(response),
             error => {
                 if (error.status !== 401){
@@ -46,13 +50,16 @@ const BASE_URL = environment.apiBase;
     private processLogInResponse(response){
         this.isLogged= true;
         this.user = response.json();
-        //admin
+        this.isAdmin = this.user.roles.indexOf('ROLE_ADMIN') !== -1;
     }
 
     logIn(user: string, pass:string){
-        const log = user + ':' + pass;
+        const userPass = user + ':' + pass;
 
-        //Autorizacion en headers
+        const headers = new Headers({
+            'Authorization': 'Basic ' + utf8_to_b64(userPass),
+            'X-Requested-With': 'XMLHttpRequest'
+        });
 
         const options = new RequestOptions({withCredentials: true});
         return this.http.get(URL +'/user',options).map(
@@ -72,6 +79,11 @@ const BASE_URL = environment.apiBase;
             }
         );
     }
+}
+    function utf8_to_b64(str) {
+        return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (match, p1) {
+            return String.fromCharCode(<any>'0x' + p1);
+        }));
 
         
     }
