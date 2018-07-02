@@ -1,0 +1,121 @@
+<section class="section-reservation bg1-pattern p-t-100 p-b-113">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 p-b-30">
+					<div class="t-center">
+						<span class="tit2 t-center">
+							Resgistrarse
+						</span>
+						<h3 class="tit3 t-center m-b-35 m-t-2">
+							Rellene los datos
+						</h3>
+					</div>
+
+					<form class="wrap-form-reservation size22 m-l-r-auto" action="addUser" method="post">
+
+						<div class="row">
+							<div class="col-md-4">
+								<!-- Name -->
+								<span class="txt9">
+									Nombre
+								</span>
+
+								<div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
+									<input [(ngModel)]="User.name" class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name" placeholder="Name">
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<!-- Phone -->
+								<span class="txt9">
+									Teléfono
+								</span>
+
+								<div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
+									<input [(ngModel)]="user.mobile" class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="mobile" placeholder="Mobile">
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<!-- Email -->
+								<span class="txt9">
+									Email
+								</span>
+
+								<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+									<input [(ngModel)]="user.email" class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email" placeholder="Email">
+								</div>
+							</div>
+                            <div class="col-md-4">
+								<!-- UserName -->
+								<span class="txt9">
+									Usuario
+								</span>
+
+								<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+									<input [(ngModel)]="user.UserName" class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="UserName" placeholder="UserName">
+								</div>
+							</div>
+                            <div class="col-md-4">
+								<!-- Password -->
+								<span class="txt9">
+									Contraseña
+								</span>
+
+								<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+									<input [(ngModel)]="user.password" class="bo-rad-10 sizefull txt10 p-l-20 mb-5" type="password" name="password" placeholder="Password">
+								</div>
+							</div>
+                            <div class="col-md-4">
+								<!-- City -->
+								<span class="txt9">
+									City
+								</span>
+
+								<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+									<input [(ngModel)]="user.city" class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="city" placeholder="City">
+								</div>
+							</div>
+                            <div class="col-md-4">
+								<!-- Adress -->
+								<span class="txt9">
+									Dirección
+								</span>
+
+								<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+									<input [(ngModel)]="user.address" class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="address" placeholder="Address">
+								</div>
+							</div>
+                            <div class="col-md-4">
+								<!-- CP -->
+								<span class="txt9">
+									Codigo Postal
+								</span>
+
+								<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+									<input [(ngModel)]="user.PC" class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="PC" placeholder="PC">
+								</div>
+							</div>
+						</div>
+						<center>Todos los campos obligatorios</center>
+						<div class="wrap-btn-booking flex-c-m m-t-6">
+                            <!-- Button3 -->
+                        <div *ngIf="registered">
+                            <h2>Usuario ya registrado</h2>
+                        </div>
+                    </div>
+                    <div *ngIf="!registered" >
+							<button (click)="signup()" type="submit" class="btn3 flex-c-m size13 txt11 trans-0-4">
+								Registrarse
+                            </button>
+                    </div>
+		
+            </div>
+            </form>
+                </div>
+                
+            </div>
+            
+            
+        </div>
+    </section>

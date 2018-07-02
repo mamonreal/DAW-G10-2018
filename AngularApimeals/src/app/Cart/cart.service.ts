@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
 import { Product } from '../Interfaces/Product/product.model';
-import { ProductService } from '../Product/product.service';
+import { ProductsService } from '../Product/products.service';
 import { Cart } from '../Interfaces/Cart/shoppingcart.model';
 import { Menu } from '../Interfaces/Menu/menu.model';
 

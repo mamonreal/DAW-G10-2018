@@ -1,0 +1,273 @@
+	<!-- Title Page -->
+	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url(images/icons/fajitas.jpg);">
+		<h2 class="tit6 t-center">
+			Platos
+		</h2>
+	</section>
+    <!--Platos-->
+    
+
+	<!-- Main menu -->
+	<section class="section-mainmenu p-t-110 p-b-70 bg1-pattern">
+		<div class="container">
+			<div class="row">
+				<div id="allProducts" class="col-md-10 col-lg-6 p-r-35 p-r-15-lg m-l-r-auto">
+					
+                    <!-- entrees -->
+                <div *ngFor= "let product of products">    
+					<div id="entrees" class="wrap-item-mainmenu p-b-22">
+						<a name="Entrantes"></a>
+						<h3 class="tit-mainmenu tit10 p-b-25">ENTRANTES</h3>
+						<div *ngIf="(product?.type == starter)">
+						<div id="{{id}}" class="flex-w flex-b m-b-3">
+							<!-- <div onclick="popupImage(&quot;{{id}}&quot;);">{{product?.name}}</div> -->
+						
+							<div class="line-item-mainmenu bg3-pattern"></div>
+						
+							<div class="price-item-mainmenu txt22 mr-3">
+								{{product?.price}}€
+                            </div>
+                    </div>
+                    </div>
+                    
+							<section/>
+
+						
+							<!-- popup -->			
+							<div id="{{id}}.modal" class="modal">
+								<spam id="{{id}}.close" class="close">&times;</spam>
+								<img src="{{path}}" class="modal-content">
+								<div>{{product?.name}}</div>
+                            </div>
+                            
+                            <form method="post" action="shoppingCart/addProduct/{{id}}" class="line-item-mainmenu">
+	                            <button class="btn btn-danger my-cart-btn" data-productId="{{id}}">
+                                    <i class="fa fa-plus"></i>
+                            	</button>
+                            </form>
+                            <div *ngIf="(loginService?.isLoggedUser && (loginService.user?.role== 'ADMIN')"></div>
+								
+								<div id="info" class="flex-w flex-b m-b-3">
+									<button (click)="delete()" class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>
+								</div>
+							</div>   
+						</div>
+						
+					</div>
+					
+					<div id="loading" class="side-middle minHeight">
+				    <!-- Here the spinner will be shown -->
+				    </div>
+					<button id="showMore" class="btn btn-primary mt-3">Cargar más</button>
+					
+                    <!-- first -->
+					<div id="first" class="wrap-item-mainmenu p-b-22">
+						<a name="Principales"></a>
+						<h3 class="tit-mainmenu tit10 p-b-25">PLATOS PRINCIPALES</h3>
+						<div *ngIf="(product?.type == first)"></div>
+						<div id="{{product?.id}}" class="flex-w flex-b m-b-3">
+							<!-- <div onclick="popupImage(&quot;{{product?.id}}&quot;);">{{product?.name}}</div> -->
+						
+							<div class="line-item-mainmenu bg3-pattern"></div>
+						
+							<div class="price-item-mainmenu txt22 mr-3">
+								{{product?.price}}€
+                            </div>
+                        
+							<section/>
+						
+							<!-- popup -->			
+							<div id="{{id}}.modal" class="modal">
+								<spam class="{{id}}.close">&times;</spam>
+								<img src="{{path}}" class="modal-content">
+								<div>{{product?.name}}</div>
+							</div>
+							   <form method="post" action="shoppingCart/addProduct/{{id}}" class="line-item-mainmenu">
+	                            <button class="btn btn-danger my-cart-btn" data-productId="{{id}}">
+                                    <i class="fa fa-plus"></i>
+                            	</button>
+                            </form>
+                        	<div *ngIf="(loginService?.isLoggedUser && (loginService.user?.role== 'ADMIN')">
+                            <form method="post" action="/deleteProduct/{{product?.id}}">
+                            <div id="info">
+		                        	<button (click)= "delete()" class="btn btn-danger my-cart-btn " id="{{id}}">Quitar</button>   
+                        	</div>
+                        	</form>  
+                        	</div>   
+						</div>
+						</div>
+						<div id="loading" class="side-middle minHeight">
+					    <!-- Here the spinner will be shown -->
+					    </div>
+					    <button id="showMore" class="btn btn-primary mt-3">Cargar más</button>
+					</div>
+						
+					<!-- second -->
+					<div id="second" class="wrap-item-mainmenu p-b-22">
+						<a name="Segundos"></a>
+						<h3 class="tit-mainmenu tit10 p-b-25">SEGUNDOS PLATOS</h3>
+						<div *ngIf="(product?.type == second)">
+						<div id="{{id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
+							<!-- <div onclick="popupImage(&quot;{{id}}&quot;);">{product?.{name}}</div> -->
+						
+							<div class="line-item-mainmenu bg3-pattern"></div>
+						
+							<div class="price-item-mainmenu txt22 mr-3">
+								{{product?.price}}€
+                            </div>
+							<section/>
+						
+							<!-- popup -->			
+							<div id="{{id}}.modal" class="modal">
+								<spam class="{{id}}.close">&times;</spam>
+								<img src="{{path}}" class="modal-content">
+								<div>{{product?.name}}</div>
+							</div>
+   							<form method="post" action="shoppingCart/addProduct/{{id}}" class="line-item-mainmenu">
+	                            <button class="btn btn-danger my-cart-btn" data-productId="{{id}}">
+                                    <i class="fa fa-plus"></i>
+                            	</button>
+                            </form>
+                            <div *ngIf="(loginService?.isLoggedUser && (loginService.user?.role== 'ADMIN')">
+                            <form method="post" action="/deleteProduct/{{id}}">
+                            <div id="info">
+		                        	<button (click)= "delete()" class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>    
+                        	</div>
+                        	</form> 
+                        	</div>   
+						</div>
+						</div>
+						<div id="loading" class="side-middle minHeight">
+					    <!-- Here the spinner will be shown -->
+					    </div>
+					    <button id="showMore" class="btn btn-primary mt-3">Cargar más</button>
+					</div>
+					
+					<!-- desserts -->
+					<div id="desserts" class="wrap-item-mainmenu p-b-22">
+						<a name="Postres"></a>
+						<h3 class="tit-mainmenu tit10 p-b-25">POSTRES</h3>
+						<div *ngIf="(product?.type == desert)">
+						<div id="{{id}}" class="flex-w flex-b m-b-3" onclick="popupImagen();">
+							<!-- <div onclick="popupImage(&quot;{{id}}&quot;);">{{name}}</div> -->
+						
+							<div class="line-item-mainmenu bg3-pattern"></div>
+						
+							<div class="price-item-mainmenu txt22 mr-3">
+								{{product?.price}}€
+							</div>
+							<section/>
+						
+							<!-- popup -->			
+							<div id="{{id}}.modal" class="modal">
+								<spam class="{{id}}.close">&times;</spam>
+								<img src="{{path}}" class="modal-content">
+								<div>{{name}}</div>
+							</div>
+   							<form method="post" action="shoppingCart/addProduct/{{id}}" class="line-item-mainmenu">
+	                            <button class="btn btn-danger my-cart-btn" data-productId="{{id}}">
+                                    <i class="fa fa-plus"></i>
+                            	</button>
+                            </form>
+                            <div *ngIf="(loginService?.isLoggedUser && (loginService.user?.role== 'ADMIN')">
+                            <form method="post" action="/deleteProduct/{{id}}">
+							<div id="info">
+		                        	<button (click)="delete()" class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>     
+                        	</div> 
+                        	</form> 
+                        	</div> 
+						</div>
+						</div>
+						<div id="loading" class="side-middle minHeight">
+					    <!-- Here the spinner will be shown -->
+					    </div>
+					    <button id="showMore" class="btn btn-primary mt-3">Cargar más</button>
+					</div>
+					
+					<div id="drinks" class="wrap-item-mainmenu p-b-22">
+						<a name="Bebidas"></a>
+						<h3 class ="tit-mainmenu tit10 p-b-25">BEBIDAS</h3>
+						<div *ngIf="(product?.type == drinks)">
+						<div id="{{id}}" class="flex-w flex-b m-b-3" onclick="popupimage();">
+							<!-- <div onclick="popupImage(&quot;{{id}}&quot;);">{{name}}</div> -->
+							
+							<div class="line-item-mainmenu bg3-pattern"></div>
+						
+							<div class="price-item-mainmenu txt22 mr-3">
+								{{product?.price}}€
+							</div>
+						
+							<!-- popup -->			
+							<div id="{{id}}.modal" class="modal">
+								<spam class="{{id}}.close">&times;</spam>
+								<img src="{{path}}" class="modal-content">
+								<div>{{name}}</div>
+							</div>
+   							<form method="post" action="shoppingCart/addProduct/{{id}}" class="line-item-mainmenu">
+	                            <button class="btn btn-danger my-cart-btn" data-productId="{{id}}">
+                                    <i class="fa fa-plus"></i>
+                            	</button>
+                            </form>  
+                            <div *ngIf="(loginService?.isLoggedUser && (loginService.user?.role== 'ADMIN')">                         
+                           	<form method="post" action="/deleteProduct/{{id}}">
+							<div id="info">
+		                        	<button(click)="delete" class="btn btn-danger my-cart-btn" id="{{id}}">Quitar</button>    
+                        	</div> 
+                        	</form>
+                        	</div>
+						</div>
+						</div>
+						<div id="loading" class="side-middle minHeight">
+					    <!-- Here the spinner will be shown -->
+					    </div>
+					    <button id="showMore" class="btn btn-primary mt-3">Cargar más</button>
+                    </div>
+    <!-- div let--> </div>
+					<div *ngIf="(loginService?.isLoggedUser && (loginService.user?.role== 'ADMIN')"></div>
+                    <div id="add-new-product">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Añadir nuevo plato</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form type ="hydden" action="addProduct" method="post">
+                                            <p>Nombre: </p>
+                                            <input [(ngModel)]="product.name" type='text' name='name'required/>
+                                            <p>Categoria</p>
+                                            <select name="category" required>
+                                            <option value="light">Light</option>
+                                            <option value="mediterranean">Mediterranean</option>
+                                            <option value="fast">Fast</option>
+                                            </select>
+                                            <p>Tipo:</p>
+                                            <select name="type" required>
+                                            <option value="entree">Entree</option>
+                                            <option value="first">First</option>
+                                            <option value="second">Second</option>
+                                            <option value="desert">Desert</option>
+                                            <option value="drinks">Drinks</option>
+                                            </select>
+                                            <p>Kilocalorias:</p>
+                                            <input [(ngModel)]="product.type" type='text' name='kc' required/>
+                                            <p>Precio:</p>
+                                            <input [(ngModel)]="product.price" type='text' name='price' required/>
+                                            <p>Descripción:</p>
+                                            <textarea name='description' rows=5 cols=40 required></textarea>
+                                            <p>Imagen</p>
+                                            <input name="myFile" type="file">
+                                            <button type='submit' value='Enviar' (click)="addProduct"/>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+				</div>
+			</div>
+		</div>
+	</section>

@@ -1,6 +1,8 @@
 package com.daw.apimeals.product;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,7 +48,13 @@ public class ProductRestController {
 	    	
 	    	return new ResponseEntity<>(true,HttpStatus.OK);
 	    }
-	    	    
+	    	  
+		@JsonView(ProductBassic.class)
+		@RequestMapping(value="/Product", method=RequestMethod.GET)
+	    public ResponseEntity<List<Product>>getProducts() {
+	    	List<Product> product= pRepository.findAll();
+	    	return new ResponseEntity<>(product,HttpStatus.OK);
+	    }
 	}
 	    
 

@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "^1.7.3",
     "@angular/common": "^2.3.1",
     "@angular/compiler": "^2.3.1",
     "@angular/core": "^2.3.1",
@@ -20,6 +21,9 @@
     "@angular/platform-browser": "^2.3.1",
     "@angular/platform-browser-dynamic": "^2.3.1",
     "@angular/router": "^3.3.1",
+    "@ng-bootstrap/ng-bootstrap": "^2.2.0",
+    "boostrap": "^2.0.0",
+    "bootstrap": "^4.0.0",
     "core-js": "^2.4.1",
     "rxjs": "^5.0.1",
     "ts-helpers": "^1.1.1",

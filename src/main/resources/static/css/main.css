@@ -7,27 +7,22 @@ Primary use:  Company
 -------------------------------------------------------------------*/
 /*------------------------------------------------------------------
 [LAYOUT]
-
 * body
   + Header / header
   + Page Content / .page-content .name-page
         + Section Layouts / section .name-section
         ...
   + Footer / footer
-
 -------------------------------------------------------------------*/
 /*------------------------------------------------------------------
 [COLOR CODES]
-
 # Text Color      :  
 # Primary Color 01:  
 # Primary Color 02:   
 # Primary Color 03:  
-
 ------------------------------------------------------------------*/
 /*------------------------------------------------------------------
 [TYPOGRAPHY]
-
 Body            : 16px/1.6 '', Arial, sans-serif;
 Title           : 18px/1.6 '', Arial, sans-serif;
 Paragrap        : 18px/1.6 '', Arial, sans-serif;
@@ -319,9 +314,9 @@ td.active {
   background-color: #ec1d25 !important;
 }
 
-input[type="date" i] {
+/* input[type="date" i] {
   padding: 14px;
-}
+} */
 
 .table-condensed td, .table-condensed th {
   font-size: 14px;

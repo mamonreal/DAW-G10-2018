@@ -16,7 +16,7 @@ import { UserService} from '../User/user.service'
 export class SignUpComponent {
     private registered: boolean = false;
     private userData: any = {
-        userName: "",
+        user: "",
         pass: ""
     }
 
