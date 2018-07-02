@@ -6,7 +6,15 @@
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+
+  <title>Home</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="./assets/images/icons/favicon.png"/>
+<!--===============================================================================================-->
+
 </head>
 <body>
   <!-- Header -->
@@ -17,7 +25,7 @@
             <div class="wrap_header trans-0-3">
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="/"> <img src="images/icons/logo3.png"
+                    <a href="/"> <img src="./assets/images/icons/logo3.png"
                         alt="IMG-LOGO" data-logofixed="images/icons/logo3.png">
                     </a>
                 </div>
@@ -26,13 +34,13 @@
             <div class="wrap_menu p-l-45 p-l-0-xl">
               <nav class="menu">
                 <ul class="main_menu">
-                  <li><a href="/">Home</a></li>
+                  <li><a [routerLink]="['/']" routerLinkActive="on">Home</a></li>
 
                   <li><a href="menu">Menu</a></li>
 
                   <li><a href="products">Platos</a></li>
 
-                  <li><a href="contact">Contacto</a></li>
+                  <li><a routerLink="/contact">Contacto</a></li>
 
                   <li><a href="user">Usuario</a></li>
                         
@@ -133,53 +141,53 @@
                     <!-- Gallery footer -->
                     <div class="wrap-gallery-footer flex-w">
                         <a class="item-gallery-footer wrap-pic-w"
-                            href="images/indexBottonGallery01.jpeg"
+                            href="./assets/images/indexBottonGallery01.jpeg"
                             data-lightbox="gallery-footer"> <img
-                            src="images/indexBottonGallery01.jpeg" alt="GALLERY">
+                            src="./assets/images/indexBottonGallery01.jpeg" alt="GALLERY">
                         </a> <a class="item-gallery-footer wrap-pic-w"
-                            href="images/indexBottonGallery02.jpeg"
+                            href="./assets/images/indexBottonGallery02.jpeg"
                             data-lightbox="gallery-footer"> <img
-                            src="images/indexBottonGallery02.jpeg" alt="GALLERY">
+                            src="./assets/images/indexBottonGallery02.jpeg" alt="GALLERY">
                         </a> <a class="item-gallery-footer wrap-pic-w"
-                            href="images/indexBottonGallery03.jpeg"
+                            href="./assets/images/indexBottonGallery03.jpeg"
                             data-lightbox="gallery-footer"> <img
-                            src="images/indexBottonGallery03.jpeg" alt="GALLERY">
+                            src="./assets/images/indexBottonGallery03.jpeg" alt="GALLERY">
                         </a> <a class="item-gallery-footer wrap-pic-w"
-                            href="images/indexBottonGallery04.jpeg"
+                            href="./assets/images/indexBottonGallery04.jpeg"
                             data-lightbox="gallery-footer"> <img
-                            src="images/indexBottonGallery04.jpeg" alt="GALLERY">
+                            src="./assets/images/indexBottonGallery04.jpeg" alt="GALLERY">
                         </a> <a class="item-gallery-footer wrap-pic-w"
-                            href="images/indexBottonGallery05.jpeg"
+                            href="./assets/images/indexBottonGallery05.jpeg"
                             data-lightbox="gallery-footer"> <img
-                            src="images/indexBottonGallery05.jpeg" alt="GALLERY">
+                            src="./assets/images/indexBottonGallery05.jpeg" alt="GALLERY">
                         </a> <a class="item-gallery-footer wrap-pic-w"
-                            href="images/indexBottonGallery06.jpeg"
+                            href="./assets/images/indexBottonGallery06.jpeg"
                             data-lightbox="gallery-footer"> <img
-                            src="images/indexBottonGallery06.jpeg" alt="GALLERY">
+                            src="./assets/images/indexBottonGallery06.jpeg" alt="GALLERY">
                         </a> <a class="item-gallery-footer wrap-pic-w"
-                            href="images/indexBottonGallery07.jpeg"
+                            href="./assets/images/indexBottonGallery07.jpeg"
                             data-lightbox="gallery-footer"> <img
-                            src="images/indexBottonGallery07.jpeg" alt="GALLERY">
+                            src="./assets/images/indexBottonGallery07.jpeg" alt="GALLERY">
                         </a> <a class="item-gallery-footer wrap-pic-w"
-                            href="images/indexBottonGallery08.jpeg"
+                            href="./assets/images/indexBottonGallery08.jpeg"
                             data-lightbox="gallery-footer"> <img
-                            src="images/indexBottonGallery08.jpeg" alt="GALLERY">
+                            src="./assets/images/indexBottonGallery08.jpeg" alt="GALLERY">
                         </a> <a class="item-gallery-footer wrap-pic-w"
-                            href="images/indexBottonGallery09.jpeg"
+                            href="./assets/images/indexBottonGallery09.jpeg"
                             data-lightbox="gallery-footer"> <img
-                            src="images/indexBottonGallery09.jpeg" alt="GALLERY">
+                            src="./assets/images/indexBottonGallery09.jpeg" alt="GALLERY">
                         </a> <a class="item-gallery-footer wrap-pic-w"
-                            href="images/indexBottonGallery10.jpeg"
+                            href="./assets/images/indexBottonGallery10.jpeg"
                             data-lightbox="gallery-footer"> <img
-                            src="images/indexBottonGallery10.jpeg" alt="GALLERY">
+                            src="./assets/images/indexBottonGallery10.jpeg" alt="GALLERY">
                         </a> <a class="item-gallery-footer wrap-pic-w"
-                            href="images/indexBottonGallery11.jpeg"
+                            href="./assets/images/indexBottonGallery11.jpeg"
                             data-lightbox="gallery-footer"> <img
-                            src="images/indexBottonGallery11.jpeg" alt="GALLERY">
+                            src="./assets/images/indexBottonGallery11.jpeg" alt="GALLERY">
                         </a> <a class="item-gallery-footer wrap-pic-w"
-                            href="images/indexBottonGallery12.jpeg"
+                            href="./assets/images/indexBottonGallery12.jpeg"
                             data-lightbox="gallery-footer"> <img
-                            src="images/indexBottonGallery12.jpeg" alt="GALLERY">
+                            src="./assets/images/indexBottonGallery12.jpeg" alt="GALLERY">
                         </a>
                     </div>
 

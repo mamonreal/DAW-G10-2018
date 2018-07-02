@@ -8,6 +8,8 @@ import { Product } from '../interfaces/Product/product.model';
 import { Cart } from '../interfaces/Cart/shoppingcart.model';
 import { Menu } from '../interfaces/Menu/menu.model';
 
+import { ProductService } from '../product/product.service';
+
 import { environment } from '../../environments/environment';
 
 const URL = environment.apiBase + '/ShoppingCart';
@@ -16,7 +18,7 @@ const URL = environment.apiBase + '/ShoppingCart';
 export class CartService {
 
     service: CartService;
-    constructor(private http: Http) {}
+    constructor(private http: Http, private productService: ProductService) {}
 
     getCarts() {
       return this.http.get(URL + "/shoppingCart", { withCredentials: true })
@@ -35,31 +37,16 @@ export class CartService {
       .map(carts => carts.find(cart => cart.id))
   }
 
-  createCart(id: number){
+  addProductToCart(id: number){
 
-    let newCart: Cart;
-    const body = JSON.stringify(newCart);
-    const headers = new Headers({
-        'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
-    });
-
-    const options = new RequestOptions({ withCredentials: true, headers });
-      return this.http.post(URL + '/' + id, body, options)
-        .map(response => response.json())
-        .catch(error => this.handleError(error));
-    }
-
-  addProductToCart(cart:Cart, id: number){
-
-    const body = JSON.stringify(cart);
+    const body = JSON.stringify(this.productService.getProduct(id));
     const headers = new Headers({
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest'
     });
     const options = new RequestOptions({ withCredentials: true, headers });
 
-    return this.http.put(URL + cart.id + '/' + id + '/product', body, options)
+    return this.http.put(URL + '/Product/' + id, body, options)
       .map(response => response.json())
       .catch(error => this.handleError(error));
   }
@@ -83,7 +70,7 @@ export class CartService {
       .catch(error => this.handleError(error));
   }
 
-  deleteProductInCart(cart:Cart, id: number){
+  deleteProductInCart(id: number){
 
     const headers = new Headers({
       'Content-Type': 'application/json',
@@ -92,12 +79,12 @@ export class CartService {
 
     const options = new RequestOptions({ withCredentials: true, headers });
 
-    return this.http.delete(URL + cart.id + '/' + id + '/product', options)
+    return this.http.delete(URL + '/removeProduct/' + id, options)
     .map(response => response.json())
     .catch(error => this.handleError(error));
   }
 
-  deleteMenuInCart(cart:Cart, id: number){
+  deleteMenuInCart(id: number){
 
     const headers = new Headers({
       'Content-Type': 'application/json',
@@ -106,7 +93,7 @@ export class CartService {
 
     const options = new RequestOptions({ withCredentials: true, headers });
 
-    return this.http.delete(URL + cart.id + '/' + id + '/menu', options)
+    return this.http.delete(URL + '/' + id + '/menu', options)
     .map(response => response.json())
     .catch(error => this.handleError(error));
   }

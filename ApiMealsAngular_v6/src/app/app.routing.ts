@@ -7,9 +7,9 @@ import { ContactComponent } from './contact/contact.component';
 
 const appRoutes = [
     { path: '', component: IndexComponent, pathMatch: 'full' },
-    { path: 'contact', component: ContactComponent }
+    { path: 'contact', component: ContactComponent },
+    { path: 'product', component: ProductsComponent}
     // { path: 'product/:id', component: ProductComponent },
-    // { path: 'product', component: ProductsComponent},
     
 ];
 
