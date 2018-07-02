@@ -44,3 +44,4 @@ export class CartComponent implements OnInit {
       error => console.log(error));
   }
 }
+
