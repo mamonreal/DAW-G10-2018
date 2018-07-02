@@ -1,0 +1,28 @@
+form{
+    margin: auto;
+    width: 50%;
+    max-width: 500px;
+    border: 2px solid rgba(0,0,0,0);
+    padding: 30px;
+}
+
+input[type="password"]{
+    display: block;
+    padding: 10px;
+    width: 100%;
+    margin: 30px 0 ;
+}
+
+input[type="text"]{
+    display: block;
+    padding: 10px;
+    width: 100%;
+    margin: 30px 0 1;
+}
+
+input[type="submit"]{
+    display: block;
+    padding: 10px;
+    width: 100%;
+    margin: 30px 0 ;
+}

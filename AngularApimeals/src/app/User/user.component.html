@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 p-b-30">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h3 class="mt-2 mb-1">
+                        <strong>Nombre:</strong>
+                    </h3>
+                    {(loggedUser.name)}
+                    <h3 class="mt-2 mb-1">
+                        <strong>Usuario:</strong>
+                    </h3>
+                    {(loggedUser.userName)}
+                    <h3 class="mt-2 mb-1">
+                        <strong>Teléfono:</strong>
+                    </h3>
+                    {(loggedUser.telephone)}
+                    <h3 class="mt-2 mb-1">
+                        <strong>Dirección:</strong>
+                    </h3>
+                    {(loggedUser.address)}
+                    <h3 class="mt-2 mb-1">
+                        <strong>Ciudad:</strong>
+                    </h3>
+                    {(loggedUser.city)}
+                    <h3 class="mt-2 mb-1">
+                        <strong>Ciudad:</strong>
+                    </h3>
+                    {(loggedUser.city)}
+                    <h3 class="mt-2 mb-1">
+                        <strong>CP:</strong>
+                    </h3>
+                    {(loggedUser.pc)}
+                    <div class="row">
+                        <button type="button" class="btn btn-primary" (click)="logOut()">Cerrar sesión</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

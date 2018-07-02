@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <!-- Plates -->
+        <div class="col-md-10 col-lg-6 p-r-35 p-r-15-lg m-l-r-auto">
+            <div *ngFor="let product of products">
+            <form method="post" action="/shoppingCart/removeProduct/{{product.id}}">
+                <div >{{product.name}}</div>
+                
+                
+                <div class="line-item-mainmenu bg3-pattern"></div>
+                
+                
+                <div class="price-item-mainmenu txt22 mr-3">
+                    x{{amount}}
+                </div>
+                <button class="btn btn-danger my-cart-btn" data-productId="{{product.id}}">Quitar</button>
+            </form>
+            </div>
+        </div>
+        
+        <!-- Menus -->
+        <div class="col-md-10 col-lg-6 p-r-35 p-r-15-lg m-l-r-auto">
+            <div *ngFor="let menu of menus">
+                <div >{{menu.name}}</div>
+                
+                <div class="line-item-mainmenu bg3-pattern"></div>
+                
+                <div class="price-item-mainmenu txt22 mr-3">
+                    x{{amount}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div  *ngIf="loginService.isLogged" class="col-md-2">
+     <form method="post" action="/shoppingCart/checkout/{address}">
+        <button class="btn btn-danger my-cart-btn">Finalizar pedido</button>
+    </form>
+
+    </form>
+    <div  *ngIf="!loginService.isLogged" class="col-md-2">
+    <form method="post" action="/shoppingCart/checkout/{address}">
+    <p>Introduzca la direccion de envío</p>
+    <input type="text" name="address"required>
+    <button class="btn btn-danger my-cart-btn">Finalizar pedido</button>
+    </form>
+    </div>
+
+</div>
+</div>

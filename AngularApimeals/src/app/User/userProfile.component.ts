@@ -7,20 +7,18 @@ import { UserService } from '../User/user.service';
 import { user } from '../Interfaces/User/user.model';
 
 @Component({
-    selector: 'app-user-profile',
+    selector: 'userProfileComponent',
     templateUrl: './user.component.html'
 })
 
-export class userProfileComponent implements OnInit {
+export class userProfileComponent{
     loggedUser: user;
-    name: user;
+    
 
 
 constructor(private loginService: LoginService, private userService: UserService) {
     this.loggedUser = this.loginService.getLoggedUser();
 }
-ngOnInit(){
-    
-}
+
 
 }
