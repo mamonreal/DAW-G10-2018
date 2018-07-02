@@ -20,8 +20,12 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "bootstrap": "^4.1.1",
     "core-js": "^2.5.4",
-    "rxjs": "^6.0.0",
+    "install": "^0.12.1",
+    "npm": "^6.1.0",
+    "rxjs": "^6.2.1",
+    "rxjs-compat": "^6.2.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

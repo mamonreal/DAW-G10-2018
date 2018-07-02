@@ -4,35 +4,13 @@ import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/Rx';
 
-import { Product } from '../Interfaces/Product/product.model';
-import { ProductService } from '../Product/product.service';
-import { Cart } from '../Interfaces/Cart/shoppingcart.model';
-import { Menu } from '../Interfaces/Menu/menu.model';
+import { Product } from '../interfaces/Product/product.model';
+import { Cart } from '../interfaces/Cart/shoppingcart.model';
+import { Menu } from '../interfaces/Menu/menu.model';
 
 import { environment } from '../../environments/environment';
 
-const URL = environment.apiBase;
-
-export interface Cart{
-    id:number;
-    totalPrice:number;
-    adress:string;
-    productCart?:Array<Product>;
-    menus?: Array<Menu>;
-    
-}
-
-export interface Product{
-  id:number;
-  name:string;
-  description?:string;
-  type:string;
-  category:string;
-  kc:number|string;
-  path?:string;
-  price:number;
-}
-
+const URL = environment.apiBase + '/ShoppingCart';
 
 @Injectable()
 export class CartService {
@@ -133,9 +111,8 @@ export class CartService {
     .catch(error => this.handleError(error));
   }
 
-  checkOut(cart:Cart) {
+  checkOut(address: String) {
 
-    const body = JSON.stringify(cart);
     const headers = new Headers({
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest'
@@ -143,7 +120,7 @@ export class CartService {
 
     const options = new RequestOptions({ withCredentials: true, headers });
     
-    return this.http.put(URL + cart.id, body, options)
+    return this.http.put(URL + '/checkout' + address, '', options)
       .map(response => response.json())
       .catch(error => this.handleError(error));
   }
